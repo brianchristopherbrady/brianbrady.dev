@@ -98,62 +98,23 @@ a { color: inherit; }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   color: var(--blue-ink);
-  font-size: 1rem;
-  font-weight: 850;
+  font-size: 0.98rem;
+  font-weight: 680;
+  letter-spacing: 0;
 }
 
 .brand::before {
-  display: grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
+  display: block;
+  width: 42px;
+  height: 42px;
   border-radius: 10px;
-  content: "BB";
-  color: #fff;
-  background: linear-gradient(135deg, var(--blue), var(--blue-2));
-  font-size: 0.72rem;
-  font-weight: 900;
-  box-shadow: inset -4px -4px 0 rgba(0, 0, 0, 0.12), 0 8px 22px rgba(0, 63, 125, 0.26);
+  content: "";
+  background: url("./static/log.png") center / contain no-repeat;
+  box-shadow: 0 8px 22px rgba(0, 63, 125, 0.16);
 }
 
-.nav-links,
-.header-actions,
-.hero-actions,
-.contact-actions,
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.nav-links {
-  justify-content: center;
-  min-width: 0;
-}
-
-.nav-links a,
-.header-actions span,
-.button,
-.case-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 34px;
-  padding: 7px 13px;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  color: var(--blue-ink);
-  background: transparent;
-  font-size: 0.82rem;
-  font-weight: 760;
-}
-
-.nav-links a:hover,
-.nav-links a:focus-visible,
-.nav-links a.active {
-  border-color: rgba(0, 63, 125, 0.16);
   background: #edf4fb;
 }
 
@@ -224,7 +185,7 @@ a { color: inherit; }
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
   gap: 18px;
-  padding: 36px 0 26px;
+  padding: 30px 0 26px;
 }
 
 .hero,
@@ -720,7 +681,7 @@ h3 {
   .section,
   .site-footer,
   .project-page main,
-  .market-strip {
+  .project-page main {
     width: min(100% - 24px, var(--max));
   }
 
