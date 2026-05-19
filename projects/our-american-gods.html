@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Our American Gods | brianbrady.dev</title>
+    <meta name="description" content="A satirical Twitter bot archive by Brian Brady." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#systems">Systems</a>
+        <a href="../index.html#writing">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="project-hero">
+        <p class="kicker">Bot / scraper / text engine</p>
+        <h1>Our American Gods</h1>
+        <p>
+          A satirical Twitter bot that scraped Google News topics and scripture, then recombined them into short social
+          posts. Built with Node, Cheerio, request, Twit, and timed execution.
+        </p>
+        <a class="button primary" href="https://github.com/brianchristopherbrady/ouramericangods" rel="noreferrer">View archive</a>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>System loop</h2>
+          <ul class="detail-list">
+            <li>Scrape public topic material from a news source.</li>
+            <li>Scrape and filter source text from a scripture endpoint.</li>
+            <li>Replace repeated phrase structure with current topic language.</li>
+            <li>Publish short generated text through the Twitter API.</li>
+          </ul>
+        </article>
+        <article class="detail-panel">
+          <h2>Why it belongs</h2>
+          <p>
+            It is an early example of the same pattern that shows up in later work: take a messy stream of material,
+            define a rule system, and turn it into an interface or output with a point of view.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

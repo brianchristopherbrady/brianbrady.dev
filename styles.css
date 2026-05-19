@@ -174,10 +174,10 @@ a {
 
 .kicker,
 .deck-topline,
-.console-readout,
 .case-index,
 .marquee span,
-.writing-card span {
+.writing-card span,
+.ritual-card span {
   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
   text-transform: uppercase;
 }
@@ -392,18 +392,38 @@ h3 {
   animation-delay: -6s;
 }
 
-.console-readout {
+.metric-strip {
   display: grid;
+  grid-template-columns: 1.2fr 0.75fr 1.6fr 0.9fr 1.35fr;
   gap: 8px;
-  color: var(--muted);
-  font-size: 0.72rem;
+  min-height: 38px;
 }
 
-.console-readout span {
-  padding: 8px 10px;
+.metric-strip span {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 999px;
-  background: rgba(0, 0, 0, 0.22);
+  background: linear-gradient(90deg, rgba(115, 242, 255, 0.26), rgba(255, 255, 255, 0.03));
+  transform-origin: left center;
+  animation: breathe 2.8s ease-in-out infinite;
+}
+
+.metric-strip span:nth-child(2) {
+  animation-delay: 0.16s;
+  background: linear-gradient(90deg, rgba(255, 190, 102, 0.24), rgba(255, 255, 255, 0.03));
+}
+
+.metric-strip span:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+.metric-strip span:nth-child(4) {
+  animation-delay: 0.48s;
+  background: linear-gradient(90deg, rgba(255, 93, 115, 0.22), rgba(255, 255, 255, 0.03));
+}
+
+.metric-strip span:nth-child(5) {
+  animation-delay: 0.64s;
+  background: linear-gradient(90deg, rgba(183, 255, 113, 0.2), rgba(255, 255, 255, 0.03));
 }
 
 @keyframes spin {
@@ -413,6 +433,11 @@ h3 {
 @keyframes orbit {
   from { transform: rotate(0deg) translateX(92px) rotate(0deg); }
   to { transform: rotate(360deg) translateX(92px) rotate(-360deg); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scaleX(0.72); opacity: 0.55; }
+  50% { transform: scaleX(1); opacity: 1; }
 }
 
 .marquee {
@@ -576,6 +601,110 @@ h3 {
   font-size: 0.82rem;
 }
 
+.project-page main {
+  width: min(100% - 40px, var(--max));
+  margin-inline: auto;
+}
+
+.project-hero {
+  max-width: 920px;
+  padding: 92px 0 46px;
+}
+
+.project-hero h1 {
+  margin-bottom: 18px;
+}
+
+.project-hero p {
+  max-width: 760px;
+  color: #dce2ea;
+  font-size: 1.06rem;
+}
+
+.project-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.74fr);
+  gap: 16px;
+  padding: 24px 0 84px;
+}
+
+.detail-panel {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.026));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 24px 70px rgba(0, 0, 0, 0.24);
+  padding: 24px;
+  backdrop-filter: blur(18px);
+}
+
+.detail-panel h2 {
+  margin-bottom: 14px;
+  font-size: clamp(1.35rem, 2.4vw, 2.2rem);
+}
+
+.detail-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.visual-panel {
+  min-height: 280px;
+}
+
+.large-scope {
+  min-height: 100%;
+}
+
+.glyph-hero {
+  max-width: 980px;
+}
+
+.ritual-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  padding: 10px 0 18px;
+}
+
+.ritual-card {
+  min-height: 260px;
+}
+
+.ritual-card span {
+  display: inline-flex;
+  margin-bottom: 34px;
+  color: var(--cyan);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.ritual-card p,
+.detail-panel p {
+  color: var(--muted);
+}
+
+.glyph-field {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  min-height: 260px;
+}
+
+.glyph-field span {
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(115, 242, 255, 0.18);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 25%, rgba(115, 242, 255, 0.16), transparent 48%),
+    rgba(0, 0, 0, 0.18);
+  color: var(--ink);
+  font-size: 2.1rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -600,6 +729,11 @@ h3 {
 
   .system-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-layout,
+  .ritual-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -644,7 +778,9 @@ h3 {
 
   .stats,
   .case-study,
-  .system-grid {
+  .system-grid,
+  .project-layout,
+  .ritual-grid {
     grid-template-columns: 1fr;
   }
 
@@ -655,5 +791,13 @@ h3 {
   .case-link,
   .button {
     width: fit-content;
+  }
+
+  .project-page main {
+    width: min(100% - 28px, var(--max));
+  }
+
+  .project-hero {
+    padding-top: 54px;
   }
 }
