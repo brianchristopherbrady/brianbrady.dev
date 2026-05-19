@@ -931,6 +931,120 @@ h3 {
   color: var(--muted);
 }
 
+.handforge-panel {
+  display: grid;
+  align-items: stretch;
+}
+
+.handforge-board {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  min-height: 330px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.handforge-topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(154, 163, 181, 0.22);
+}
+
+.handforge-topbar span,
+.handforge-column span {
+  color: var(--cyan);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.handforge-topbar strong {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.handforge-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.2fr 0.9fr;
+  gap: 16px;
+}
+
+.handforge-column {
+  display: grid;
+  align-content: start;
+  gap: 9px;
+  min-height: 210px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(154, 163, 181, 0.22);
+}
+
+.handforge-column strong {
+  color: var(--text);
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  line-height: 1.05;
+}
+
+.handforge-column em,
+.handforge-column p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-style: normal;
+  line-height: 1.45;
+}
+
+.handforge-column i {
+  display: block;
+  width: var(--width);
+  height: 8px;
+  margin-top: 8px;
+  background: linear-gradient(90deg, rgba(79, 140, 255, 0.76), rgba(55, 211, 153, 0.52));
+}
+
+.result-column {
+  min-height: 250px;
+  border-color: rgba(19, 230, 208, 0.34);
+}
+
+.probability-line {
+  position: relative;
+  height: 86px;
+  margin-top: 18px;
+  border-left: 1px solid rgba(154, 163, 181, 0.28);
+  border-bottom: 1px solid rgba(154, 163, 181, 0.28);
+  background:
+    linear-gradient(90deg, rgba(154, 163, 181, 0.12) 1px, transparent 1px) 0 0 / 24px 100%,
+    linear-gradient(0deg, rgba(154, 163, 181, 0.12) 1px, transparent 1px) 0 0 / 100% 22px;
+}
+
+.probability-line::before {
+  position: absolute;
+  right: 8px;
+  bottom: 20px;
+  left: 10px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  content: "";
+  transform: skewY(-12deg);
+  transform-origin: left center;
+}
+
+.probability-line b {
+  position: absolute;
+  left: var(--left);
+  bottom: 38px;
+  width: 10px;
+  height: 10px;
+  background: var(--green);
+  box-shadow: 0 0 18px rgba(55, 211, 153, 0.75);
+}
+
 .visual-panel { min-height: 270px; }
 .large-scope { min-height: 100%; }
 
@@ -1048,6 +1162,15 @@ h3 {
 
   .hero-copy-block,
   .signal-deck { min-height: auto; }
+
+  .handforge-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .handforge-column,
+  .result-column {
+    min-height: auto;
+  }
 }
 
 @media (max-width: 680px) {
@@ -1137,5 +1260,9 @@ h3 {
 
   .pager-dots {
     order: -1;
+  }
+
+  .handforge-topbar {
+    display: grid;
   }
 }
