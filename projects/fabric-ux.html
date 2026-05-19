@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Fabric UX | brianbrady.dev</title>
-    <meta name="description" content="Fabric UX parity, product interface, and AI workflow work by Brian Brady." />
+    <meta name="description" content="Fabric UX web component library, Angular wrappers, React wrappers, and enterprise migration work by Brian Brady." />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="project-page">
@@ -24,11 +24,12 @@
 
     <main>
       <section class="project-hero">
-        <p class="kicker">Enterprise UX / parity / AI workflows</p>
+        <p class="kicker">Enterprise UX / web components / wrapper systems</p>
         <h1>Fabric UX web component library</h1>
         <p>
-          Agentic design-to-code work for dense enterprise surfaces: Figma spec review, component parity, accessibility
-          expectations, repository context, and implementation paths that respect the system already in production.
+          A component platform for dense Microsoft enterprise software: web components as the single source of truth,
+          supported by thin Angular and React wrappers so Power BI client migration work can move without fragmenting the
+          design system.
         </p>
       </section>
 
@@ -36,17 +37,24 @@
         <article class="detail-panel">
           <h2>What matters here</h2>
           <ul class="detail-list">
-            <li>Map designs to existing components before inventing new UI.</li>
-            <li>Check behavior, composition, accessibility, and product constraints before declaring parity.</li>
-            <li>File actionable gaps when the system cannot meet the design.</li>
-            <li>Reduce component-selection guesswork and one-off implementations that drift from the system.</li>
+            <li>Manage Fabric Web and Fabric Copilot component libraries across web components, Angular, and React.</li>
+            <li>Keep the implementation model centered on one web component source of truth instead of three competing stacks.</li>
+            <li>Maintain thin framework wrappers that expose the same component behavior to Angular and React clients.</li>
+            <li>Support enterprise Power BI client migration work with stable, reusable UI primitives.</li>
+            <li>Scale the library across more than 120 components without letting product teams fork behavior or interaction patterns.</li>
           </ul>
         </article>
         <article class="detail-panel">
-          <h2>Constraint set</h2>
+          <h2>Operating model</h2>
           <p>
-            The interesting work is often in the constraints: what the design asks for, what the component actually supports,
-            what the product already depends on, and what an AI agent must be prevented from making up.
+            The core contract lives in the web component. Angular and React wrappers stay intentionally thin: they adapt the
+            element to each framework, but do not become separate component products. That keeps accessibility, interaction,
+            styling, and migration behavior aligned across enterprise clients.
+          </p>
+          <p>
+            This work includes both Fabric Web and Fabric Copilot components, each with respective Angular and React wrapper
+            packages. The practical value is not just shipping components; it is keeping a large migration surface coherent
+            while teams move through different client frameworks at different speeds.
           </p>
         </article>
       </section>
