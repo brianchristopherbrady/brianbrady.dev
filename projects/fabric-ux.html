@@ -52,11 +52,158 @@
             styling, and migration behavior aligned across enterprise clients.
           </p>
           <p>
-            This work includes both Fabric Web and Fabric Copilot components, each with respective Angular and React wrapper
+            This work includes both fabric-web and fabric-copilot components, each with respective Angular and React wrapper
             packages. The practical value is not just shipping components; it is keeping a large migration surface coherent
             while teams move through different client frameworks at different speeds.
           </p>
         </article>
+      </section>
+
+      <section class="fabric-facts" aria-label="Fabric UX platform facts">
+        <div>
+          <strong>120+</strong>
+          <span>components across the platform</span>
+        </div>
+        <div>
+          <strong>3</strong>
+          <span>delivery layers: web components, Angular, React</span>
+        </div>
+        <div>
+          <strong>2</strong>
+          <span>libraries: fabric-web and fabric-copilot</span>
+        </div>
+        <div>
+          <strong>~1,100</strong>
+          <span>auditor findings resolved</span>
+        </div>
+      </section>
+
+      <section class="fabric-showcase" aria-labelledby="fabric-showcase-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Component surfaces</p>
+            <h2 id="fabric-showcase-title">One contract, many clients</h2>
+          </div>
+          <p>
+            The work spans small primitives and composed enterprise moments: avatar attributes, onboarding surfaces,
+            Copilot-flavored experiences, and Power BI migration screens that need the same semantics in every framework.
+          </p>
+        </div>
+
+        <div class="fabric-screens">
+          <figure class="fabric-shot avatar-audit-shot">
+            <figcaption>
+              <strong>Primitive coverage</strong>
+              <span>Attributes, sizes, named colors, active appearances, and state semantics.</span>
+            </figcaption>
+            <div class="shot-canvas avatar-canvas" aria-label="Avatar attribute matrix screenshot recreation">
+              <h3>Attributes</h3>
+              <div class="avatar-section compact-avatar-section">
+                <h4>Shapes</h4>
+                <div class="avatar-row shape-row">
+                  <span class="avatar-dot">J</span>
+                  <span class="avatar-square">J</span>
+                </div>
+              </div>
+              <div class="avatar-section">
+                <h4>Sizes</h4>
+                <div class="avatar-size-row">
+                  <span style="--size: 16px">J</span><span style="--size: 20px">J</span><span style="--size: 24px">J</span>
+                  <span style="--size: 28px">J</span><span style="--size: 32px">J</span><span style="--size: 40px">J</span>
+                  <span style="--size: 48px">J</span><span style="--size: 56px">J</span><span style="--size: 64px">J</span>
+                  <span style="--size: 72px">J</span><span style="--size: 96px">J</span><span style="--size: 120px">J</span>
+                </div>
+              </div>
+              <div class="avatar-section">
+                <h4>Named Colors</h4>
+                <div class="avatar-color-row">
+                  <span style="--color: #d78a95"></span><span style="--color: #f299a6"></span><span style="--color: #ffb199"></span>
+                  <span style="--color: #ffd49a"></span><span style="--color: #f5df93"></span><span style="--color: #d9c184"></span>
+                  <span style="--color: #b8d99d"></span><span style="--color: #91e6c1"></span><span style="--color: #87d399"></span>
+                  <span style="--color: #83dae1"></span><span style="--color: #89c7dd"></span><span style="--color: #82b9ee"></span>
+                  <span style="--color: #93acf4"></span><span style="--color: #b0a1ef"></span><span style="--color: #cc92dc"></span>
+                  <span style="--color: #ed95cf"></span><span style="--color: #cfc9c0"></span><span style="--color: #aeb8bd"></span>
+                </div>
+              </div>
+              <div class="avatar-section status-section">
+                <h4>Active States</h4>
+                <div class="avatar-row">
+                  <span class="avatar-dot active-ring">J</span>
+                  <span class="avatar-dot active-fill">J</span>
+                  <span class="avatar-dot muted-dot">J</span>
+                </div>
+              </div>
+            </div>
+          </figure>
+
+          <figure class="fabric-shot modal-flow-shot">
+            <figcaption>
+              <strong>Composed experiences</strong>
+              <span>Framework wrappers need to preserve content slots, actions, focus, and product-specific interaction details.</span>
+            </figcaption>
+            <div class="shot-canvas modal-canvas" aria-label="Welcome modal screenshot recreation">
+              <div class="modal-preview">
+                <div class="modal-topline">
+                  <h3>SWAP WITH CONTENT</h3>
+                  <p>Create a component with auto-layout and then swap the component.</p>
+                </div>
+                <div class="modal-bodyline">
+                  <button class="modal-close" aria-label="Close preview">×</button>
+                  <h4>Welcome</h4>
+                  <p>Use the power of AI to help you summarize documents, highlight key points, find specific information, and more.</p>
+                  <div class="modal-actions">
+                    <span class="secondary-action">Try Later</span>
+                    <span class="pager-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+                    <span class="primary-action">Next</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="project-layout fabric-depth-layout">
+        <article class="detail-panel">
+          <h2>Reducing wrapper drift</h2>
+          <p>
+            The hard part is not only building a component once. It is keeping the web component, Angular wrapper, React
+            wrapper, documentation, exports, examples, accessibility semantics, and product usage aligned as the library
+            changes. Drift shows up quietly: a wrapper misses an implementation detail, a package forgets an export, an
+            example teaches the wrong pattern, or a framework adapter changes the public contract by accident.
+          </p>
+          <p>
+            My role is to keep that surface boring in the best sense: deterministic, inspectable, and hard to misuse. The
+            web component remains the behavioral source of truth, while wrappers stay thin enough to serve framework users
+            without becoming parallel implementations.
+          </p>
+        </article>
+        <article class="detail-panel audit-panel">
+          <h2>Checklist auditor</h2>
+          <p>
+            I built deterministic auditing tools that turn component quality into repeatable checks rather than tribal
+            knowledge. The checklist auditor resolved roughly 1,100 bugs across the platform by finding inconsistent
+            semantics, missing component exports, wrappers with missing implementation details, inconsistent documentation,
+            and code patterns that needed enforcement.
+          </p>
+          <ul class="detail-list compact-detail-list">
+            <li>Compare component contracts across web component, Angular, and React packages.</li>
+            <li>Detect missing exports, missing wrapper details, and documentation mismatches.</li>
+            <li>Enforce repeatable code patterns before drift reaches product teams.</li>
+            <li>Feed agentic AI workflows with structured findings instead of vague review comments.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="fabric-workflow" aria-labelledby="fabric-workflow-title">
+        <p class="kicker">Deterministic tools + agentic workflows</p>
+        <h2 id="fabric-workflow-title">AI as a review multiplier, not a source of truth</h2>
+        <p>
+          Agentic workflows help review Figma specs, compare intended behavior against available components, summarize
+          repository evidence, and file actionable gaps. The deterministic auditor keeps the workflow grounded: AI can
+          explain, route, and accelerate the work, but the checks that protect semantics, exports, wrappers, documentation,
+          and patterns remain stable and repeatable.
+        </p>
       </section>
     </main>
 

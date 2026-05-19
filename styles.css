@@ -634,6 +634,303 @@ h3 {
   color: var(--muted);
 }
 
+.compact-detail-list {
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.fabric-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  padding: 8px 0 30px;
+  border-top: 1px solid var(--line);
+}
+
+.fabric-facts div {
+  display: grid;
+  gap: 6px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(154, 163, 181, 0.28);
+}
+
+.fabric-facts strong {
+  color: var(--cyan);
+  font-size: clamp(1.35rem, 2.6vw, 2.3rem);
+  line-height: 1;
+}
+
+.fabric-facts span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.project-section-heading {
+  margin-top: 2px;
+  padding: 34px 0 18px;
+}
+
+.fabric-showcase,
+.fabric-workflow {
+  border-top: 1px solid var(--line);
+}
+
+.fabric-screens {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+  gap: 34px;
+  padding: 8px 0 48px;
+}
+
+.fabric-shot {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+.fabric-shot figcaption {
+  display: grid;
+  gap: 5px;
+  max-width: 680px;
+}
+
+.fabric-shot figcaption strong {
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.fabric-shot figcaption span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.shot-canvas {
+  min-height: 390px;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: #f6f8fb;
+  color: #111827;
+}
+
+.avatar-canvas {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  padding: 28px 28px 34px;
+}
+
+.avatar-canvas h3,
+.avatar-section h4 {
+  margin: 0;
+  color: #0f172a;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.avatar-canvas h3 { font-size: 1rem; }
+
+.avatar-section {
+  display: grid;
+  gap: 10px;
+}
+
+.avatar-section h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.compact-avatar-section { max-width: 180px; }
+
+.avatar-row,
+.avatar-size-row,
+.avatar-color-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 13px;
+}
+
+.avatar-dot,
+.avatar-square,
+.avatar-size-row span,
+.avatar-color-row span {
+  display: inline-grid;
+  width: var(--size, 34px);
+  height: var(--size, 34px);
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color, #e5e7eb);
+  color: #4b5563;
+  font-size: clamp(0.32rem, calc(var(--size, 34px) / 7), 0.9rem);
+  font-weight: 700;
+}
+
+.avatar-square { border-radius: 2px; }
+
+.avatar-size-row {
+  gap: 15px;
+  min-height: 126px;
+}
+
+.avatar-color-row {
+  gap: 12px;
+  max-width: 760px;
+}
+
+.active-ring {
+  outline: 2px solid #0f766e;
+  outline-offset: 3px;
+}
+
+.active-fill {
+  border: 2px solid #0f766e;
+  box-shadow: 0 2px 8px rgba(15, 118, 110, 0.24);
+}
+
+.muted-dot {
+  color: #9ca3af;
+  opacity: 0.72;
+}
+
+.modal-canvas {
+  display: grid;
+  min-height: 390px;
+  place-items: center;
+  padding: 34px;
+  background: linear-gradient(135deg, #8b8d90, #b7b7b5);
+}
+
+.modal-preview {
+  width: min(100%, 660px);
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f8f8f8;
+  box-shadow: 0 18px 42px rgba(17, 24, 39, 0.32);
+  color: #111827;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.modal-topline {
+  display: grid;
+  min-height: 172px;
+  place-items: center;
+  align-content: center;
+  gap: 20px;
+  padding: 28px;
+  text-align: center;
+}
+
+.modal-topline h3 {
+  margin: 0;
+  color: #00796b;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.modal-topline p,
+.modal-bodyline p {
+  margin: 0;
+  color: #374151;
+  font-size: 0.78rem;
+}
+
+.modal-bodyline {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  padding: 26px 22px 18px;
+  background: #fff;
+}
+
+.modal-bodyline h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: 0;
+  background: transparent;
+  color: #5b6472;
+  font-size: 1.45rem;
+}
+
+.modal-actions {
+  display: grid;
+  grid-template-columns: 106px 1fr 106px;
+  gap: 18px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.secondary-action,
+.primary-action {
+  display: inline-grid;
+  min-height: 34px;
+  place-items: center;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.secondary-action {
+  border: 1px solid #d1d5db;
+  background: #fff;
+}
+
+.primary-action {
+  background: #00796b;
+  color: #fff;
+}
+
+.pager-dots {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.pager-dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c8c8c8;
+}
+
+.pager-dots i:first-child {
+  width: 18px;
+  border-radius: 999px;
+  background: #333;
+}
+
+.fabric-depth-layout {
+  border-top: 1px solid var(--line);
+}
+
+.audit-panel {
+  border-left: 1px solid var(--line);
+  padding-left: 32px;
+}
+
+.fabric-workflow {
+  max-width: 860px;
+  padding: 30px 0 64px;
+}
+
+.fabric-workflow h2 {
+  max-width: 720px;
+  margin-bottom: 14px;
+  font-size: clamp(1.35rem, 2.4vw, 2.2rem);
+}
+
+.fabric-workflow p:last-child {
+  color: var(--muted);
+}
+
 .visual-panel { min-height: 270px; }
 .large-scope { min-height: 100%; }
 
@@ -732,13 +1029,20 @@ h3 {
   .hero,
   .section-heading,
   .contact-section,
+  .fabric-screens,
   .project-layout {
     grid-template-columns: 1fr;
   }
 
+  .audit-panel {
+    border-left: 0;
+    padding-left: 0;
+  }
+
   .system-grid,
   .ritual-grid,
-  .aspect-grid {
+  .aspect-grid,
+  .fabric-facts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -789,7 +1093,8 @@ h3 {
   .case-study,
   .system-grid,
   .ritual-grid,
-  .aspect-grid {
+  .aspect-grid,
+  .fabric-facts {
     grid-template-columns: 1fr;
   }
 
@@ -797,4 +1102,40 @@ h3 {
 
   .case-link,
   .button { width: fit-content; }
+
+  .project-section-heading {
+    padding-top: 24px;
+  }
+
+  .fabric-screens {
+    gap: 28px;
+    padding-bottom: 34px;
+  }
+
+  .shot-canvas {
+    min-height: auto;
+  }
+
+  .avatar-canvas,
+  .modal-canvas {
+    padding: 20px;
+  }
+
+  .avatar-size-row {
+    align-items: flex-end;
+    min-height: 116px;
+  }
+
+  .modal-preview {
+    border-radius: 0;
+  }
+
+  .modal-actions {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .pager-dots {
+    order: -1;
+  }
 }
