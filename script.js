@@ -86,10 +86,5 @@ window.addEventListener("pointerleave", () => {
   pointer.active = false;
 });
 
-const marquee = document.querySelector(".marquee-track");
-if (marquee) {
-  marquee.innerHTML += marquee.innerHTML;
-}
-
 resize();
 requestAnimationFrame(draw);
