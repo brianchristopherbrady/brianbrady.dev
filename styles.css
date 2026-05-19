@@ -221,6 +221,13 @@ a { color: inherit; }
   padding: 24px 0 24px;
 }
 
+.hero,
+.section,
+.signal-deck,
+.project-hero {
+  scroll-margin-top: 128px;
+}
+
 .hero-copy-block,
 .signal-deck,
 .case-study,
@@ -801,11 +808,12 @@ h3 {
   }
 
   .stats div {
-    min-height: 56px;
+    min-height: 74px;
   }
 
   .stats dd {
-    display: none;
+    display: block;
+    font-size: 0.62rem;
   }
 
   .scope-legend {
