@@ -74,7 +74,7 @@ a { color: inherit; }
   top: 12px;
   z-index: 20;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
   gap: 22px;
   min-height: 64px;
@@ -98,37 +98,61 @@ a { color: inherit; }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   color: var(--blue-ink);
-  font-size: 0.98rem;
-  font-weight: 680;
+  font-family: "Aptos", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 620;
   letter-spacing: 0;
 }
 
 .brand::before {
   display: block;
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   border-radius: 10px;
   content: "";
-  background: url("./static/log.png") center / contain no-repeat;
-  box-shadow: 0 8px 22px rgba(0, 63, 125, 0.16);
+  background: #fff url("./static/log.png") center / 190% auto no-repeat;
+  box-shadow: 0 8px 22px rgba(0, 63, 125, 0.13);
 }
 
+.nav-links,
+.hero-actions,
+.contact-actions,
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nav-links {
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.nav-links a,
+.button,
+.case-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 13px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--blue-ink);
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible,
+.nav-links a.active {
+  border-color: rgba(0, 63, 125, 0.16);
   background: #edf4fb;
 }
 
-.header-actions {
-  justify-content: flex-end;
-}
-
-.header-actions span {
-  border-color: rgba(0, 63, 125, 0.16);
-  background: #f4f8fc;
-  color: var(--muted);
-}
-
-.header-actions span:first-child,
 .button.primary {
   border-color: transparent;
   background: var(--blue);
@@ -152,33 +176,42 @@ a { color: inherit; }
   outline-offset: 3px;
 }
 
-.market-strip {
-  display: flex;
+.work-band {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
   width: min(100% - 48px, var(--max));
   margin: 18px auto 0;
-  overflow-x: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 63, 125, 0.28) transparent;
+  overflow: hidden;
   border: 1px solid rgba(0, 63, 125, 0.16);
-  border-radius: 16px;
-  background: var(--graphite);
+  border-radius: 22px;
+  background: #0a121d;
   box-shadow: 0 18px 50px rgba(0, 43, 85, 0.12);
 }
 
-.market-strip span {
-  flex: 0 0 auto;
-  min-width: 206px;
-  padding: 10px 16px;
-  border-right: 1px solid rgba(255, 255, 255, 0.12);
-  color: #b8c6d6;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0;
+.work-band a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+  padding: 14px 18px;
+  color: #e9f2fb;
+  background: #111b28;
+  font-size: 0.84rem;
+  font-weight: 720;
+  text-decoration: none;
 }
 
-.market-strip strong {
-  margin-left: 8px;
+.work-band a:hover,
+.work-band a:focus-visible {
   color: #fff;
+  background: #003f7d;
+}
+
+.work-band span {
+  color: var(--orange);
+  font-size: 0.72rem;
+  font-weight: 850;
 }
 
 .hero {
@@ -256,8 +289,8 @@ h1 {
   max-width: 790px;
   margin-bottom: 22px;
   color: var(--ink);
-  font-size: clamp(3rem, 7vw, 6.4rem);
-  font-weight: 860;
+  font-size: clamp(2.3rem, 5.2vw, 4.8rem);
+  font-weight: 780;
 }
 
 h2 {
@@ -674,14 +707,12 @@ h3 {
     font-size: 0.75rem;
   }
 
-  .header-actions { display: none; }
-
   .site-header,
   .hero,
   .section,
   .site-footer,
   .project-page main,
-  .project-page main {
+  .work-band {
     width: min(100% - 24px, var(--max));
   }
 
@@ -692,6 +723,7 @@ h3 {
 
   .stats,
   .scope-legend,
+  .work-band,
   .case-study,
   .system-grid,
   .ritual-grid,
@@ -716,12 +748,20 @@ h3 {
     border-radius: 22px;
   }
 
-  .nav-links { justify-content: flex-start; }
-}
+  .brand::before {
+    width: 40px;
+    height: 40px;
+  }
 
-.market-strip::-webkit-scrollbar { height: 6px; }
-.market-strip::-webkit-scrollbar-track { background: transparent; }
-.market-strip::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background: rgba(0, 63, 125, 0.28);
+  .nav-links {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    gap: 4px;
+  }
+
+  .nav-links a {
+    padding-inline: 4px;
+    font-size: 0.72rem;
+  }
 }
