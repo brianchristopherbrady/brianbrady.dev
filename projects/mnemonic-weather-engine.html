@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mnemonic Weather Engine | brianbrady.dev</title>
+    <meta name="description" content="A browser-only Three.js AI art prototype and semantic weather map by Brian Brady." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#systems">Systems</a>
+        <a href="../index.html#writing">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="project-hero">
+        <p class="kicker">Three.js / semantic weather / browser AI</p>
+        <h1>Mnemonic Weather Engine</h1>
+        <p>
+          A browser-only AI art prototype that turns a text prompt into a living 3D weather system of ideas. Concepts become
+          glowing bodies, relationships become arcs, tensions become hot fronts, and the whole map can be remixed locally or
+          generated through an OpenAI-compatible API.
+        </p>
+        <a class="button primary" href="https://github.com/brianchristopherbrady/fun" rel="noreferrer">View repo</a>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>System shape</h2>
+          <ul class="detail-list">
+            <li>Renders a navigable Three.js scene with WebGL, OrbitControls, fog, post-processing, and raycast inspection.</li>
+            <li>Uses structured semantic map data: concepts, weights, moods, tags, relationships, tensions, questions, and motion profiles.</li>
+            <li>Provides four generation modes: Map, Tensions, Ritual, and Strategy.</li>
+            <li>Includes export tools for JSON and canvas PNG capture.</li>
+          </ul>
+        </article>
+        <article class="detail-panel visual-panel">
+          <div class="mind-map" aria-hidden="true">
+            <span>Prompt</span>
+            <span>Concept</span>
+            <span>Weather</span>
+            <span>Motion</span>
+            <span>Tension</span>
+            <span>Map</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Why it belongs</h2>
+          <p>
+            This is the experimental side of the same systems instinct: take vague input, force it into a legible structure,
+            and make the structure visible enough to navigate. The aesthetic is loose. The machinery is deliberate.
+          </p>
+        </article>
+        <article class="detail-panel">
+          <h2>Materials</h2>
+          <ul class="detail-list">
+            <li>HTML, CSS, and modern JavaScript.</li>
+            <li>Three.js renderer, scene graph, camera, fog, OrbitControls, EffectComposer, RenderPass, and UnrealBloomPass.</li>
+            <li>Data-driven concept graph with procedural local remixing.</li>
+            <li>Optional API-backed live mode for generated semantic maps.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Interaction model</h2>
+          <ul class="detail-list">
+            <li>Type or keep a prompt in the control panel.</li>
+            <li>Choose whether the system should produce a map, tensions, ritual structure, or strategy read.</li>
+            <li>Generate with saved API settings, or remix the built-in demo map locally.</li>
+            <li>Drag to orbit, scroll to zoom, and hover or click concepts to inspect the semantic node.</li>
+          </ul>
+        </article>
+        <article class="detail-panel">
+          <h2>Prototype boundary</h2>
+          <p>
+            The app is intentionally light: no build step, no server, and Three.js loaded from a CDN import map. API settings
+            can be saved locally for the demo, but the repo calls out the right production boundary: model calls should move
+            behind a server proxy instead of storing keys in the browser.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
