@@ -1131,6 +1131,94 @@ h3 {
   column-gap: 18px;
 }
 
+.certpilot-panel {
+  display: grid;
+  align-items: stretch;
+}
+
+.certpilot-board {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  min-height: 330px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.certpilot-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: baseline;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(154, 163, 181, 0.22);
+}
+
+.certpilot-topline span,
+.certpilot-list em {
+  color: var(--cyan);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.certpilot-topline strong {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.certpilot-status-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.certpilot-status-row div {
+  display: grid;
+  gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(154, 163, 181, 0.28);
+}
+
+.certpilot-status-row strong {
+  color: var(--green);
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  line-height: 1;
+}
+
+.certpilot-status-row span {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.certpilot-list {
+  display: grid;
+  gap: 0;
+  margin-top: 12px;
+}
+
+.certpilot-list span {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-top: 1px solid rgba(154, 163, 181, 0.22);
+}
+
+.certpilot-list b {
+  color: var(--text);
+  font-size: 0.86rem;
+}
+
+.certpilot-list em {
+  color: var(--muted);
+  font-style: normal;
+  letter-spacing: 0.08em;
+}
+
 .handforge-panel {
   display: grid;
   align-items: stretch;
@@ -1482,5 +1570,15 @@ h3 {
 
   .signal-terminal-table {
     font-size: 0.68rem;
+  }
+
+  .certpilot-topline,
+  .certpilot-list span {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .certpilot-status-row {
+    grid-template-columns: 1fr;
   }
 }

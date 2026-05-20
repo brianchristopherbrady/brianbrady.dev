@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CertPilot | brianbrady.dev</title>
+    <meta name="description" content="CertPilot is a contractor and vendor certificate of insurance compliance application for property managers and general contractors by Brian Brady." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#systems">Systems</a>
+        <a href="../index.html#writing">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="project-hero">
+        <p class="kicker">SaaS workflow / compliance / document review</p>
+        <h1>CertPilot</h1>
+        <p>
+          A certificate-of-insurance compliance app for property managers and general contractors. The core product question
+          is operational, not decorative: can this vendor work, be renewed, or get paid right now?
+        </p>
+        <a class="button primary" href="https://github.com/brianchristopherbrady/contractors" rel="noreferrer">View repo</a>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>What it tracks</h2>
+          <ul class="detail-list">
+            <li>Vendors, organizations, certificate requirements, uploaded documents, and renewal requests.</li>
+            <li>Calculated compliance status such as approved, expiring soon, expired, blocked, or needing review.</li>
+            <li>Public upload links for vendors and internal review screens for property or contractor teams.</li>
+            <li>Audit history for vendor edits, document uploads, reviews, status changes, and outreach.</li>
+          </ul>
+        </article>
+        <article class="detail-panel certpilot-panel" aria-label="CertPilot compliance dashboard diagram">
+          <div class="certpilot-board" aria-hidden="true">
+            <div class="certpilot-topline">
+              <span>CertPilot</span>
+              <strong>Vendor compliance</strong>
+            </div>
+            <div class="certpilot-status-row">
+              <div><strong>42</strong><span>approved</span></div>
+              <div><strong>8</strong><span>expiring</span></div>
+              <div><strong>3</strong><span>blocked</span></div>
+            </div>
+            <div class="certpilot-list">
+              <span><b>Northline HVAC</b><em>approved</em></span>
+              <span><b>Cascade Roofing</b><em>renewal due</em></span>
+              <span><b>Metro Concrete</b><em>missing auto liability</em></span>
+              <span><b>Brightsite Electrical</b><em>under review</em></span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>System shape</h2>
+          <p>
+            The application is built as a Vite and TypeScript front end with Supabase-backed auth and data. It includes a
+            local demo fallback so the vertical slice can still be explored without a configured production database.
+          </p>
+          <ul class="detail-list compact-detail-list">
+            <li>Main app logic in TypeScript modules under <code>src/main.ts</code> and <code>src/lib/certpilot.ts</code>.</li>
+            <li>State management and demo fallback support through a local state store.</li>
+            <li>Requirement template forms for different compliance needs.</li>
+            <li>Vendor detail views, review pages, and upload workflows.</li>
+          </ul>
+        </article>
+        <article class="detail-panel">
+          <h2>Document intelligence</h2>
+          <p>
+            CertPilot includes logic for extracting and comparing document fields against requirements. The useful product
+            surface is not just storing a PDF; it is turning policy dates, coverage requirements, missing fields, and review
+            decisions into a clear status that an operations team can act on.
+          </p>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Workflow details</h2>
+          <ul class="detail-list">
+            <li>Draft renewal and update-request emails when documentation is missing or stale.</li>
+            <li>Show whether a vendor is approved, expiring soon, expired, or blocked.</li>
+            <li>Support public vendor upload flows without making the internal app public.</li>
+            <li>Keep review decisions tied to an audit trail instead of buried in email threads.</li>
+          </ul>
+        </article>
+        <article class="detail-panel">
+          <h2>Why it belongs</h2>
+          <p>
+            CertPilot is a clean example of domain software where the interface has to reduce ambiguity. It turns a messy
+            operational process into a status model, a review queue, and a record of why a vendor is allowed to proceed.
+            That is the same systems work as component platforms, just pointed at compliance operations.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
