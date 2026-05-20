@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fabric UX DevKit | brianbrady.dev</title>
+    <meta name="description" content="Fabric UX DevKit is an agentic development layer for secure Figma intake, Fabric component parity, Codespaces support, ADO issue filing, and gated implementation workflows." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#systems">Systems</a>
+        <a href="../index.html#writing">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="project-hero">
+        <p class="kicker">Fabric UX / agentic development / secure Figma intake</p>
+        <h1>Fabric UX DevKit</h1>
+        <p>
+          The DevKit is a standard agentic development layer for teams building with Fabric UX components. It connects
+          Figma design context, Fabric component guidance, implementation examples, accessibility rules, issue filing, and
+          code generation into one evidence-based workflow.
+        </p>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>What it solves</h2>
+          <p>
+            Fabric adoption creates the same questions over and over: which component matches the design, whether the React
+            or Angular wrapper exposes the needed API, whether a composition is supported, whether a repo already has a
+            local <code>tri-*</code> or <code>pbi-*</code> component, and whether a real Fabric gap should be filed upstream.
+          </p>
+          <p>
+            The DevKit turns those questions into a repeatable workflow. It uses package evidence, generated examples,
+            component references, Figma metadata, and explicit parity rules instead of memory or guesswork.
+          </p>
+        </article>
+        <article class="detail-panel command-panel">
+          <h2>Consumer flow</h2>
+          <div class="command-stack" aria-label="Fabric UX DevKit terminal commands">
+            <pre><code>npm install -D @fabric-msft/fabric-ux-devkit</code></pre>
+            <pre><code>npx fabric-ux doctor --json</code></pre>
+            <pre><code>npx fabric-ux login figma</code></pre>
+            <pre><code>npx fabric-ux figma fetch "https://figma.com/file/..." --json</code></pre>
+            <pre><code>npx fabric-ux agent parity "https://figma.com/file/..." --framework react</code></pre>
+          </div>
+        </article>
+      </section>
+
+      <section class="devkit-flow" aria-labelledby="devkit-flow-title">
+        <p class="kicker">Production flow</p>
+        <h2 id="devkit-flow-title">From design evidence to gated implementation.</h2>
+        <div class="devkit-steps">
+          <article>
+            <span>01</span>
+            <h3>Design intake</h3>
+            <p>Accepts Figma links, screenshots, product specs, engineering specs, existing UI examples, and migration requests.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Component discovery</h3>
+            <p>Identifies roles such as button, dropdown, dialog, drawer, listbox, tree, wizard, message bar, menu, or table action area.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Parity analysis</h3>
+            <p>Compares the spec, current product implementation, and documented Fabric React or Angular examples before recommending a path.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Issue filing</h3>
+            <p>Files Azure DevOps gaps only after approval, with duplicate detection and evidence from the parity report.</p>
+          </article>
+          <article>
+            <span>05</span>
+            <h3>Implementation</h3>
+            <p>Uses the parity report as the contract, then edits code only after explicit confirmation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Safe agent behavior</h2>
+          <ul class="detail-list">
+            <li>Analyze freely, but ask before filing upstream issues.</li>
+            <li>Ask before editing product code.</li>
+            <li>Reject unsupported Fabric compositions instead of inventing new ones.</li>
+            <li>Check existing <code>tri-*</code>, <code>pbi-*</code>, and local components before replacing product UI.</li>
+            <li>Use documented React and Angular examples as implementation evidence.</li>
+          </ul>
+        </article>
+        <article class="detail-panel">
+          <h2>Verdicts</h2>
+          <ul class="detail-list">
+            <li>Use Fabric directly.</li>
+            <li>Use a documented Fabric composition.</li>
+            <li>Keep the existing product component.</li>
+            <li>Use an existing <code>tri-*</code> component.</li>
+            <li>File a Fabric feature request or bug.</li>
+            <li>Implement local UI when no reusable Fabric path exists.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Figma authentication</h2>
+          <p>
+            Production uses a Fabric-owned Figma OAuth broker. Users do not paste personal access tokens into repos, and no
+            OAuth client secret ships inside the npm package or VS Code extension. The broker owns the sensitive pieces;
+            the DevKit receives user-scoped credentials and caches them locally.
+          </p>
+          <ul class="detail-list compact-detail-list">
+            <li>Figma OAuth app owned by Fabric UX.</li>
+            <li>Client secret stored in Azure Key Vault.</li>
+            <li>Azure App Service reads secrets through managed identity.</li>
+            <li>Short-lived broker sessions with refresh support.</li>
+            <li>Credentials can be checked, refreshed, or cleared from the CLI.</li>
+          </ul>
+        </article>
+        <article class="detail-panel command-panel">
+          <h2>Authentication commands</h2>
+          <div class="command-stack">
+            <pre><code>npx fabric-ux auth login --provider figma</code></pre>
+            <pre><code>npx fabric-ux auth status --json</code></pre>
+            <pre><code>npx fabric-ux auth refresh --json</code></pre>
+            <pre><code>npx fabric-ux auth logout</code></pre>
+          </div>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Codespaces support</h2>
+          <p>
+            The CLI is portable Node, not machine-specific scripts. It works in Windows, macOS, Linux, VS Code terminals,
+            Copilot CLI sessions, headless environments, and GitHub Codespaces. In Codespaces, login uses a browser-safe
+            device-style flow: the CLI prints a URL, the user signs in, and the terminal polls until the broker completes.
+          </p>
+        </article>
+        <article class="detail-panel command-panel">
+          <h2>Agent commands</h2>
+          <div class="command-stack">
+            <pre><code>npx fabric-ux figma image "https://figma.com/file/..." --node 12:34 --json</code></pre>
+            <pre><code>npx fabric-ux examples search dropdown --framework angular --json</code></pre>
+            <pre><code>npx fabric-ux parity report ./spec.md --repo . --json</code></pre>
+            <pre><code>npx fabric-ux ado file --from parity-report.json --detect-duplicates</code></pre>
+          </div>
+        </article>
+      </section>
+
+      <section class="devkit-architecture" aria-labelledby="devkit-architecture-title">
+        <div>
+          <p class="kicker">Azure production architecture</p>
+          <h2 id="devkit-architecture-title">Secure by default, boring to consume.</h2>
+          <p>
+            The production broker runs on Azure App Service with Node 20, Azure Key Vault, managed identity, HTTPS-only
+            endpoints, health checks, monitoring, alerting, token refresh, and secret rotation docs. Consumer repos only need
+            the official broker URL.
+          </p>
+        </div>
+        <ul class="devkit-signal-list">
+          <li>Health checks</li>
+          <li>OAuth start</li>
+          <li>Figma redirect</li>
+          <li>Callback handling</li>
+          <li>Login polling</li>
+          <li>Token refresh</li>
+        </ul>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Quality bar</h2>
+          <p>
+            The DevKit is product infrastructure, not a pile of prompts. Releases are validated through CLI unit tests,
+            broker login tests, token refresh tests, Codespaces tests, package contents tests, skill reference consistency
+            checks, doctor checks, example catalog validation, JSON schema stability, cross-platform command tests, and docs.
+          </p>
+        </article>
+        <article class="detail-panel">
+          <h2>Business value</h2>
+          <p>
+            The DevKit makes the supported path easier than the ad hoc path. It helps teams adopt Fabric faster, avoid
+            unsupported compositions, reduce design-to-code ambiguity, file better upstream gaps, improve accessibility
+            consistency, and give AI agents safer implementation boundaries.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

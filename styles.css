@@ -931,6 +931,106 @@ h3 {
   color: var(--muted);
 }
 
+.command-panel {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.command-stack {
+  display: grid;
+  gap: 8px;
+}
+
+.command-stack pre {
+  margin: 0;
+  overflow-x: auto;
+  padding: 10px 0;
+  border-top: 1px solid rgba(154, 163, 181, 0.26);
+  color: #d9f7ff;
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.command-stack code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.devkit-flow,
+.devkit-architecture {
+  border-top: 1px solid var(--line);
+}
+
+.devkit-flow {
+  padding: 32px 0 42px;
+}
+
+.devkit-flow h2,
+.devkit-architecture h2 {
+  max-width: 780px;
+  margin-bottom: 18px;
+  font-size: clamp(1.35rem, 2.4vw, 2.2rem);
+}
+
+.devkit-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.devkit-steps article {
+  display: grid;
+  align-content: start;
+  gap: 9px;
+  min-height: 210px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(154, 163, 181, 0.28);
+}
+
+.devkit-steps span {
+  color: var(--cyan);
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+}
+
+.devkit-steps h3 {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.devkit-steps p,
+.devkit-architecture p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.62;
+}
+
+.devkit-architecture {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.58fr);
+  gap: 34px;
+  padding: 32px 0 44px;
+}
+
+.devkit-signal-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.devkit-signal-list li {
+  padding-top: 12px;
+  border-top: 1px solid rgba(154, 163, 181, 0.28);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
 .handforge-panel {
   display: grid;
   align-items: stretch;
@@ -1144,8 +1244,13 @@ h3 {
   .section-heading,
   .contact-section,
   .fabric-screens,
+  .devkit-architecture,
   .project-layout {
     grid-template-columns: 1fr;
+  }
+
+  .devkit-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .audit-panel {
@@ -1218,6 +1323,11 @@ h3 {
   .ritual-grid,
   .aspect-grid,
   .fabric-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .devkit-steps,
+  .devkit-signal-list {
     grid-template-columns: 1fr;
   }
 
