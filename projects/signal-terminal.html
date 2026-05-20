@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Signal Terminal | brianbrady.dev</title>
+    <meta name="description" content="Signal Terminal is an embeddable AI-native terminal for web applications with typed output blocks, LLM bridge integration, and host-owned data adapters." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#systems">Systems</a>
+        <a href="../index.html#writing">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="project-hero">
+        <p class="kicker">React package / AI-native terminal / typed output</p>
+        <h1>Signal Terminal</h1>
+        <p>
+          An embeddable terminal for web applications where command output can become structured text, charts, tables, file
+          previews, graphs, JSON inspectors, and LLM-ready insight without leaving the shell flow.
+        </p>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Product shape</h2>
+          <p>
+            Signal Terminal is prepared as a React component, not a full desktop shell. It has no application window chrome,
+            title bar, traffic-light buttons, side panels, or dashboard wrapper. Host applications can place it inside any
+            page, workspace, or VM-backed container and provide the data, file, model, and command bridges they trust.
+          </p>
+          <ul class="detail-list compact-detail-list">
+            <li>Embeddable React component exported as <code>@signal-terminal/react</code>.</li>
+            <li>Typed transcript renderer with visual blocks inside normal scrollback.</li>
+            <li>Host-owned data objects, remote data adapters, and LLM bridge.</li>
+            <li>Production boundary where privileged VM/file access is supplied by the host app.</li>
+          </ul>
+        </article>
+        <article class="detail-panel signal-terminal-panel" aria-label="Signal Terminal interface diagram">
+          <div class="signal-terminal-window" aria-hidden="true">
+            <div class="signal-terminal-line"><span>$</span> data inspect orders</div>
+            <div class="signal-terminal-table">
+              <b>region</b><b>latency</b><b>status</b>
+              <span>east</span><span>128ms</span><span>ok</span>
+              <span>west</span><span>212ms</span><span>warn</span>
+              <span>eu</span><span>154ms</span><span>ok</span>
+            </div>
+            <div class="signal-terminal-line"><span>$</span> build me a graph detailing latency by region</div>
+            <div class="signal-terminal-chart">
+              <i style="--height: 42%"></i>
+              <i style="--height: 78%"></i>
+              <i style="--height: 56%"></i>
+              <i style="--height: 66%"></i>
+            </div>
+            <div class="signal-terminal-prompt"><span>$</span><em></em></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel command-panel">
+          <h2>Embedding API</h2>
+          <div class="command-stack">
+            <pre><code>import { TerminalApp } from '@signal-terminal/react';</code></pre>
+            <pre><code>import '@signal-terminal/react/styles.css';</code></pre>
+            <pre><code>&lt;TerminalApp config={config} /&gt;</code></pre>
+          </div>
+        </article>
+        <article class="detail-panel">
+          <h2>Host-owned integration</h2>
+          <p>
+            Host applications wire data in through <code>dataObjects</code> for in-memory page/session objects or
+            <code>dataBridge</code> for remote objects, VM files, database-backed resources, and app-specific systems. LLM
+            integration is also host-owned through <code>llmModels</code> and an <code>llmBridge</code> that returns typed
+            terminal outputs.
+          </p>
+        </article>
+      </section>
+
+      <section class="signal-terminal-flow" aria-labelledby="signal-terminal-flow-title">
+        <p class="kicker">Terminal behavior</p>
+        <h2 id="signal-terminal-flow-title">The prompt resumes beneath the work.</h2>
+        <p>
+          Commands appear in scrollback, status lines stream inline, visual blocks remain part of the transcript, and the
+          active prompt resumes immediately beneath charts, tables, graphs, file previews, and structured analysis. The
+          point is to keep shell rhythm while letting output become richer than text.
+        </p>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Output blocks</h2>
+          <ul class="detail-list">
+            <li>Text, markdown, and code blocks.</li>
+            <li>Tables, JSON inspectors, and file previews.</li>
+            <li>Vega-Lite-shaped charts and ECharts-shaped graphs.</li>
+            <li>Status lines and inline error blocks.</li>
+            <li>LLM-created commands registered for the current terminal session.</li>
+          </ul>
+        </article>
+        <article class="detail-panel command-panel">
+          <h2>Useful commands</h2>
+          <div class="command-stack two-column-commands">
+            <pre><code>ai help</code></pre>
+            <pre><code>data list</code></pre>
+            <pre><code>data inspect &lt;id&gt;</code></pre>
+            <pre><code>model list</code></pre>
+            <pre><code>model set &lt;id&gt;</code></pre>
+            <pre><code>theme set midnight</code></pre>
+            <pre><code>theme set matrix</code></pre>
+            <pre><code>clear</code></pre>
+          </div>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Production boundaries</h2>
+          <ul class="detail-list">
+            <li>No bundled sample datasets or auto-running commands.</li>
+            <li>Local file access routes through host-provided bridge interfaces and fails closed when not configured.</li>
+            <li>AI requests route to the host <code>llmBridge</code> instead of placeholder analysis.</li>
+            <li>Visualization renderers validate structured output specs and fail safely inline.</li>
+            <li>PTY execution, VM file access, and privileged tools are supplied by the host app.</li>
+          </ul>
+        </article>
+        <article class="detail-panel command-panel">
+          <h2>Publishing</h2>
+          <div class="command-stack">
+            <pre><code>npm run build --workspace apps/desktop</code></pre>
+            <pre><code>npm pack --workspace apps/desktop</code></pre>
+            <pre><code>npm publish --workspace apps/desktop --access public</code></pre>
+          </div>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Package contract</h2>
+          <p>
+            The package build emits <code>dist/index.js</code>, <code>dist/index.cjs</code>, <code>dist/index.d.ts</code>, and
+            <code>dist/styles.css</code>. React and React DOM stay as peer dependencies, so host applications import the
+            component and stylesheet while keeping ownership of runtime configuration.
+          </p>
+        </article>
+        <article class="detail-panel">
+          <h2>Why it belongs</h2>
+          <p>
+            Signal Terminal is another version of the same systems instinct: make powerful workflows embeddable, typed,
+            inspectable, and safe at the edges. The interesting part is not pretending a terminal is a dashboard; it is
+            letting the terminal speak richer UI when the output deserves it.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

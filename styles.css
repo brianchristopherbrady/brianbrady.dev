@@ -1031,6 +1031,106 @@ h3 {
   font-weight: 800;
 }
 
+.signal-terminal-panel {
+  display: grid;
+  align-items: stretch;
+}
+
+.signal-terminal-window {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 360px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: #d9f7ff;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.76rem;
+}
+
+.signal-terminal-line,
+.signal-terminal-prompt {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 24px;
+}
+
+.signal-terminal-line span,
+.signal-terminal-prompt span {
+  color: var(--green);
+  font-weight: 900;
+}
+
+.signal-terminal-table {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid rgba(154, 163, 181, 0.24);
+  border-bottom: 1px solid rgba(154, 163, 181, 0.24);
+}
+
+.signal-terminal-table b,
+.signal-terminal-table span {
+  padding: 8px 10px 8px 0;
+  border-bottom: 1px solid rgba(154, 163, 181, 0.12);
+}
+
+.signal-terminal-table b {
+  color: var(--cyan);
+  font-weight: 900;
+}
+
+.signal-terminal-table span {
+  color: var(--muted);
+}
+
+.signal-terminal-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  min-height: 118px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(154, 163, 181, 0.24);
+  background:
+    linear-gradient(0deg, rgba(154, 163, 181, 0.12) 1px, transparent 1px) 0 0 / 100% 24px;
+}
+
+.signal-terminal-chart i {
+  width: 18%;
+  height: var(--height);
+  background: linear-gradient(180deg, var(--cyan), rgba(79, 140, 255, 0.46));
+}
+
+.signal-terminal-prompt em {
+  width: 10px;
+  height: 1.1em;
+  background: var(--cyan);
+  animation: blink 1s steps(2, start) infinite;
+}
+
+.signal-terminal-flow {
+  max-width: 860px;
+  padding: 30px 0 48px;
+  border-top: 1px solid var(--line);
+}
+
+.signal-terminal-flow h2 {
+  max-width: 720px;
+  margin-bottom: 14px;
+  font-size: clamp(1.35rem, 2.4vw, 2.2rem);
+}
+
+.signal-terminal-flow p:last-child {
+  color: var(--muted);
+}
+
+.two-column-commands {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 18px;
+}
+
 .handforge-panel {
   display: grid;
   align-items: stretch;
@@ -1276,6 +1376,10 @@ h3 {
   .result-column {
     min-height: auto;
   }
+
+  .two-column-commands {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 680px) {
@@ -1374,5 +1478,9 @@ h3 {
 
   .handforge-topbar {
     display: grid;
+  }
+
+  .signal-terminal-table {
+    font-size: 0.68rem;
   }
 }
