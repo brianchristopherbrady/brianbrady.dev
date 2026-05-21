@@ -414,22 +414,48 @@ h3 {
 .metric-strip {
   display: grid;
   grid-template-columns: 1.3fr 0.8fr 1.6fr 0.9fr 1.2fr;
-  gap: 8px;
-  min-height: 36px;
+  gap: 10px;
+  min-height: 44px;
 }
 
 .metric-strip span {
+  position: relative;
+  min-height: 44px;
+  overflow: hidden;
   border: 0;
+  border-top: 1px solid rgba(19, 230, 208, 0.22);
+  border-bottom: 1px solid rgba(19, 230, 208, 0.12);
   border-radius: 0;
   background: linear-gradient(90deg, rgba(19, 230, 208, 0.22), rgba(19, 230, 208, 0.02));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  color: var(--cyan);
   transform-origin: left center;
   animation: breathe 2.8s ease-in-out infinite;
 }
 
-.metric-strip span:nth-child(2) { animation-delay: 0.16s; background: linear-gradient(90deg, rgba(245, 178, 27, 0.22), rgba(245, 178, 27, 0.02)); }
+.metric-strip span::before,
+.metric-strip span::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.metric-strip span::before {
+  background: repeating-linear-gradient(90deg, transparent 0 13px, rgba(255, 255, 255, 0.06) 13px 14px);
+  opacity: 0.64;
+}
+
+.metric-strip span::after {
+  inset: auto 0 0;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.metric-strip span:nth-child(2) { animation-delay: 0.16s; background: linear-gradient(90deg, rgba(245, 178, 27, 0.22), rgba(245, 178, 27, 0.02)); color: var(--amber); border-top-color: rgba(245, 178, 27, 0.22); border-bottom-color: rgba(245, 178, 27, 0.12); }
 .metric-strip span:nth-child(3) { animation-delay: 0.32s; }
-.metric-strip span:nth-child(4) { animation-delay: 0.48s; background: linear-gradient(90deg, rgba(255, 71, 120, 0.22), rgba(255, 71, 120, 0.02)); }
-.metric-strip span:nth-child(5) { animation-delay: 0.64s; background: linear-gradient(90deg, rgba(167, 139, 250, 0.22), rgba(167, 139, 250, 0.02)); }
+.metric-strip span:nth-child(4) { animation-delay: 0.48s; background: linear-gradient(90deg, rgba(255, 71, 120, 0.22), rgba(255, 71, 120, 0.02)); color: var(--red); border-top-color: rgba(255, 71, 120, 0.22); border-bottom-color: rgba(255, 71, 120, 0.12); }
+.metric-strip span:nth-child(5) { animation-delay: 0.64s; background: linear-gradient(90deg, rgba(167, 139, 250, 0.22), rgba(167, 139, 250, 0.02)); color: var(--purple); border-top-color: rgba(167, 139, 250, 0.22); border-bottom-color: rgba(167, 139, 250, 0.12); }
 
 @keyframes orbit {
   from { transform: rotate(0deg) translateX(92px) rotate(0deg); }
@@ -537,7 +563,42 @@ h3 {
 }
 
 .about-panel {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.34fr) minmax(0, 1fr);
+  gap: clamp(18px, 4vw, 38px);
+  align-items: center;
   margin-bottom: 14px;
+}
+
+.about-portrait {
+  position: relative;
+  width: min(100%, 360px);
+  margin: 0;
+}
+
+.about-portrait::before {
+  position: absolute;
+  inset: -10px 10px 10px -10px;
+  z-index: -1;
+  border-top: 1px solid rgba(19, 230, 208, 0.28);
+  border-left: 1px solid rgba(167, 139, 250, 0.24);
+  content: "";
+}
+
+.about-portrait img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: 60% 44%;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid rgba(19, 230, 208, 0.28);
+  background: var(--panel);
+  filter: saturate(0.92) contrast(1.04);
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
 }
 
 .system-grid {
@@ -1652,6 +1713,7 @@ h3 {
 
   .hero,
   .section-heading,
+  .about-panel,
   .contact-section,
   .fabric-screens,
   .devkit-architecture,
@@ -1790,6 +1852,10 @@ h3 {
   }
 
   .scope { min-height: 210px; }
+
+  .about-portrait {
+    width: min(100%, 320px);
+  }
 
   .case-link,
   .button { width: fit-content; }
