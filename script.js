@@ -8,6 +8,13 @@ let deviceScale = 1;
 let points = [];
 let pointer = { x: 0.5, y: 0.5, active: false };
 let lastScrollY = window.scrollY;
+const navigationLinks = Array.from(document.querySelectorAll(".nav-links a[href^='#']"));
+const navigationTargets = navigationLinks
+  .map((link) => ({
+    link,
+    section: document.getElementById(decodeURIComponent(link.getAttribute("href").slice(1))),
+  }))
+  .filter((target) => target.section);
 
 function calculateAge(birthDate, today = new Date()) {
   let age = today.getFullYear() - birthDate.getFullYear();
@@ -48,6 +55,25 @@ function updateTopMarquee() {
   }
 
   lastScrollY = Math.max(currentScrollY, 0);
+}
+
+function updateActiveNavigation() {
+  if (!navigationTargets.length) {
+    return;
+  }
+
+  const activationLine = window.innerHeight * 0.36;
+  let activeTarget = navigationTargets[0];
+
+  for (const target of navigationTargets) {
+    if (target.section.getBoundingClientRect().top <= activationLine) {
+      activeTarget = target;
+    }
+  }
+
+  navigationLinks.forEach((link) => {
+    link.classList.toggle("active", link === activeTarget.link);
+  });
 }
 
 function resize() {
@@ -122,14 +148,19 @@ function updatePointer(event) {
   root.style.setProperty("--pointer-y", pointer.y.toString());
 }
 
-window.addEventListener("resize", resize);
+window.addEventListener("resize", () => {
+  resize();
+  updateActiveNavigation();
+});
 window.addEventListener("pointermove", updatePointer);
 window.addEventListener("pointerleave", () => {
   pointer.active = false;
 });
 window.addEventListener("scroll", updateTopMarquee, { passive: true });
+window.addEventListener("scroll", updateActiveNavigation, { passive: true });
 
 updateDynamicAge();
 updateTopMarquee();
+updateActiveNavigation();
 resize();
 requestAnimationFrame(draw);

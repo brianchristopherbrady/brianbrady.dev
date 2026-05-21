@@ -3,21 +3,49 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>brianbrady.dev</title>
+    <title>Brian Brady | UX Engineer for Design Systems, Web Components, and AI Workflows</title>
     <meta
       name="description"
       content="I am a UX Engineer at Microsoft working across design systems, Web Components, and AI-assisted development workflows in the Fabric ecosystem."
     />
-    <meta property="og:title" content="brianbrady.dev" />
+    <meta property="og:title" content="Brian Brady | UX Engineer" />
     <meta
       property="og:description"
       content="My portfolio: interface systems, component platforms, AI workflows, and product UI infrastructure."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://brianbrady.dev" />
+    <meta property="og:image" content="https://brianbrady.dev/static/log.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Brian Brady | UX Engineer" />
+    <meta name="twitter:description" content="UX engineering portfolio focused on design systems, Web Components, component platforms, and AI-assisted development workflows." />
+    <meta name="twitter:image" content="https://brianbrady.dev/static/log.png" />
     <meta name="theme-color" content="#070606" />
     <link rel="canonical" href="https://brianbrady.dev" />
+    <link rel="icon" href="./static/log.png" />
     <link rel="stylesheet" href="./styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Brian Brady",
+        "jobTitle": "UX Engineer",
+        "url": "https://brianbrady.dev",
+        "email": "mailto:brdybrn@gmail.com",
+        "image": "https://brianbrady.dev/static/about-brian.jpg",
+        "sameAs": [
+          "https://github.com/brianchristopherbrady",
+          "https://medium.com/@brian.christopher.brady"
+        ],
+        "knowsAbout": [
+          "Design systems",
+          "Web Components",
+          "Frontend architecture",
+          "Accessibility",
+          "AI-assisted development workflows"
+        ]
+      }
+    </script>
   </head>
   <body>
     <canvas id="signal-field" aria-hidden="true"></canvas>
@@ -27,8 +55,8 @@
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="brianbrady.dev home">brianbrady.dev</a>
       <nav class="nav-links" aria-label="Sections">
-        <a class="active" href="#work">Work</a>
-        <a href="#systems">Systems</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
         <a href="#writing">Writing</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -45,14 +73,6 @@
         <span>Parity review</span>
         <span>Validation workflows</span>
       </div>
-    </section>
-
-    <section class="market-strip" aria-label="Portfolio signals">
-      <span>FABRIC UX <strong>PARITY</strong></span>
-      <span>AI WORKFLOWS <strong>GUARDRAILS</strong></span>
-      <span>ACCESSIBILITY <strong>EXPECTED</strong></span>
-      <span>WEB COMPONENTS <strong>PLATFORM</strong></span>
-      <span>WRITING <strong>NOTES</strong></span>
     </section>
 
     <main id="top">
@@ -72,10 +92,11 @@
             I work across design systems, frontend architecture, Web Components, and AI-assisted development.
             I build tools that reduce drift, remove guesswork, and make good implementation easier.
           </p>
-          <div class="hero-actions" aria-label="External links">
-            <a class="button primary" href="https://github.com/brianchristopherbrady" rel="me noreferrer">GitHub</a>
-            <a class="button" href="https://medium.com/@brian.christopher.brady" rel="me noreferrer">Medium</a>
-            <a class="button" href="mailto:hello@brianbrady.dev">Email</a>
+          <div class="hero-actions" aria-label="Primary links">
+            <a class="button primary" href="#contact">Contact me</a>
+            <a class="button" href="https://github.com/brianchristopherbrady" target="_blank" rel="me noopener noreferrer">GitHub</a>
+            <a class="button" href="https://medium.com/@brian.christopher.brady" target="_blank" rel="me noopener noreferrer">Medium</a>
+            <a class="button" href="mailto:brdybrn@gmail.com">Email</a>
           </div>
           <div class="hero-principles" aria-label="Working principles">
             <article>
@@ -98,7 +119,7 @@
         </div>
       </section>
 
-      <section id="systems" class="section systems-section" aria-labelledby="systems-title">
+      <section id="about" class="section systems-section" aria-labelledby="systems-title">
         <div class="section-heading">
           <p class="kicker">How I work</p>
           <h2 id="systems-title">Design intent has to survive production code.</h2>
@@ -155,24 +176,6 @@
         <article class="case-study">
           <div class="case-index">02</div>
           <div class="case-body">
-            <h3>Glyph commerce system</h3>
-            <p>
-              A private commerce application for inventory, symbolic metadata, collection-building, and AI-assisted review.
-              The strange part is controlled; the practical part is product infrastructure.
-            </p>
-            <ul class="tag-list" aria-label="Glyph application themes">
-              <li>commerce</li>
-              <li>glyph systems</li>
-              <li>interaction design</li>
-              <li>private repo</li>
-            </ul>
-          </div>
-          <a class="case-link" href="./projects/glyph-rituals.html">Open project</a>
-        </article>
-
-        <article class="case-study">
-          <div class="case-index">03</div>
-          <div class="case-body">
             <h3>Microsoft Fabric UX Agentic AI Design-to-Code DevKit</h3>
             <p>
               An agentic development layer for Microsoft Fabric UX adoption: secure Figma intake, evidence-based component parity,
@@ -189,7 +192,7 @@
         </article>
 
         <article class="case-study">
-          <div class="case-index">04</div>
+          <div class="case-index">03</div>
           <div class="case-body">
             <h3>Checklist Auditor</h3>
             <p>
@@ -204,6 +207,24 @@
             </ul>
           </div>
           <a class="case-link" href="./projects/checklist-auditor.html">Open project</a>
+        </article>
+
+        <article class="case-study">
+          <div class="case-index">04</div>
+          <div class="case-body">
+            <h3>Glyph commerce system</h3>
+            <p>
+              A private commerce application for inventory, symbolic metadata, collection-building, and AI-assisted review.
+              The strange part is controlled; the practical part is product infrastructure.
+            </p>
+            <ul class="tag-list" aria-label="Glyph application themes">
+              <li>commerce</li>
+              <li>glyph systems</li>
+              <li>interaction design</li>
+              <li>private repo</li>
+            </ul>
+          </div>
+          <a class="case-link" href="./projects/glyph-rituals.html">Open project</a>
         </article>
 
         <article class="case-study">
@@ -308,17 +329,17 @@
           <p class="kicker">Writing</p>
           <h2 id="writing-title">Notes and essays.</h2>
         </div>
-        <a class="writing-card" href="https://medium.com/@brian.christopher.brady/the-memo-was-already-a-machine-a9aec4aa2ffa" rel="noreferrer">
+        <a class="writing-card" href="https://medium.com/@brian.christopher.brady/the-memo-was-already-a-machine-a9aec4aa2ffa" target="_blank" rel="noopener noreferrer">
           <span>Medium</span>
           <strong>The Memo Was Already A Machine</strong>
           <small>An essay on AI, work, culture, and the institutional language that had already prepared human life for automation.</small>
         </a>
-        <a class="writing-card" href="https://medium.com/@brian.christopher.brady/teaching-the-machine-to-teach-us-30d0fc44e879" rel="noreferrer">
+        <a class="writing-card" href="https://medium.com/@brian.christopher.brady/teaching-the-machine-to-teach-us-30d0fc44e879" target="_blank" rel="noopener noreferrer">
           <span>Medium</span>
           <strong>Teaching the Machine to Teach Us</strong>
           <small>How to use AI for critical thinking, systems thinking, evidence discipline, and stronger human judgment.</small>
         </a>
-        <a class="writing-card" href="https://medium.com/@brian.christopher.brady" rel="noreferrer">
+        <a class="writing-card" href="https://medium.com/@brian.christopher.brady" target="_blank" rel="noopener noreferrer">
           <span>Medium</span>
           <strong>What is worth learning when answers are everywhere?</strong>
           <small>Notes on software, learning, tools, and the weird pressure of increasingly capable machines.</small>
@@ -329,11 +350,13 @@
         <div>
           <p class="kicker">Contact</p>
           <h2 id="contact-title">Available for frontend systems, component platforms, and AI workflow work.</h2>
+          <p class="contact-note">Best fit: teams building design systems, component libraries, accessibility-minded frontend infrastructure, or AI-assisted engineering workflows.</p>
         </div>
         <div class="contact-actions">
-          <a class="button primary" href="mailto:hello@brianbrady.dev">hello@brianbrady.dev</a>
-          <a class="button" href="https://github.com/brianchristopherbrady" rel="noreferrer">GitHub</a>
-          <a class="button" href="https://medium.com/@brian.christopher.brady" rel="noreferrer">Medium</a>
+          <a class="button primary" href="mailto:brdybrn@gmail.com">brdybrn@gmail.com</a>
+          <a class="button" href="mailto:brdybrn@gmail.com?subject=Portfolio%20follow-up%20for%20Brian%20Brady">Start a conversation</a>
+          <a class="button" href="https://github.com/brianchristopherbrady" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="button" href="https://medium.com/@brian.christopher.brady" target="_blank" rel="noopener noreferrer">Medium</a>
         </div>
       </section>
     </main>
