@@ -7,6 +7,7 @@ let height = 0;
 let deviceScale = 1;
 let points = [];
 let pointer = { x: 0.5, y: 0.5, active: false };
+let lastScrollY = window.scrollY;
 
 function calculateAge(birthDate, today = new Date()) {
   let age = today.getFullYear() - birthDate.getFullYear();
@@ -36,6 +37,19 @@ function updateDynamicAge() {
   ageElement.textContent = calculateAge(birthDate).toString();
 }
 
+function updateTopMarquee() {
+  const currentScrollY = window.scrollY;
+  const isScrollingDown = currentScrollY > lastScrollY;
+
+  if (currentScrollY <= 8 || currentScrollY < lastScrollY) {
+    document.body.classList.remove("top-marquee-hidden");
+  } else if (currentScrollY > 48 && isScrollingDown) {
+    document.body.classList.add("top-marquee-hidden");
+  }
+
+  lastScrollY = Math.max(currentScrollY, 0);
+}
+
 function resize() {
   deviceScale = Math.min(window.devicePixelRatio || 1, 2);
   width = window.innerWidth;
@@ -47,7 +61,6 @@ function resize() {
   context.setTransform(deviceScale, 0, 0, deviceScale, 0, 0);
 
   const count = Math.max(48, Math.floor((width * height) / 23000));
-updateDynamicAge();
   points = Array.from({ length: count }, (_, index) => ({
     x: (Math.sin(index * 98.23) * 0.5 + 0.5) * width,
     y: (Math.cos(index * 41.91) * 0.5 + 0.5) * height,
@@ -114,6 +127,9 @@ window.addEventListener("pointermove", updatePointer);
 window.addEventListener("pointerleave", () => {
   pointer.active = false;
 });
+window.addEventListener("scroll", updateTopMarquee, { passive: true });
 
+updateDynamicAge();
+updateTopMarquee();
 resize();
 requestAnimationFrame(draw);
