@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 520" role="img" aria-labelledby="title desc">
+  <title id="title">Glyph capital allocation map</title>
+  <desc id="desc">A wide Sankey-style allocation map showing capital moving from stores through energy, grid, compute, AI, and diversifiers.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#11131d"/><stop offset="1" stop-color="#070a10"/></linearGradient>
+    <filter id="soft" x="-10%" y="-20%" width="120%" height="150%"><feGaussianBlur stdDeviation="18"/></filter>
+    <linearGradient id="flow" x1="0" x2="1"><stop stop-color="#d6c978"/><stop offset=".18" stop-color="#20d18e"/><stop offset=".34" stop-color="#74e4f5"/><stop offset=".48" stop-color="#3b82f6"/><stop offset=".68" stop-color="#16d5cb"/><stop offset=".84" stop-color="#18dfd4"/><stop offset="1" stop-color="#b8c2d2"/></linearGradient>
+  </defs>
+  <rect width="1600" height="520" fill="url(#bg)"/>
+  <text x="28" y="46" fill="#cbd5e1" font-family="Inter,Arial" font-size="17" font-weight="800">Stores -&gt; Minerals -&gt; Energy -&gt; Grid -&gt; Materials -&gt; Compute -&gt; Software -&gt; Automation -&gt; AI</text>
+  <path d="M28 74 H1572" stroke="#45516f" stroke-width="2" stroke-dasharray="5 11" opacity=".7"/>
+  <rect x="28" y="96" width="1544" height="210" rx="10" fill="#111723" stroke="#7c879c" opacity=".8"/>
+  <path d="M28 122 C96 205 145 53 227 118 C306 182 382 61 471 122 C560 184 627 50 724 122 C830 197 922 39 1018 120 C1109 196 1216 54 1311 122 C1426 195 1500 56 1572 122 L1572 305 L28 305 Z" fill="url(#flow)" opacity=".9"/>
+  <path d="M28 286 C112 235 204 250 290 280 C380 313 440 226 505 278 C590 350 638 235 714 282 C795 331 887 252 970 282 C1069 315 1176 248 1285 280 C1394 313 1472 239 1572 282 L1572 306 L28 306 Z" fill="#03131a" opacity=".46"/>
+  <g opacity=".65" filter="url(#soft)"><rect x="50" y="96" width="65" height="210" fill="#f4d67b"/><rect x="255" y="96" width="320" height="210" fill="#2dff9f"/><rect x="430" y="96" width="265" height="210" fill="#85f6ff"/><rect x="590" y="96" width="345" height="210" fill="#4f8cff"/><rect x="960" y="96" width="420" height="210" fill="#12e6d0"/><rect x="1318" y="96" width="235" height="210" fill="#cbd5e1"/></g>
+  <g font-family="Inter,Arial" font-weight="900" text-anchor="middle">
+    <rect x="150" y="150" width="170" height="54" rx="8" fill="#141b29"/><text x="235" y="174" fill="#fff" font-size="17">Energy Feedstock</text><text x="235" y="196" fill="#cbd5e1" font-size="15">16%</text>
+    <rect x="390" y="108" width="170" height="54" rx="8" fill="#141b29"/><text x="475" y="132" fill="#fff" font-size="17">Grid + Power</text><text x="475" y="154" fill="#cbd5e1" font-size="15">11%</text>
+    <rect x="640" y="150" width="175" height="54" rx="8" fill="#141b29"/><text x="728" y="174" fill="#fff" font-size="17">Compute Hardware</text><text x="728" y="196" fill="#cbd5e1" font-size="15">20%</text>
+    <rect x="1050" y="150" width="175" height="54" rx="8" fill="#141b29"/><text x="1138" y="174" fill="#fff" font-size="17">AI + Oracle</text><text x="1138" y="196" fill="#cbd5e1" font-size="15">28%</text>
+    <rect x="1415" y="108" width="160" height="54" rx="8" fill="#232b3a"/><text x="1495" y="132" fill="#fff" font-size="17">Diversifiers</text><text x="1495" y="154" fill="#cbd5e1" font-size="15">19%</text>
+  </g>
+  <g font-family="Inter,Arial" font-size="12" font-weight="800" fill="#9aa3b5">
+    <rect x="30" y="360" width="22" height="12" rx="6" fill="#be9c45"/><text x="62" y="371">Monetary Stores 1%</text>
+    <rect x="30" y="405" width="22" height="12" rx="6" fill="#34c6d9"/><text x="62" y="416">Grid + Power 11%</text>
+    <rect x="30" y="450" width="22" height="12" rx="6" fill="#e84e82"/><text x="62" y="461">Automation + Robotics 1%</text>
+    <rect x="555" y="360" width="22" height="12" rx="6" fill="#a98548"/><text x="587" y="371">Critical Minerals 3%</text>
+    <rect x="555" y="405" width="22" height="12" rx="6" fill="#3b82f6"/><text x="587" y="416">Compute Hardware 20%</text>
+    <rect x="555" y="450" width="22" height="12" rx="6" fill="#00c9d8"/><text x="587" y="461">AI + Oracle 28%</text>
+    <rect x="1090" y="360" width="22" height="12" rx="6" fill="#0fa87d"/><text x="1122" y="371">Energy Feedstock 16%</text>
+    <rect x="1090" y="405" width="22" height="12" rx="6" fill="#9b5de5"/><text x="1122" y="416">Software + Security 1%</text>
+    <rect x="1090" y="450" width="22" height="12" rx="6" fill="#94a3b8"/><text x="1122" y="461">Diversifiers 19%</text>
+  </g>
+</svg>
