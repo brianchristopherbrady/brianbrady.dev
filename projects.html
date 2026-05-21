@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects | Brian Brady</title>
+    <meta name="description" content="Selected UX engineering projects by Brian Brady: Microsoft Fabric UX, Fluent UI, agentic design-to-code tooling, auditing systems, and experimental product interfaces." />
+    <meta property="og:title" content="Projects | Brian Brady" />
+    <meta property="og:description" content="Selected UX engineering projects across design systems, Web Components, AI workflows, auditing infrastructure, and product UI." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://brianbrady.dev/projects.html" />
+    <meta property="og:image" content="https://brianbrady.dev/static/log.png" />
+    <meta name="theme-color" content="#070606" />
+    <link rel="canonical" href="https://brianbrady.dev/projects.html" />
+    <link rel="icon" href="./static/log.png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="standalone-page projects-index-page">
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="./index.html" aria-label="brianbrady.dev home">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a class="active" href="./projects.html">Projects</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="project-hero page-hero">
+        <p class="kicker">Selected work / shipped systems / useful experiments</p>
+        <h1>Projects that turn design-system intent into production behavior.</h1>
+        <p>
+          The through-line is infrastructure for interfaces: component platforms, wrapper systems, design-to-code guardrails,
+          auditing tools, and product prototypes where the UI has to carry real operational weight.
+        </p>
+      </section>
+
+      <section class="project-index-feature" aria-label="Featured project cluster">
+        <article class="detail-panel feature-project-card">
+          <span>01</span>
+          <h2>Microsoft Fluent UI and Microsoft Fabric UX Web Components</h2>
+          <p>
+            I started in Microsoft Fluent UI Web Components, then helped carry that work into Microsoft Fabric UX as it branched
+            into its own platform. I helped build Fabric UX from the ground up: implementing components, automating design tooling,
+            creating framework wrapper workflows, and building auditing systems that kept the library consistent as it scaled.
+          </p>
+          <div class="inline-link-row">
+            <a class="case-link" href="./projects/fabric-ux.html">Fabric UX</a>
+            <a class="case-link" href="./projects/fluent-ui.html">Fluent UI</a>
+          </div>
+        </article>
+        <aside class="project-signal-panel" aria-label="Platform signals">
+          <span>Web Components</span>
+          <span>Angular wrappers</span>
+          <span>React wrappers</span>
+          <span>Design tooling</span>
+          <span>Auditing systems</span>
+          <span>Accessibility behavior</span>
+        </aside>
+      </section>
+
+      <section class="project-index-grid" aria-label="Project links">
+        <a class="project-index-card" href="./projects/fabric-ux-devkit.html">
+          <span>02</span>
+          <h2>Microsoft Fabric UX Agentic AI Design-to-Code DevKit</h2>
+          <p>Agentic Figma intake, repo inspection, component parity, migration planning, and issue preparation for Fabric UX adoption.</p>
+        </a>
+        <a class="project-index-card" href="./projects/checklist-auditor.html">
+          <span>03</span>
+          <h2>Checklist Auditor</h2>
+          <p>Deterministic component-health tooling that turned review conventions into executable checks across the Fabric UX repo.</p>
+        </a>
+        <a class="project-index-card" href="./projects/glyph-rituals.html">
+          <span>04</span>
+          <h2>Glyph Commerce System</h2>
+          <p>A private commerce and AI interface system for inventory, symbolic metadata, collection-building, and guarded review.</p>
+        </a>
+        <a class="project-index-card" href="./projects/signal-terminal.html">
+          <span>05</span>
+          <h2>Signal Terminal</h2>
+          <p>An embeddable AI-native terminal concept where command output can become structured UI without breaking terminal flow.</p>
+        </a>
+        <a class="project-index-card" href="./projects/certpilot.html">
+          <span>06</span>
+          <h2>CertPilot</h2>
+          <p>A contractor and vendor compliance app for certificates of insurance, renewal status, document review, and audit history.</p>
+        </a>
+        <a class="project-index-card" href="./projects/handforge.html">
+          <span>07</span>
+          <h2>HandForge</h2>
+          <p>A card-game probability workbench for deck parsing, exact math, seeded simulation, and hand-state comparison.</p>
+        </a>
+        <a class="project-index-card" href="./projects/mnemonic-weather-engine.html">
+          <span>08</span>
+          <h2>Mnemonic Weather Engine</h2>
+          <p>A browser-only Three.js AI art prototype and semantic weather map exploring memory, text, and generated atmosphere.</p>
+        </a>
+        <a class="project-index-card" href="./projects/our-american-gods.html">
+          <span>09</span>
+          <h2>Our American Gods</h2>
+          <p>An older automation archive that recombined public text streams and published the result on a schedule.</p>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>brianbrady.dev</span>
+      <span>projects across component platforms, AI workflows, and product UI infrastructure</span>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
