@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Checklist Auditor | brianbrady.dev</title>
+    <meta name="description" content="Checklist Auditor is a deterministic component-health system for the Microsoft Fabric UX repo, resolving 5,000+ platform drift issues across components, wrappers, Storybook, docs, metadata, and exports." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#systems">Systems</a>
+        <a href="../index.html#writing">Writing</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="project-hero">
+        <p class="kicker">Microsoft Fabric UX / deterministic auditing / component health</p>
+        <h1>Checklist Auditor</h1>
+        <p>
+          Checklist Auditor is a deterministic component-health system for the Microsoft Fabric UX repo. It turns the team's
+          component review checklist into executable rules that scan Web Component source, options files, Storybook stories,
+          README documentation, wrapper surfaces, generated metadata, and package exports.
+        </p>
+        <p>
+          Its purpose is simple: catch platform drift before product teams inherit it. In a component platform with more than
+          120 components across Web Components, Angular wrappers, and React wrappers, quality problems rarely show up as one
+          obvious failure. They show up as small inconsistencies spread across the surfaces that define a component.
+        </p>
+      </section>
+
+      <section class="fabric-facts" aria-label="Checklist Auditor facts">
+        <div>
+          <strong>5,000+</strong>
+          <span>bugs, inconsistencies, missing exports, documentation gaps, and metadata issues resolved</span>
+        </div>
+        <div>
+          <strong>120+</strong>
+          <span>Microsoft Fabric UX components covered by repeatable component-health checks</span>
+        </div>
+        <div>
+          <strong>3</strong>
+          <span>implementation surfaces kept aligned: Web Components, Angular, and React</span>
+        </div>
+        <div>
+          <strong>Rules</strong>
+          <span>component review conventions converted into deterministic repairs</span>
+        </div>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>What it solved</h2>
+          <p>
+            Component-platform drift is rarely dramatic. A component can exist in source but be missing from a barrel export.
+            A React wrapper can expose less than the Web Component supports. A Storybook story can teach an unsupported
+            composition. A README can omit a public API member. An options file can use a different naming convention. Generated
+            metadata can quietly stop matching implementation.
+          </p>
+          <p>
+            Checklist Auditor makes those problems visible and fixable at scale. The first major audit pass resolved more than
+            5,000 bugs, inconsistencies, missing exports, documentation gaps, metadata gaps, wrapper mismatches, and checklist
+            violations across the component catalog.
+          </p>
+        </article>
+        <article class="detail-panel">
+          <h2>Why it matters</h2>
+          <p>
+            The auditor protects the core Microsoft Fabric UX operating model: Web Components as the source of truth, with thin
+            Angular and React wrappers that stay aligned. Without tooling, that model is fragile. Every new component or API
+            change creates several chances for drift across implementation, docs, stories, wrappers, exports, contracts, and
+            release metadata.
+          </p>
+          <p>
+            Instead of asking reviewers to remember every convention across every component, the repo can encode those
+            conventions as rules. Instead of letting product teams discover missing exports or wrapper gaps during migration,
+            the platform catches them earlier.
+          </p>
+        </article>
+      </section>
+
+      <section class="devkit-infrastructure" aria-labelledby="checks-title">
+        <p class="kicker">What it checks</p>
+        <h2 id="checks-title">Consistency across every surface that defines a component.</h2>
+        <div class="built-grid" aria-label="Checklist Auditor check categories">
+          <article>
+            <span>Source</span>
+            <p>Public APIs, attributes, properties, events, slots, parts, CSS custom properties, lifecycle patterns, and implementation conventions.</p>
+          </article>
+          <article>
+            <span>Options</span>
+            <p>Exported option arrays, normalized values, naming conventions, type definitions, and options metadata.</p>
+          </article>
+          <article>
+            <span>Exports</span>
+            <p>Missing component exports, missing options exports, incorrect index wiring, package surface drift, and barrel files.</p>
+          </article>
+          <article>
+            <span>Storybook</span>
+            <p>Missing argTypes, unsupported controls, stale examples, missing state coverage, and stories that drift from real APIs.</p>
+          </article>
+          <article>
+            <span>Docs</span>
+            <p>Missing API sections, stale tables, undocumented members, missing accessibility notes, and incomplete usage guidance.</p>
+          </article>
+          <article>
+            <span>Wrappers</span>
+            <p>Missing wrapper props, event mismatches, wrapper API drift, and framework adapters that differ from the source component.</p>
+          </article>
+          <article>
+            <span>Metadata</span>
+            <p>Stale custom-elements metadata, inconsistent component inventory, missing coverage records, and outdated contracts.</p>
+          </article>
+          <article>
+            <span>Release</span>
+            <p>Missing changelog or change-file coverage, generated inventory gaps, and package changes that lack release evidence.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="project-layout fabric-depth-layout">
+        <article class="detail-panel">
+          <h2>Kinds of bugs it found</h2>
+          <ul class="detail-list compact-detail-list">
+            <li>Components implemented in source but not exported correctly.</li>
+            <li>Options defined in code but missing from stories, docs, or wrappers.</li>
+            <li>Storybook controls that allowed invalid values or omitted supported values.</li>
+            <li>README API tables that were stale or incomplete.</li>
+            <li>Wrapper props that did not match the underlying Web Component.</li>
+            <li>Event names, attribute names, option names, slots, parts, and CSS properties that drifted across files.</li>
+          </ul>
+        </article>
+        <article class="detail-panel audit-panel">
+          <h2>Deterministic fixes</h2>
+          <p>
+            The key design choice was that many issues should not require an LLM or a reviewer to think about them every time.
+            If a rule can determine the right fix, the auditor can apply it deterministically.
+          </p>
+          <p>
+            That includes repairs like adding missing exports, regenerating README sections, updating Storybook argTypes,
+            normalizing option metadata, refreshing contract files, and aligning generated component inventories. It is more
+            than a report generator; it is a repair tool.
+          </p>
+        </article>
+      </section>
+
+      <section class="project-layout fabric-depth-layout">
+        <article class="detail-panel">
+          <h2>Agentic workflow role</h2>
+          <p>
+            Checklist Auditor grounds the repo's agentic workflows. Agents can explain findings, route fixes, summarize
+            component gaps, or generate follow-up plans, but the auditor keeps the truth layer deterministic.
+          </p>
+          <p>
+            It gives agents structured findings instead of vague review comments, and it gives reviewers a stable way to verify
+            that component changes preserve the platform contract. AI accelerates the workflow; Checklist Auditor protects
+            correctness.
+          </p>
+        </article>
+        <article class="detail-panel audit-panel">
+          <h2>Platform leverage</h2>
+          <p>
+            The result is component health as an engineering system instead of a manual review ritual. Every encoded convention
+            removes future review work, makes migrations less surprising, and keeps the Microsoft Fabric UX component platform
+            aligned as it scales.
+          </p>
+          <p>
+            Fewer missing imports, fewer broken examples, fewer undocumented APIs, fewer wrapper surprises, and fewer repeated
+            comments means more of the platform's energy goes into product capability instead of rediscovering drift.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

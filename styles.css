@@ -956,6 +956,228 @@ h3 {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
+.devkit-hero p + p {
+  margin-top: 12px;
+}
+
+.devkit-facts strong {
+  font-size: clamp(1.15rem, 2.3vw, 2rem);
+}
+
+.devkit-diagram-section {
+  padding-bottom: 54px;
+  border-top: 1px solid var(--line);
+}
+
+.devkit-infrastructure,
+.devkit-built {
+  padding: 32px 0 48px;
+  border-top: 1px solid var(--line);
+}
+
+.devkit-infrastructure h2,
+.devkit-built h2 {
+  max-width: 820px;
+  margin-bottom: 14px;
+  font-size: clamp(1.35rem, 2.4vw, 2.2rem);
+}
+
+.devkit-infrastructure > p:not(.kicker),
+.devkit-built > p:not(.kicker) {
+  max-width: 860px;
+  color: var(--muted);
+}
+
+.evidence-grid,
+.built-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.built-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.evidence-grid article,
+.built-grid article {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-height: 146px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(154, 163, 181, 0.28);
+}
+
+.evidence-grid span,
+.built-grid span {
+  color: var(--cyan);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.evidence-grid p,
+.built-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.62;
+}
+
+.migration-flow {
+  position: relative;
+  display: grid;
+  min-height: 720px;
+  margin-top: 10px;
+  isolation: isolate;
+}
+
+.migration-flow::before,
+.migration-flow::after {
+  position: absolute;
+  inset: 13% 16%;
+  z-index: -1;
+  content: "";
+  border: 1px solid rgba(154, 163, 181, 0.24);
+  border-radius: 50%;
+}
+
+.migration-flow::after {
+  inset: 24% 29%;
+  border-color: rgba(19, 230, 208, 0.18);
+}
+
+.migration-node,
+.migration-center {
+  position: absolute;
+  display: grid;
+  gap: 8px;
+  width: min(260px, 31%);
+  min-height: 168px;
+  padding: 15px 0;
+  border-top: 1px solid rgba(154, 163, 181, 0.34);
+  background: rgba(5, 7, 11, 0.78);
+  backdrop-filter: blur(8px);
+}
+
+.migration-node::after {
+  position: absolute;
+  width: 34px;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, var(--cyan), transparent);
+}
+
+.migration-node span,
+.migration-center span {
+  color: var(--cyan);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.migration-node h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.migration-node p,
+.migration-center span {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.58;
+}
+
+.node-build {
+  top: 0;
+  left: 50%;
+  translate: -50% 0;
+}
+
+.node-build::after {
+  right: -42px;
+  top: 70px;
+  rotate: 35deg;
+}
+
+.node-consume {
+  top: 20%;
+  right: 0;
+}
+
+.node-consume::after {
+  right: 34px;
+  bottom: -18px;
+  rotate: 90deg;
+}
+
+.node-gap {
+  right: 8%;
+  bottom: 4%;
+}
+
+.node-gap::after {
+  left: -42px;
+  bottom: 46px;
+  rotate: 145deg;
+}
+
+.node-resolve {
+  bottom: 4%;
+  left: 8%;
+}
+
+.node-resolve::after {
+  left: -34px;
+  top: 46px;
+  rotate: 215deg;
+}
+
+.node-migrate {
+  top: 20%;
+  left: 0;
+}
+
+.node-migrate::after {
+  right: 32px;
+  top: -18px;
+  rotate: 270deg;
+}
+
+.migration-center {
+  top: 50%;
+  left: 50%;
+  width: min(300px, 34%);
+  min-height: 140px;
+  translate: -50% -50%;
+  place-items: center;
+  align-content: center;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.migration-center strong {
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+  line-height: 1.15;
+}
+
+.decision-list li:nth-child(2),
+.decision-list li:nth-child(5) {
+  border-top-color: rgba(245, 178, 27, 0.34);
+}
+
+.decision-list li:nth-child(3),
+.decision-list li:nth-child(6) {
+  border-top-color: rgba(255, 71, 120, 0.34);
+}
+
 .devkit-flow,
 .devkit-architecture {
   border-top: 1px solid var(--line);
@@ -1441,6 +1663,11 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .evidence-grid,
+  .built-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .audit-panel {
     border-left: 0;
     padding-left: 0;
@@ -1467,6 +1694,34 @@ h3 {
 
   .two-column-commands {
     grid-template-columns: 1fr;
+  }
+
+  .migration-flow {
+    min-height: auto;
+    gap: 14px;
+  }
+
+  .migration-flow::before,
+  .migration-flow::after {
+    display: none;
+  }
+
+  .migration-node,
+  .migration-center {
+    position: static;
+    width: 100%;
+    min-height: auto;
+    translate: none;
+  }
+
+  .migration-node::after {
+    display: none;
+  }
+
+  .migration-center {
+    order: -1;
+    place-items: start;
+    text-align: left;
   }
 }
 
@@ -1519,8 +1774,19 @@ h3 {
   }
 
   .devkit-steps,
-  .devkit-signal-list {
+  .devkit-signal-list,
+  .evidence-grid,
+  .built-grid {
     grid-template-columns: 1fr;
+  }
+
+  .devkit-infrastructure,
+  .devkit-built {
+    padding-bottom: 34px;
+  }
+
+  .devkit-diagram-section {
+    padding-bottom: 34px;
   }
 
   .scope { min-height: 210px; }

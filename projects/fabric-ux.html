@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fabric UX | brianbrady.dev</title>
-    <meta name="description" content="Fabric UX web component library, Angular wrappers, React wrappers, and enterprise migration work by Brian Brady." />
+    <title>Microsoft Fabric UX Web Components | brianbrady.dev</title>
+    <meta name="description" content="Microsoft Fabric UX Web Components as a component platform for Microsoft Fabric and Power BI client experiences: Web Components, wrappers, documentation, auditing, agents, migration guidance, and releaseable packages." />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="project-page">
@@ -24,38 +24,43 @@
 
     <main>
       <section class="project-hero">
-        <p class="kicker">Enterprise UX / web components / wrapper systems</p>
-        <h1>Fabric UX web component library</h1>
+        <p class="kicker">Enterprise UX / Web Components / wrapper systems</p>
+        <h1>Microsoft Fabric UX Web Components</h1>
         <p>
-          A component platform for dense Microsoft enterprise software: web components as the single source of truth,
-          supported by thin Angular and React wrappers so Power BI client migration work can move without fragmenting the
-          design system.
+          Fabric UX is more than a catalog of UI components. It is the component platform layer for Microsoft Fabric and
+          Power BI client experiences: the place where design-system intent becomes runtime behavior, framework adapters,
+          documentation, tests, migration guidance, and releaseable packages.
+        </p>
+        <p>
+          The repo has to serve product teams moving at different speeds across different stacks without letting the design
+          system split into local interpretations. The important architectural bet is that the Web Component is the source
+          of truth, with React and Angular wrappers acting as intentionally thin adapters around that contract.
         </p>
       </section>
 
       <section class="project-layout">
         <article class="detail-panel">
+          <h2>Fabric UX as a platform</h2>
+          <p>
+            Behavior, accessibility semantics, styling hooks, slots, events, and state models live in the Web Component
+            first. Framework users still get idiomatic ergonomics, but they do not get separate implementations that can
+            drift away from the design system over time.
+          </p>
+          <p>
+            This is what makes the platform useful for enterprise migration work. A component is not only something that
+            renders correctly once; it is a public contract that has to survive package releases, wrapper updates,
+            documentation generation, Storybook examples, accessibility checks, and product adoption.
+          </p>
+        </article>
+        <article class="detail-panel">
           <h2>What matters here</h2>
           <ul class="detail-list">
-            <li>Manage Fabric Web and Fabric Copilot component libraries across web components, Angular, and React.</li>
+            <li>Manage Microsoft Fabric Web and Microsoft Fabric Copilot component libraries across Web Components, Angular, and React.</li>
             <li>Keep the implementation model centered on one web component source of truth instead of three competing stacks.</li>
             <li>Maintain thin framework wrappers that expose the same component behavior to Angular and React clients.</li>
             <li>Support enterprise Power BI client migration work with stable, reusable UI primitives.</li>
             <li>Scale the library across more than 120 components without letting product teams fork behavior or interaction patterns.</li>
           </ul>
-        </article>
-        <article class="detail-panel">
-          <h2>Operating model</h2>
-          <p>
-            The core contract lives in the web component. Angular and React wrappers stay intentionally thin: they adapt the
-            element to each framework, but do not become separate component products. That keeps accessibility, interaction,
-            styling, and migration behavior aligned across enterprise clients.
-          </p>
-          <p>
-            This work includes both fabric-web and fabric-copilot components, each with respective Angular and React wrapper
-            packages. The practical value is not just shipping components; it is keeping a large migration surface coherent
-            while teams move through different client frameworks at different speeds.
-          </p>
         </article>
       </section>
 
@@ -66,16 +71,108 @@
         </div>
         <div>
           <strong>3</strong>
-          <span>delivery layers: web components, Angular, React</span>
+          <span>delivery layers: Web Components, Angular, React</span>
         </div>
         <div>
           <strong>2</strong>
           <span>libraries: fabric-web and fabric-copilot</span>
         </div>
         <div>
-          <strong>~1,100</strong>
-          <span>auditor findings resolved</span>
+          <strong>5,000+</strong>
+          <span>auditor fixes, inconsistencies, missing exports, and metadata gaps resolved</span>
         </div>
+      </section>
+
+      <section class="devkit-infrastructure" aria-labelledby="repo-contains-title">
+        <p class="kicker">Repository architecture</p>
+        <h2 id="repo-contains-title">What the repo contains</h2>
+        <p>
+          The repository is organized like a production platform rather than a single package. It includes Fabric Web
+          Components, Copilot-specific Web Components, React wrappers, Angular wrappers, theme packages, SVG icon and
+          illustration packages, Storybook documentation, localization support, integration harnesses, release tooling,
+          <a href="./checklist-auditor.html">Checklist Auditor</a>, MCP servers, and the Microsoft Fabric UX Agentic AI Design-to-Code DevKit.
+        </p>
+        <p>
+          That shape matters because the work is not only build a button. A component change can affect generated
+          custom-element metadata, wrapper APIs, Storybook examples, README docs, package exports, change files, release
+          notes, visual baselines, integration tests, and downstream product migrations. The repo is designed to keep those
+          surfaces coordinated.
+        </p>
+        <div class="evidence-grid" aria-label="Fabric UX platform surfaces">
+          <article>
+            <span>Runtime</span>
+            <p>Web Components, design tokens, styling hooks, slots, events, state models, forms, focus, and accessibility semantics.</p>
+          </article>
+          <article>
+            <span>Adapters</span>
+            <p>Thin React and Angular wrappers, typed props, event wiring, package exports, examples, and framework documentation.</p>
+          </article>
+          <article>
+            <span>Platform</span>
+            <p>Storybook, localization, icon packages, release tooling, checklist auditing, MCP tools, agent skills, and DevKit adoption workflows.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="project-layout fabric-depth-layout">
+        <article class="detail-panel">
+          <h2>Web Components</h2>
+          <p>
+            The Web Component packages are the behavioral core. They define the actual elements product teams consume:
+            attributes, properties, slots, events, parts, CSS custom properties, design token usage, keyboard behavior,
+            focus management, accessibility semantics, and form behavior. This is where component correctness lives.
+          </p>
+          <p>
+            A strong component in this repo is not just visually close to a spec. It has a stable public API, predictable
+            DOM composition, documented slots and parts, test coverage, Storybook examples, wrapper compatibility, and a
+            path through release. That is what lets the same primitive survive real enterprise usage across many products.
+          </p>
+        </article>
+        <article class="detail-panel audit-panel">
+          <h2>Fabric Web and Fabric Copilot</h2>
+          <p>
+            The repo carries two related but distinct component families. Fabric Web Components cover the broader enterprise
+            design system: dense operational UI, migration primitives, navigation, inputs, feedback, surfaces, and layout
+            helpers. Fabric Copilot components cover AI-oriented product moments: prompt surfaces, contextual commands,
+            starter cards, citations, approval flows, and Copilot-specific interaction patterns.
+          </p>
+          <p>
+            That split lets Copilot experiences move quickly without polluting the core component model, while still sharing
+            the same engineering standards: Web Component source of truth, thin wrappers, documented APIs, test coverage,
+            and release discipline.
+          </p>
+        </article>
+      </section>
+
+      <section class="project-layout fabric-depth-layout">
+        <article class="detail-panel">
+          <h2>React and Angular wrappers</h2>
+          <p>
+            The wrappers are intentionally boring, which is the point. They should not reinterpret component behavior. Their
+            job is to expose the Web Component contract in React and Angular ergonomics: typed props, event wiring,
+            framework-friendly imports, examples, and package exports.
+          </p>
+          <p>
+            Wrapper drift is one of the biggest risks in a repo like this. If React supports a prop that Angular misses, or
+            Angular wraps an event differently, or a wrapper teaches a different composition pattern than the Web Component
+            supports, product teams inherit inconsistency. A lot of the engineering work is keeping wrappers thin,
+            complete, and honest.
+          </p>
+        </article>
+        <article class="detail-panel audit-panel">
+          <h2>Documentation and Storybook</h2>
+          <p>
+            Storybook is not just a demo layer here. It is part of the component contract. Stories demonstrate supported
+            compositions, states, attributes, variants, framework usage, accessibility behavior, and migration patterns.
+            README generation and custom-elements metadata connect implementation to docs so consumers can trust that the
+            examples match the shipped package.
+          </p>
+          <p>
+            That matters for agentic workflows too. Agents need concise, reliable examples. If docs drift, agents make
+            plausible but wrong choices. Keeping Storybook, README content, options files, and generated metadata aligned
+            makes both humans and agents better consumers of the platform.
+          </p>
+        </article>
       </section>
 
       <section class="fabric-showcase" aria-labelledby="fabric-showcase-title">
@@ -165,44 +262,83 @@
 
       <section class="project-layout fabric-depth-layout">
         <article class="detail-panel">
-          <h2>Reducing wrapper drift</h2>
+          <h2>My role</h2>
           <p>
-            The hard part is not only building a component once. It is keeping the web component, Angular wrapper, React
-            wrapper, documentation, exports, examples, accessibility semantics, and product usage aligned as the library
-            changes. Drift shows up quietly: a wrapper misses an implementation detail, a package forgets an export, an
-            example teaches the wrong pattern, or a framework adapter changes the public contract by accident.
+            My work in Fabric UX sits across the platform boundary: component implementation, wrapper consistency, audit
+            automation, and agentic development infrastructure. I help keep the Web Component model authoritative while
+            making it usable from Angular, React, product migration code, and AI-assisted workflows.
           </p>
           <p>
-            My role is to keep that surface boring in the best sense: deterministic, inspectable, and hard to misuse. The
-            web component remains the behavioral source of truth, while wrappers stay thin enough to serve framework users
-            without becoming parallel implementations.
+            The through-line is drift control. Fabric UX has to scale across hundreds of components, multiple frameworks,
+            Copilot-specific surfaces, and product teams migrating at different speeds. My work focuses on keeping that
+            system coherent: one behavioral source of truth, thin wrappers, generated evidence, deterministic audits, and
+            agents that accelerate the work without becoming the source of truth.
           </p>
         </article>
         <article class="detail-panel audit-panel">
-          <h2>Checklist auditor</h2>
+          <h2>Auditing and component health</h2>
           <p>
-            I built deterministic auditing tools that turn component quality into repeatable checks rather than tribal
-            knowledge. The checklist auditor resolved roughly 1,100 bugs across the platform by finding inconsistent
-            semantics, missing component exports, wrappers with missing implementation details, inconsistent documentation,
-            and code patterns that needed enforcement.
+            <a href="./checklist-auditor.html">Checklist Auditor</a> is one of the repo's most important leverage points. It turns component health from
+            review folklore into executable rules. It checks for missing exports, incomplete wrapper coverage, stale README
+            sections, missing Storybook argTypes, options/type mismatches, undocumented APIs, inconsistent slots or parts,
+            contract drift, and repeat violations across the component catalog.
           </p>
-          <ul class="detail-list compact-detail-list">
-            <li>Compare component contracts across web component, Angular, and React packages.</li>
-            <li>Detect missing exports, missing wrapper details, and documentation mismatches.</li>
-            <li>Enforce repeatable code patterns before drift reaches product teams.</li>
-            <li>Feed agentic AI workflows with structured findings instead of vague review comments.</li>
-          </ul>
+          <p>
+            When the auditor resolves thousands of issues, it is not just cleaning up lint. It is removing friction from
+            every future migration: fewer missing imports, fewer broken examples, fewer undocumented behaviors, fewer
+            wrapper surprises, and fewer one-off review comments.
+          </p>
+          <p>
+            Its first major pass resolved more than 5,000 bugs, inconsistencies, missing exports, documentation gaps,
+            metadata gaps, wrapper mismatches, and checklist violations. That changed component health from a manual review
+            burden into a repeatable engineering system.
+          </p>
+        </article>
+      </section>
+
+      <section class="project-layout fabric-depth-layout">
+        <article class="detail-panel">
+          <h2>Agents and skills</h2>
+          <p>
+            The repo also contains a growing agentic layer: skills, instructions, MCP tools, PR review workflows, component
+            scaffolding, component specs, Storybook debugging, unit-test guidance, release workflows, DevKit packaging, and
+            ADO automation. These are not random prompts. They encode repository practice so agents can operate with the
+            same constraints a maintainer would use.
+          </p>
+          <p>
+            Good agents in this repo are deliberately constrained. They read the right instruction files, respect component
+            patterns, avoid invented compositions, generate change files when required, run the right validations, and file
+            precise issues when Microsoft Fabric UX cannot satisfy a requirement. That turns AI from a code generator into
+            a maintainer assistant.
+          </p>
+        </article>
+        <article class="detail-panel audit-panel">
+          <h2>DevKit relationship</h2>
+          <p>
+            The Microsoft Fabric UX Agentic AI Design-to-Code DevKit grows out of this repo's operating model. The repo
+            contains the component source of truth; the DevKit packages the evidence-gathering, parity analysis, Figma
+            intake, issue filing, and migration planning needed to use that source of truth correctly from product repos.
+          </p>
+          <p>
+            The DevKit is not separate from Fabric UX. It is the adoption layer for the component platform. It helps product
+            teams decide when to use Microsoft Fabric UX, when to keep an existing component, when to file a feature request,
+            and when to file a bug. Then the work loops back into this repo as component fixes, wrapper updates, docs,
+            examples, and tests.
+          </p>
         </article>
       </section>
 
       <section class="fabric-workflow" aria-labelledby="fabric-workflow-title">
         <p class="kicker">Deterministic tools + agentic workflows</p>
-        <h2 id="fabric-workflow-title">AI as a review multiplier, not a source of truth</h2>
+        <h2 id="fabric-workflow-title">A platform that can learn from its own usage</h2>
         <p>
-          Agentic workflows help review Figma specs, compare intended behavior against available components, summarize
-          repository evidence, and file actionable gaps. The deterministic auditor keeps the workflow grounded: AI can
-          explain, route, and accelerate the work, but the checks that protect semantics, exports, wrappers, documentation,
-          and patterns remain stable and repeatable.
+          The result is a component platform that can learn from its own usage. Product migrations reveal missing
+          capabilities. <a href="./checklist-auditor.html">Checklist Auditor</a> turns repeated review comments into rules. Agent workflows convert design and repo evidence
+          into structured plans. Upstream fixes become reusable primitives instead of local patches.
+        </p>
+        <p>
+          Fabric UX is the system that keeps those loops connected: implementation, documentation, wrappers, validation,
+          migration, and feedback all moving through one repo.
         </p>
       </section>
     </main>
