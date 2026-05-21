@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Glyph Commerce System | brianbrady.dev</title>
-    <meta name="description" content="A private symbolic commerce and AI interface system for inventory, metadata, collection-building, review workflows, and guarded AI assistance." />
+    <title>Glyph Trading Operations Platform | brianbrady.dev</title>
+    <meta name="description" content="Glyph is an operator-facing trading application for portfolio accounting, strategy construction, AI-assisted planning, deterministic risk controls, broker execution, backtesting, and operations." />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="project-page">
@@ -25,146 +25,266 @@
     </header>
 
     <section class="market-strip" aria-label="Glyph system signals">
-      <span>ORACLE <strong>INTERPRET</strong></span>
-      <span>WATCHER <strong>OBSERVE</strong></span>
-      <span>WARDS <strong>PROTECT</strong></span>
-      <span>RITUALS <strong>FLOW</strong></span>
-      <span>AI MIND <strong>ASSIST</strong></span>
-      <span>GLYPHS <strong>MEANING</strong></span>
+      <span>VAULT <strong>ACCOUNT</strong></span>
+      <span>RITUALS <strong>STRATEGY</strong></span>
+      <span>WATCHERS <strong>OMENS</strong></span>
+      <span>ORACLE <strong>PLAN</strong></span>
+      <span>WARDS <strong>LAW</strong></span>
+      <span>HIGH SEAL <strong>EXECUTE</strong></span>
     </section>
 
     <main>
       <section class="project-hero glyph-hero">
-        <p class="kicker">Glyph systems / commerce / AI interface</p>
-        <h1>Glyph commerce system</h1>
+        <p class="kicker">Trading operations / AI planning / broker-safe execution</p>
+        <h1>Glyph trading operations platform</h1>
         <p>
-          A private commerce concept around symbolic products, inventory, identity, and an AI-assisted operating layer.
-          The useful part is not mystique. It is a sequence of actions that gives the owner confidence, memory, and control.
+          Glyph is a broker-connected trading terminal built around one Alpaca account, virtual strategy sleeves, auditable
+          ledgers, deterministic risk controls, AI-assisted planning, backtesting, and production operations. The product
+          language is dark fantasy; the implementation underneath is boring on purpose: FastAPI, Python services, JSON/JSONL
+          ledgers, Prefect schedules, Alpaca adapters, and Wards that can say no.
         </p>
       </section>
 
       <section class="project-layout glyph-system-intro">
         <article class="detail-panel">
-          <h2>The AI mind</h2>
+          <h2>What it solves</h2>
           <p>
-            The AI layer is not a mascot or chat box. It remembers inventory, understands symbolic metadata, notices patterns,
-            and helps turn raw objects into coherent collections. Its job is to suggest, classify, compare, and explain without
-            taking authorship away from the person running the system.
+            The design problem was not how to make a trading app look unusual. It was how to give an operator a system that can
+            combine strategy construction, market research, AI planning, risk review, broker execution, and recovery without
+            hiding who owns a position or why an action happened.
+          </p>
+          <p>
+            I designed the UI and application model around separation of authority: Rituals express desired exposure, Watchers
+            detect Omens, the Oracle and AI Mind propose plans, Wards enforce deterministic law, Manifestation converts approved
+            targets into broker-safe orders, and Chronicle records the chain.
           </p>
         </article>
         <article class="detail-panel visual-panel">
-          <div class="mind-map" aria-hidden="true">
-            <span>Object</span>
-            <span>Glyph</span>
+          <div class="glyph-hierarchy" aria-label="Glyph product hierarchy">
+            <span>Alpaca Account</span>
+            <span>Vault</span>
             <span>Ritual</span>
-            <span>Oracle</span>
-            <span>Watcher</span>
-            <span>Ward</span>
+            <span>Sigil</span>
+            <span>Glyphs</span>
+            <span>Omens / Runes</span>
+            <span>Wards</span>
+            <span>Castings / Bindings</span>
           </div>
         </article>
       </section>
 
-      <section class="ritual-grid" aria-label="Glyph ritual concepts">
+      <section class="glyph-terminal-section" aria-labelledby="operator-terminal-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Operator UI</p>
+            <h2 id="operator-terminal-title">A serious trading terminal wearing dark fantasy armor.</h2>
+          </div>
+        </div>
+        <div class="glyph-terminal-board" aria-label="Glyph operator surfaces">
+          <div class="terminal-topbar">
+            <strong>Glyph</strong>
+            <span>MARKET CLOSED</span>
+            <span>EXEC LIVE</span>
+            <span>BROKER OK</span>
+            <span>RISK ACTIVE</span>
+          </div>
+          <div class="terminal-ticker" aria-hidden="true">
+            <span>SPY +0.8%</span><span>SOXL +2.3%</span><span>GLD -0.4%</span><span>BTC/USD +1.2%</span><span>URNM +0.9%</span>
+          </div>
+          <div class="terminal-grid">
+            <div class="terminal-column">
+              <span>Vault</span>
+              <strong>Aether reserve</strong>
+              <small>cash, equity, buying power, owner splits</small>
+            </div>
+            <div class="terminal-column">
+              <span>Rituals</span>
+              <strong>Strategy sleeves</strong>
+              <small>fund, start, stop, sync, release</small>
+            </div>
+            <div class="terminal-column terminal-column-wide">
+              <span>Oracle / Mind</span>
+              <strong>typed AITradingPlan</strong>
+              <small>thesis, invalidation, confidence, exit logic</small>
+            </div>
+            <div class="terminal-column">
+              <span>Wards</span>
+              <strong>deterministic veto</strong>
+              <small>freshness, exposure, cash, High Seal</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ritual-grid" aria-label="Glyph operator surfaces">
         <article class="detail-panel ritual-card">
           <span>01</span>
-          <h2>Acquire</h2>
-          <p>Objects enter the system with provenance, constraints, images, pricing, and a symbolic read that makes them searchable beyond category.</p>
+          <h2>Vault</h2>
+          <p>One Alpaca account becomes a portfolio view with Aether, broker snapshots, allocation ledgers, positions, owner splits, and PnL attribution.</p>
         </article>
         <article class="detail-panel ritual-card">
           <span>02</span>
-          <h2>Bind</h2>
-          <p>Glyphs attach meaning to inventory: material, origin, mood, rarity, state, intended use, or narrative association.</p>
+          <h2>Rituals</h2>
+          <p>Strategies are virtual sleeves with allocation, lifecycle state, holdings, watcher context, Oracle policy, and Manifestation targets.</p>
         </article>
         <article class="detail-panel ritual-card">
           <span>03</span>
-          <h2>Arrange</h2>
-          <p>Collections become compositions. The interface can group by visual rhythm, intent, drop timing, or customer ritual.</p>
+          <h2>Terminal</h2>
+          <p>A read-only operator console exposes status, cycles, logs, Ritual books, broker snapshots, decisions, and stored files.</p>
         </article>
         <article class="detail-panel ritual-card">
           <span>04</span>
-          <h2>Release</h2>
-          <p>Publishing is treated as a deliberate moment: staged, inspectable, reversible, and designed around trust.</p>
+          <h2>Backtesting</h2>
+          <p>Divinations test swing, intraday, strategy-block, cross-asset, and watcher-specific ideas before they can approach execution.</p>
         </article>
       </section>
 
-      <section class="aspect-grid" aria-label="Glyph system aspects">
+      <section class="aspect-grid" aria-label="Glyph authority model">
         <article class="detail-panel aspect-card">
           <h2>Oracle</h2>
           <p>
-            The oracle is the reflective mode of the AI mind. It answers questions about a piece, a drop, a customer path,
-            or a collection: what belongs together, what feels off, what is under-described, and what should be held back.
+            The Oracle researches, summarizes, proposes, and explains. It can route market evidence into structured plans, but it
+            cannot call the broker, claim execution happened, or bypass deterministic Wards.
           </p>
           <ul class="detail-list">
-            <li>Reads inventory context and symbolic metadata.</li>
-            <li>Suggests groupings, names, sequence, and release timing.</li>
-            <li>Explains recommendations in plain language.</li>
+            <li>Provider fallback, prompt budgets, circuit breakers, and confidence thresholds.</li>
+            <li>Market research from configured search and macro sources.</li>
+            <li>Typed AITradingPlan output instead of raw buy or sell commands.</li>
           </ul>
         </article>
         <article class="detail-panel aspect-card">
-          <h2>Watcher</h2>
+          <h2>Watchers</h2>
           <p>
-            The watcher observes the system over time. It looks for drift, missing fields, broken rituals, stale inventory,
-            suspicious edits, repeated customer behavior, and places where the symbolic layer no longer matches reality.
+            Watchers are scouts. They observe data health, market regime, volatility, macro liquidity, theme risk, crypto state,
+            and strategy-specific Omens, then wake the Mind or inform dashboard context.
           </p>
           <ul class="detail-list">
-            <li>Flags incomplete objects before release.</li>
-            <li>Tracks changes across price, state, imagery, and meaning.</li>
-            <li>Surfaces anomalies without blocking human judgment.</li>
+            <li>Theme watchers for miners, black soil, nuclear, AI grid, gold, crypto, and defense.</li>
+            <li>Runtime intervals, stale-event routing, and stream health checks.</li>
+            <li>No direct trading authority.</li>
           </ul>
         </article>
         <article class="detail-panel aspect-card">
           <h2>Wards</h2>
           <p>
-            Wards are protective constraints. They prevent the system from publishing too early, exposing private context,
-            overclaiming meaning, flattening nuance, or letting the AI mind invent facts that should come from the owner.
+            Wards are final law. They enforce position caps, turnover caps, minimum notional, cash buffer, context freshness,
+            cross-sleeve exposure, regular-hours rules, broker preflight, idempotency, and the High Seal.
           </p>
           <ul class="detail-list">
-            <li>Require provenance before high-trust labels appear.</li>
-            <li>Separate generated interpretation from verified fact.</li>
-            <li>Hold risky releases for review instead of automation.</li>
+            <li>AI confidence cannot override deterministic checks.</li>
+            <li>Broker orders require the execution target and High Seal to be valid.</li>
+            <li>Blocked plans remain auditable instead of disappearing.</li>
           </ul>
         </article>
       </section>
 
+      <section class="glyph-flow-section" aria-labelledby="mind-pipeline-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Planning pipeline</p>
+            <h2 id="mind-pipeline-title">AI can scout and plan, but execution stays typed, clipped, and reconciled.</h2>
+          </div>
+        </div>
+        <div class="glyph-pipeline" aria-label="AI Mind to broker-safe execution pipeline">
+          <span>Market data</span>
+          <span>Watchers emit Omens</span>
+          <span>Research adds evidence</span>
+          <span>AI Mind plans</span>
+          <span>Wards validate</span>
+          <span>Planner creates intents</span>
+          <span>Broker or SimBroker executes</span>
+          <span>Chronicle records</span>
+        </div>
+      </section>
+
       <section class="project-layout">
         <article class="detail-panel">
-          <h2>Ritual states</h2>
+          <h2>Strategy construction</h2>
           <ul class="detail-list state-list">
-            <li><strong>Dormant</strong> - an object exists, but lacks enough context to speak clearly.</li>
-            <li><strong>Named</strong> - the object has a title, category, and basic commercial identity.</li>
-            <li><strong>Bound</strong> - glyphs attach symbolic and practical meaning to the object.</li>
-            <li><strong>Watched</strong> - the system is tracking risk, completeness, and change.</li>
-            <li><strong>Revealed</strong> - the object is staged for public view or a controlled drop.</li>
-            <li><strong>Archived</strong> - the object leaves commerce but remains part of the memory system.</li>
+            <li><strong>Sigils</strong> - composed strategy trees made from deterministic blocks.</li>
+            <li><strong>Glyphs</strong> - reusable conditions, filters, weights, branches, and asset nodes.</li>
+            <li><strong>Runes</strong> - computed metrics such as SMA, RSI, VWAP, volatility, and drawdown.</li>
+            <li><strong>Omens</strong> - market, watcher, or context events that influence planning.</li>
+            <li><strong>Rituals</strong> - deployable sleeves that turn strategy output into target books.</li>
           </ul>
         </article>
         <article class="detail-panel">
-          <h2>Interface mechanics</h2>
+          <h2>Execution safety</h2>
           <ul class="detail-list state-list">
-            <li><strong>Glyph palette</strong> - swatches of meaning applied like metadata, not decoration.</li>
-            <li><strong>Review panel</strong> - an explainable assistant for naming, grouping, and release decisions.</li>
-            <li><strong>Watcher feed</strong> - a quiet activity stream for drift, gaps, and anomalies.</li>
-            <li><strong>Ward gates</strong> - visible checks before publish, price changes, and public claims.</li>
-            <li><strong>Ritual timeline</strong> - the object's history as a sequence of meaningful state changes.</li>
+            <li><strong>Manifestation</strong> - compares desired Ritual books to actual broker positions.</li>
+            <li><strong>High Seal</strong> - kill switch that gates paper and live broker orders.</li>
+            <li><strong>Ownership ledger</strong> - records opened, closed, and migrated position ownership events.</li>
+            <li><strong>Reconciliation</strong> - checks broker state after execution and supports recovery.</li>
+            <li><strong>Chronicle</strong> - preserves decisions, Wards, orders, ownership, and outcomes.</li>
           </ul>
         </article>
       </section>
 
       <section class="project-layout">
         <article class="detail-panel visual-panel">
-          <div class="glyph-field" aria-hidden="true">
-            <span>◇</span><span>✦</span><span>⌁</span><span>△</span><span>◌</span><span>✧</span>
+          <div class="glyph-allocation-ribbon" aria-label="Capital allocation ribbon">
+            <div class="allocation-stream">
+              <span style="--width: 1fr; --color: rgba(190, 156, 69, 0.62);">Stores</span>
+              <span style="--width: 2fr; --color: rgba(0, 211, 143, 0.52);">Energy feedstock</span>
+              <span style="--width: 1.4fr; --color: rgba(34, 211, 238, 0.52);">Grid + power</span>
+              <span style="--width: 2fr; --color: rgba(79, 140, 255, 0.58);">Compute hardware</span>
+              <span style="--width: 2.8fr; --color: rgba(19, 230, 208, 0.62);">AI + Oracle</span>
+              <span style="--width: 1.8fr; --color: rgba(154, 163, 181, 0.62);">Diversifiers</span>
+            </div>
+            <div class="allocation-legend">
+              <span>Vault</span><span>Ritual budget</span><span>Theme sleeve</span><span>Aether reserve</span>
+            </div>
           </div>
         </article>
         <article class="detail-panel">
-          <h2>Interaction thesis</h2>
+          <h2>Backtesting and Divination</h2>
           <p>
-            Rituals are not decoration. They are repeatable product flows: intake, classification, arrangement, review,
-            release, and return. The glyph layer gives those flows a visual grammar without hiding the practical work.
+            The backtesting surface tests Rituals before Manifestation. It supports swing, intraday, strategy-block,
+            cross-asset, and watcher-specific simulations with metrics like CAGR, max drawdown, annualized volatility,
+            turnover, time under water, PnL, and benchmark comparison.
           </p>
           <p>
-            Interpretation helps name. Watchers help notice. Guardrails help protect. The AI layer connects those roles into a
-            system that can feel alive without pretending to be magic.
+            The strongest design choice is that backtests reuse live-ish planning components where practical. Divinations are
+            not a toy path beside production; they are a safer rehearsal for the same constraints the operator will face later.
+          </p>
+        </article>
+      </section>
+
+      <section class="glyph-backtest-panel" aria-label="Backtest visual summary">
+        <div class="backtest-toolbar">
+          <span>SOXL Growth v2.4.5 Tuned Warded</span>
+          <span>240mo</span>
+          <span>Alpaca</span>
+        </div>
+        <div class="backtest-metrics">
+          <strong>Final $8,774</strong>
+          <strong>CAGR 93.2%</strong>
+          <strong>Max DD 55.4%</strong>
+          <strong>Ann.Vol 59.9%</strong>
+        </div>
+        <div class="backtest-chart" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <div class="drawdown-chart" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </section>
+
+      <section class="project-layout glyph-closing-section">
+        <article class="detail-panel">
+          <h2>Why it matters as a product system</h2>
+          <p>
+            Glyph keeps the mythic language where it helps the operator reason about roles, but the product is built around
+            practical guarantees: who owns capital, what strategy wants exposure, which risk control blocked a plan, whether
+            the broker state reconciled, and where proceeds go after harvest or deallocation.
+          </p>
+        </article>
+        <article class="detail-panel">
+          <h2>What I built toward</h2>
+          <p>
+            A UI where aggressive autonomous planning can exist beside conservative execution law. The Oracle can be ambitious,
+            Watchers can scout constantly, and Rituals can express strategy, but Wards, High Seal, Manifestation, ownership,
+            reconciliation, and Chronicle keep the system inspectable.
           </p>
         </article>
       </section>
