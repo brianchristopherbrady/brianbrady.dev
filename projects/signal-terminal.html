@@ -68,6 +68,48 @@
         </article>
       </section>
 
+      <section class="flow-diagram-section" aria-labelledby="signal-flow-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Output flow</p>
+            <h2 id="signal-flow-title">Shell rhythm stays intact while output becomes structured UI.</h2>
+          </div>
+          <p>
+            The host owns privileged bridges and data access. Signal Terminal owns the transcript experience: command input,
+            typed output validation, rich rendering, and a prompt that resumes under the result.
+          </p>
+        </div>
+        <div class="diagram-board" aria-label="Signal Terminal command and output flow">
+          <div class="diagram-flow diagram-flow-five">
+            <article class="diagram-node node-cyan">
+              <span>Command</span>
+              <h3>User asks in shell</h3>
+              <p>Normal terminal input remains the primary interaction surface.</p>
+            </article>
+            <article class="diagram-node node-blue">
+              <span>Bridge</span>
+              <h3>Host resolves access</h3>
+              <p>Data, files, model calls, and VM execution stay behind host-owned adapters.</p>
+            </article>
+            <article class="diagram-node node-purple">
+              <span>Type</span>
+              <h3>Output is validated</h3>
+              <p>Tables, charts, JSON, markdown, and graph specs pass through typed render contracts.</p>
+            </article>
+            <article class="diagram-node node-amber">
+              <span>Render</span>
+              <h3>Transcript gets richer</h3>
+              <p>Structured UI blocks appear inline without turning the terminal into a dashboard.</p>
+            </article>
+            <article class="diagram-node node-green">
+              <span>Resume</span>
+              <h3>Prompt continues</h3>
+              <p>The next command starts directly beneath the output, preserving terminal flow.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="project-layout">
         <article class="detail-panel command-panel">
           <h2>Embedding API</h2>

@@ -83,6 +83,49 @@
         </div>
       </section>
 
+      <section class="flow-diagram-section" aria-labelledby="fabric-architecture-flow-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Architecture diagram</p>
+            <h2 id="fabric-architecture-flow-title">One implementation contract fans out to every client surface.</h2>
+          </div>
+          <p>
+            The Web Component owns behavior. Wrappers translate that contract into framework ergonomics. Documentation,
+            auditing, and migration tooling keep the whole system from drifting as product teams adopt it.
+          </p>
+        </div>
+        <div class="diagram-board diagram-board-wide" aria-label="Fabric UX component architecture flow">
+          <div class="diagram-flow diagram-flow-four">
+            <article class="diagram-node node-cyan">
+              <span>01</span>
+              <h3>Design intent</h3>
+              <p>Specs, tokens, accessibility expectations, states, slots, and product behavior.</p>
+            </article>
+            <article class="diagram-node node-blue">
+              <span>02</span>
+              <h3>Web Component</h3>
+              <p>Source-of-truth runtime contract: DOM, events, parts, forms, focus, and styling hooks.</p>
+            </article>
+            <article class="diagram-node node-purple">
+              <span>03</span>
+              <h3>Thin wrappers</h3>
+              <p>React and Angular expose the same behavior without becoming separate implementations.</p>
+            </article>
+            <article class="diagram-node node-green">
+              <span>04</span>
+              <h3>Product clients</h3>
+              <p>Fabric Web, Fabric Copilot, and Power BI surfaces consume stable reusable primitives.</p>
+            </article>
+          </div>
+          <div class="diagram-support-grid" aria-label="Architecture support systems">
+            <span>Storybook and docs</span>
+            <span>Checklist Auditor</span>
+            <span>DevKit migration plans</span>
+            <span>Release evidence</span>
+          </div>
+        </div>
+      </section>
+
       <section class="devkit-infrastructure" aria-labelledby="repo-contains-title">
         <p class="kicker">Repository architecture</p>
         <h2 id="repo-contains-title">What the repo contains</h2>

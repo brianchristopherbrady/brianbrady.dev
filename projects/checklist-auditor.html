@@ -57,6 +57,48 @@
         </div>
       </section>
 
+      <section class="flow-diagram-section" aria-labelledby="auditor-flow-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Audit pipeline</p>
+            <h2 id="auditor-flow-title">The checklist becomes a repeatable repair loop.</h2>
+          </div>
+          <p>
+            Instead of a reviewer manually comparing every artifact, the auditor walks the component contract, identifies
+            drift, applies deterministic fixes where possible, and leaves reviewable findings where judgment is needed.
+          </p>
+        </div>
+        <div class="diagram-board" aria-label="Checklist Auditor audit and repair flow">
+          <div class="diagram-flow diagram-flow-five">
+            <article class="diagram-node node-cyan">
+              <span>Scan</span>
+              <h3>Read every surface</h3>
+              <p>Source, options, exports, wrappers, Storybook, docs, metadata, and release files.</p>
+            </article>
+            <article class="diagram-node node-amber">
+              <span>Compare</span>
+              <h3>Detect drift</h3>
+              <p>Find missing APIs, stale docs, invalid controls, wrapper gaps, and inventory mismatches.</p>
+            </article>
+            <article class="diagram-node node-purple">
+              <span>Repair</span>
+              <h3>Apply safe fixes</h3>
+              <p>Regenerate docs, add exports, normalize options, and refresh generated contracts.</p>
+            </article>
+            <article class="diagram-node node-blue">
+              <span>Review</span>
+              <h3>Surface judgment calls</h3>
+              <p>Escalate ambiguous component behavior, unsupported examples, or API decisions.</p>
+            </article>
+            <article class="diagram-node node-green">
+              <span>Protect</span>
+              <h3>Keep migration clean</h3>
+              <p>Ship a catalog that humans and agents can consume without rediscovering hidden drift.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="project-layout">
         <article class="detail-panel">
           <h2>What it solved</h2>

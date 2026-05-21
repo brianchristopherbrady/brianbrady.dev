@@ -45,6 +45,21 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy-block">
+          <div class="hero-motion-field" aria-hidden="true">
+            <div class="scope">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="metric-strip">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
           <p class="kicker">Frontend systems / Web Components / AI workflows</p>
           <h1 id="hero-title">Interface systems that hold up under product pressure.</h1>
           <p class="hero-copy">
@@ -57,36 +72,6 @@
             <a class="button" href="mailto:hello@brianbrady.dev">Email</a>
           </div>
         </div>
-
-        <aside class="signal-deck" aria-label="Animated contribution field">
-          <div class="deck-topline">
-            <span>overview</span>
-            <strong>live</strong>
-          </div>
-          <dl class="stats" aria-label="Contribution snapshot">
-            <div>
-              <dt>3</dt>
-              <dd>active Fluent UI PRs</dd>
-            </div>
-            <div>
-              <dt>11y</dt>
-              <dd>from bots to component platforms</dd>
-            </div>
-          </dl>
-          <div class="scope" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="metric-strip" aria-hidden="true">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </aside>
       </section>
 
       <section class="marquee" aria-label="Practice areas">
@@ -113,7 +98,7 @@
           </figure>
           <div class="about-copy">
             <p>
-              I am a 36-year-old UX Engineer at Microsoft working in the Fabric ecosystem. I focus on component architecture,
+              I am a <span class="dynamic-age" data-birthdate="1990-11-14">35</span>-year-old UX Engineer at Microsoft working in the Fabric ecosystem. I focus on component architecture,
               UI infrastructure, design systems, and AI-assisted development workflows. Most of my work lives between design
               intent and production code: tokens, components, wrappers, examples, validation, documentation, and the tools
               that keep all of it aligned.

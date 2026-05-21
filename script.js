@@ -8,6 +8,34 @@ let deviceScale = 1;
 let points = [];
 let pointer = { x: 0.5, y: 0.5, active: false };
 
+function calculateAge(birthDate, today = new Date()) {
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const birthdayThisYear = new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+
+  if (today < birthdayThisYear) {
+    age -= 1;
+  }
+
+  return age;
+}
+
+function updateDynamicAge() {
+  const ageElement = document.querySelector(".dynamic-age[data-birthdate]");
+
+  if (!ageElement) {
+    return;
+  }
+
+  const [year, month, day] = ageElement.dataset.birthdate.split("-").map(Number);
+  const birthDate = new Date(year, month - 1, day);
+
+  if (Number.isNaN(birthDate.getTime())) {
+    return;
+  }
+
+  ageElement.textContent = calculateAge(birthDate).toString();
+}
+
 function resize() {
   deviceScale = Math.min(window.devicePixelRatio || 1, 2);
   width = window.innerWidth;
@@ -19,6 +47,7 @@ function resize() {
   context.setTransform(deviceScale, 0, 0, deviceScale, 0, 0);
 
   const count = Math.max(48, Math.floor((width * height) / 23000));
+updateDynamicAge();
   points = Array.from({ length: count }, (_, index) => ({
     x: (Math.sin(index * 98.23) * 0.5 + 0.5) * width,
     y: (Math.cos(index * 41.91) * 0.5 + 0.5) * height,
