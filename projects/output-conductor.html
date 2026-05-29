@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Output Conductor | brianbrady.dev</title>
+    <meta name="description" content="Conductor is a real-time observability dashboard for Output.ai workflow executions — traces, costs, evaluators, and timeline swimlanes rendered in a virtualized React interface." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="../index.html">Home</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="project-hero">
+        <p class="kicker">React 19 / TypeScript / virtualized observability UI</p>
+        <h1>Output Conductor</h1>
+        <p>
+          A visual workflow execution monitor and debugger for Output.ai pipelines. Real-time traces, cost analytics,
+          evaluator results, and execution timelines — all rendered through a performant, virtualized interface that
+          handles thousands of workflow runs without breaking a sweat.
+        </p>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>What it does</h2>
+          <p>
+            Conductor gives developers instant insight into their AI pipelines. It renders execution lists, step-by-step
+            detail panels, timeline swimlanes, and trace tables — all backed by virtual scrolling so the UI stays fast
+            with 500+ executions and 2,000+ traces loaded simultaneously.
+          </p>
+          <ul class="detail-list compact-detail-list">
+            <li>Virtualized execution list via <code>@tanstack/react-virtual</code>.</li>
+            <li>Step-by-step detail with traces, evaluations, retries, and cache state.</li>
+            <li>Gantt-style timeline swimlanes grouped by workflow type.</li>
+            <li>Virtualized trace table across LLM calls, HTTP requests, tool invocations, and evaluations.</li>
+            <li>Analytics dashboard with cost trends, provider breakdown, and daily execution charts.</li>
+            <li>Real-time filtering: search, status, and workflow filters with instant response.</li>
+          </ul>
+        </article>
+        <article class="detail-panel">
+          <h2>Design decisions</h2>
+          <ul class="detail-list">
+            <li>UI virtualization renders only visible rows for smooth performance at scale.</li>
+            <li>Split-pane master-detail layout with animated width transitions via Framer Motion.</li>
+            <li>Progressive disclosure: step cards show summary, expand inline for traces and evaluations.</li>
+            <li>Status-driven color system — emerald/indigo/red/amber mapped consistently across components.</li>
+            <li>Dark theme built for developer tools with zinc-950 backgrounds and high-contrast data.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="flow-diagram-section" aria-labelledby="conductor-flow-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Execution flow</p>
+            <h2 id="conductor-flow-title">From pipeline run to actionable insight in a single view.</h2>
+          </div>
+          <p>
+            Workflow executions stream in, each step is traced, costs are aggregated, evaluators run their checks,
+            and the developer gets a clear picture without switching context.
+          </p>
+        </div>
+        <div class="diagram-board" aria-label="Conductor execution observation flow">
+          <div class="diagram-flow diagram-flow-five">
+            <article class="diagram-node node-cyan">
+              <span>Ingest</span>
+              <h3>Executions stream in</h3>
+              <p>Workflow runs arrive with full step graphs and metadata.</p>
+            </article>
+            <article class="diagram-node node-blue">
+              <span>Trace</span>
+              <h3>Every call is logged</h3>
+              <p>LLM calls, HTTP requests, tool invocations, and evaluator results.</p>
+            </article>
+            <article class="diagram-node node-purple">
+              <span>Render</span>
+              <h3>Virtualized display</h3>
+              <p>Only visible rows render — thousands of items stay smooth.</p>
+            </article>
+            <article class="diagram-node node-amber">
+              <span>Analyze</span>
+              <h3>Costs and trends</h3>
+              <p>Recharts surfaces cost trends, provider breakdown, and daily patterns.</p>
+            </article>
+            <article class="diagram-node node-green">
+              <span>Debug</span>
+              <h3>Drill into failures</h3>
+              <p>Expand any step to inspect retries, cache hits, and evaluator output.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel command-panel">
+          <h2>Tech stack</h2>
+          <div class="command-stack two-column-commands">
+            <pre><code>React 19 + TypeScript</code></pre>
+            <pre><code>Vite 8</code></pre>
+            <pre><code>Tailwind CSS 4</code></pre>
+            <pre><code>Framer Motion</code></pre>
+            <pre><code>Recharts</code></pre>
+            <pre><code>@tanstack/react-virtual</code></pre>
+            <pre><code>Vitest + Testing Library</code></pre>
+            <pre><code>Lucide React</code></pre>
+          </div>
+        </article>
+        <article class="detail-panel command-panel">
+          <h2>Run locally</h2>
+          <div class="command-stack">
+            <pre><code>git clone https://github.com/brianchristopherbrady/output-conductor.git</code></pre>
+            <pre><code>cd output-conductor</code></pre>
+            <pre><code>npm install</code></pre>
+            <pre><code>npm run dev</code></pre>
+            <pre><code>npm run test:run  # 34 tests</code></pre>
+          </div>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Architecture</h2>
+          <ul class="detail-list">
+            <li><code>components/dashboard/</code> — ExecutionList (virtualized), ExecutionDetail.</li>
+            <li><code>components/timeline/</code> — TimelineView swimlane visualization.</li>
+            <li><code>components/traces/</code> — TracesView virtualized trace table.</li>
+            <li><code>components/analytics/</code> — AnalyticsPanel with Recharts metrics.</li>
+            <li><code>hooks/</code> — useWorkflowData for state management.</li>
+            <li><code>data/</code> — Mock generators matching the Output.ai schema.</li>
+          </ul>
+        </article>
+        <article class="detail-panel">
+          <h2>Why it belongs</h2>
+          <p>
+            Conductor is the same instinct applied to observability: take a complex data domain (AI pipeline telemetry),
+            give it a typed schema, render it through a virtualized UI that handles real-world scale, and make the whole
+            thing navigable enough that a developer can diagnose a failure in seconds instead of minutes.
+          </p>
+          <div class="inline-link-row">
+            <a class="case-link" href="https://brianchristopherbrady.github.io/output-conductor/" target="_blank" rel="noopener">Live Demo</a>
+            <a class="case-link" href="https://github.com/brianchristopherbrady/output-conductor" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
