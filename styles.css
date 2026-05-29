@@ -2863,3 +2863,17 @@ body.top-marquee-hidden .top-marquee {
   color: rgba(255,255,255,0.5);
   background: rgba(0,0,0,0.3);
 }
+
+/* ─── Conductor flow fix: align connector line with dots, soften gradient ─── */
+.conductor-flow::before {
+  top: -1px;
+}
+.conductor-flow .diagram-node::after {
+  display: none;
+}
+.conductor-board {
+  background:
+    radial-gradient(ellipse at 8% 16%, rgba(19, 230, 208, 0.06), transparent 32rem),
+    linear-gradient(90deg, rgba(57, 78, 140, 0.08) 1px, transparent 1px) 0 0 / 120px 100%,
+    linear-gradient(180deg, rgba(8, 12, 19, 0.3), transparent);
+}
