@@ -2838,3 +2838,28 @@ body.top-marquee-hidden .top-marquee {
     grid-template-columns: 1fr;
   }
 }
+/* ─── Project gallery ─── */
+.project-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 clamp(1rem, 4vw, 6rem);
+  margin-bottom: 3rem;
+}
+.project-gallery figure {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.project-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.project-gallery figcaption {
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  background: rgba(0,0,0,0.3);
+}
