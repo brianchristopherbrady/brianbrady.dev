@@ -5,7 +5,10 @@
   "description": "Portfolio website for brianbrady.dev.",
   "scripts": {
     "start": "npx serve .",
-    "check": "node --check script.js"
+    "check": "node --check script.js && node --check scripts/export-pdf.mjs",
+    "export:pdf": "node scripts/export-pdf.mjs",
+    "export:pdf:index": "node scripts/export-pdf.mjs index.html dist/index.pdf",
+    "export:pdf:contact": "node scripts/export-pdf.mjs contact.html dist/contact.pdf"
   },
   "keywords": [
     "portfolio",
@@ -14,5 +17,8 @@
     "web-components"
   ],
   "author": "Brian Brady",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "playwright": "^1.52.0"
+  }
 }

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Output Conductor | brianbrady.dev</title>
-    <meta name="description" content="Conductor is a real-time observability dashboard for Output.ai workflow executions — traces, costs, evaluators, and timeline swimlanes rendered in a virtualized React interface." />
+    <meta name="description" content="Conductor is a real-time observability dashboard for Output.ai workflow executions — a design engineering case study covering my story, how I think about interfaces, and a product I'd build on Output.ai." />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="project-page">
@@ -23,19 +23,104 @@
 
     <main>
       <section class="project-hero">
-        <p class="kicker">React 19 / TypeScript / virtualized observability UI</p>
+        <p class="kicker">Design engineering case study / Output.ai application</p>
         <h1>Output Conductor</h1>
         <p>
-          A visual workflow execution monitor and debugger for Output.ai pipelines. Real-time traces, cost analytics,
-          evaluator results, and execution timelines — all rendered through a performant, virtualized interface that
-          handles thousands of workflow runs without breaking a sweat.
+          A real-time workflow observatory for Output.ai. This is both a functional prototype and a written case for why
+          I'm the right design engineer for Output — covering my story, how I think about the craft, and the product I'd build.
         </p>
+        <div class="inline-link-row">
+          <a class="case-link" href="https://brianchristopherbrady.github.io/output-conductor/" target="_blank" rel="noopener">Live Demo</a>
+          <a class="case-link" href="https://github.com/brianchristopherbrady/output-conductor" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </section>
+
+      <!-- PART 1: MY STORY -->
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Part 1: My Story</h2>
+          <p>
+            I build things that make complexity disappear. The thread running through my career is a refusal to accept that
+            powerful tools must be hard to use. I've shipped production interfaces for data platforms, AI systems, and developer
+            tools — and in every case, the challenge wasn't making something work, it was making something that <em>feels</em>
+            effortless while doing genuinely hard things under the hood.
+          </p>
+        </article>
+        <article class="detail-panel">
+          <h2>How I Think About Design Engineering</h2>
+          <p>
+            Design engineering lives at the exact intersection where system architecture meets human attention. It's not
+            "frontend that looks good" — it's the discipline of encoding complex domain logic into spatial, temporal, and visual
+            patterns that a person can parse in milliseconds.
+          </p>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Principles in practice</h2>
+          <ul class="detail-list">
+            <li><strong>Performance is a design decision.</strong> When rendering 2,000 trace entries, virtualization isn't a technical optimization — it's a UX decision that determines whether your tool feels alive or dead. I reach for <code>@tanstack/react-virtual</code> the same way a designer reaches for whitespace.</li>
+            <li><strong>Animation communicates state.</strong> A panel sliding in at 200ms says "this is a child of what you just clicked." A pulse on a status dot says "this is still happening." These aren't decorations — they're information channels.</li>
+            <li><strong>Progressive disclosure is respect.</strong> Not everyone needs LLM token counts at first glance. But the engineer debugging a failed workflow at 2am absolutely does. The art is layering information so both users feel served.</li>
+            <li><strong>Type safety is design infrastructure.</strong> When every workflow execution, step, trace, and evaluation has a typed interface, the component tree becomes self-documenting. TypeScript isn't overhead — it's the contract between data and pixels.</li>
+          </ul>
+        </article>
+        <article class="detail-panel">
+          <h2>What I've Built</h2>
+          <ul class="detail-list">
+            <li><strong>120+ component design system</strong> — Microsoft Fabric UX Web Components with Angular and React wrappers for enterprise Power BI migration.</li>
+            <li><strong>Agentic AI design-to-code tooling</strong> — Figma intake, component parity checking, migration planning, and issue preparation for Fabric UX adoption.</li>
+            <li><strong>Visualization systems</strong> that render thousands of data points with sub-16ms frame times using virtualization and canvas rendering.</li>
+            <li><strong>Real-time monitoring interfaces</strong> with WebSocket-driven state, optimistic updates, and animated transitions that make live data feel tangible.</li>
+            <li><strong>Developer tools</strong> where the interface itself teaches you the underlying system — where the UI is the documentation.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="flow-diagram-section" aria-labelledby="why-output-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Why Output</p>
+            <h2 id="why-output-title">The gap between "your workflow ran" and "you understand what happened" is a design engineering problem.</h2>
+          </div>
+          <p>
+            Output.ai is building the infrastructure layer for AI workflows — Temporal-backed orchestration, multi-provider LLM
+            abstraction, durable execution with full tracing. That's an incredible foundation. But infrastructure only realizes
+            its value when developers can <em>see</em> what's happening inside it. You're building the Rails of AI workflows,
+            and Rails needed a console, a profiler, and a way to understand what's happening. You need someone who can design
+            those experiences with the same rigor that went into the execution engine. That's me.
+          </p>
+        </div>
+      </section>
+
+      <!-- PART 2: THE PRODUCT -->
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Part 2: A Product I'd Build — Conductor</h2>
+          <p>
+            <strong>Conductor</strong> is the missing observability layer that transforms Output's JSON trace logs into a visual,
+            interactive debugging experience. Today, Output stores rich execution data — every LLM call, HTTP request, evaluator
+            result, retry, and cost — in <code>logs/runs/</code> as JSON files. Claude Code can analyze them. But humans need
+            something faster. They need to glance at a dashboard and know: <em>Are my workflows healthy? What's failing? What's
+            expensive? Where should I look?</em>
+          </p>
+          <p>Conductor answers those questions in milliseconds.</p>
+        </article>
+        <article class="detail-panel">
+          <h2>Who It's For</h2>
+          <ul class="detail-list">
+            <li><strong>AI engineers in development</strong> — iterating on workflows, checking if prompt changes improved evaluator scores, debugging why a step is retrying.</li>
+            <li><strong>Team leads</strong> — monitoring cost trends across workflows, catching anomalies before they become incidents.</li>
+            <li><strong>New Output users</strong> — learning how the framework works by watching their workflows execute step by step, with every trace visible and explained.</li>
+          </ul>
+        </article>
       </section>
 
       <section class="project-gallery" aria-label="Screenshots">
         <figure>
           <img src="../static/output-conductor-executions.png" alt="Conductor execution list showing 500 workflow runs with status badges, token counts, cost, and step progress bars" loading="lazy" />
-          <figcaption>Virtualized execution list with real-time status, cost, and step progress</figcaption>
+          <figcaption>Virtualized execution feed — real-time status, cost, and step progress at a glance</figcaption>
         </figure>
         <figure>
           <img src="../static/output-conductor-pipeline.png" alt="Pipeline flow view showing a failed insurance verify workflow with step nodes for lookupPlan, checkEligibility, validateCoverage, and returnBenefits" loading="lazy" />
@@ -49,30 +134,44 @@
 
       <section class="project-layout">
         <article class="detail-panel">
-          <h2>What it does</h2>
+          <h2>The Experience: Execution Feed</h2>
           <p>
-            Conductor gives developers instant insight into their AI pipelines. It renders execution lists, step-by-step
-            detail panels, timeline swimlanes, and trace tables — all backed by virtual scrolling so the UI stays fast
-            with 500+ executions and 2,000+ traces loaded simultaneously.
+            The primary view is a real-time feed of workflow executions sorted by recency. Each card shows the workflow name with a
+            status badge (pulse animation for running), step completion as a segmented progress bar, key metrics (duration, tokens,
+            cost), and relative time. The list is <strong>virtualized</strong> — rendering only visible items. You scroll through
+            500+ executions at 60fps using <code>@tanstack/react-virtual</code> with 10-item overscan.
           </p>
-          <ul class="detail-list compact-detail-list">
-            <li>Virtualized execution list via <code>@tanstack/react-virtual</code>.</li>
-            <li>Step-by-step detail with traces, evaluations, retries, and cache state.</li>
-            <li>Gantt-style timeline swimlanes grouped by workflow type.</li>
-            <li>Virtualized trace table across LLM calls, HTTP requests, tool invocations, and evaluations.</li>
-            <li>Analytics dashboard with cost trends, provider breakdown, and daily execution charts.</li>
-            <li>Real-time filtering: search, status, and workflow filters with instant response.</li>
-          </ul>
         </article>
         <article class="detail-panel">
-          <h2>Design decisions</h2>
-          <ul class="detail-list">
-            <li>UI virtualization renders only visible rows for smooth performance at scale.</li>
-            <li>Split-pane master-detail layout with animated width transitions via Framer Motion.</li>
-            <li>Progressive disclosure: step cards show summary, expand inline for traces and evaluations.</li>
-            <li>Status-driven color system — emerald/indigo/red/amber mapped consistently across components.</li>
-            <li>Dark theme built for developer tools with zinc-950 backgrounds and high-contrast data.</li>
-          </ul>
+          <h2>Split-Pane Detail Inspector</h2>
+          <p>
+            Click any execution and the detail panel slides in from the right, animated with Framer Motion. The list compresses
+            to 50% width. Inside: a metrics bar (duration, tokens, cost, model), a step timeline with connection lines and
+            status-colored borders, inline trace expansion showing every LLM call's model/tokens/cost, and evaluator results
+            with pass/fail, confidence scores, and the LLM judge's reasoning. Progressive disclosure — steps show summary by
+            default. Expand for traces. Expand further for prompt/response pairs. You never see more than you need.
+          </p>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Timeline Swimlanes</h2>
+          <p>
+            A Gantt-chart-inspired view where workflows are grouped into horizontal lanes by type. Each execution appears as a
+            colored bar positioned along a time axis. You can instantly see which workflows run most frequently, cluster patterns
+            (are your newsletter digests all firing at the same time?), and duration distribution (long bars = slow executions
+            worth investigating). Hover for details. Click to jump to execution detail.
+          </p>
+        </article>
+        <article class="detail-panel">
+          <h2>Trace Table</h2>
+          <p>
+            A flat, filterable table of every trace across all executions. 2,000+ rows, virtualized. Columns: type (color-coded
+            badge), name, workflow, step, duration, status. Filter by trace type to find all LLM calls, or all failed HTTP
+            requests, or all evaluator invocations. This view is for the engineer who knows something is wrong and needs to find
+            it fast.
+          </p>
         </article>
       </section>
 
@@ -119,10 +218,32 @@
       </section>
 
       <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Design Principles Applied</h2>
+          <ul class="detail-list">
+            <li><strong>Information density without overwhelm.</strong> Every view packs significant data into the viewport, but uses whitespace, typography hierarchy, and color coding to keep it scannable. The zinc-950 dark theme with emerald/indigo/red/amber creates instant pattern recognition.</li>
+            <li><strong>Performance as a feature.</strong> Virtualization means the app stays responsive regardless of data volume. No pagination. No "load more." Just scroll. Pagination breaks flow state — this is a deliberate design choice.</li>
+            <li><strong>Consistency breeds learnability.</strong> The same status colors, badge components, and metric formatting appear everywhere. Learn it once in the execution list, recognize it instantly in the trace table.</li>
+            <li><strong>Animated transitions as wayfinding.</strong> When you click an execution, the detail panel animates in and the list compresses. This spatial metaphor tells you where the detail came from and how to dismiss it.</li>
+          </ul>
+        </article>
+        <article class="detail-panel">
+          <h2>Analytics Dashboard</h2>
+          <ul class="detail-list">
+            <li><strong>Cost over time</strong> — stacked area chart showing input cost vs output cost trends.</li>
+            <li><strong>Workflow distribution</strong> — horizontal bar chart showing which workflows run most.</li>
+            <li><strong>Provider breakdown</strong> — donut chart showing Anthropic vs OpenAI vs Azure usage.</li>
+            <li><strong>Daily execution volume</strong> — bar chart with trend visibility.</li>
+            <li><strong>Summary metrics</strong> with week-over-week comparisons.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="project-layout">
         <article class="detail-panel command-panel">
           <h2>Tech stack</h2>
           <div class="command-stack two-column-commands">
-            <pre><code>React 19 + TypeScript</code></pre>
+            <pre><code>React 19 + TypeScript (strict)</code></pre>
             <pre><code>Vite 8</code></pre>
             <pre><code>Tailwind CSS 4</code></pre>
             <pre><code>Framer Motion</code></pre>
@@ -146,22 +267,25 @@
 
       <section class="project-layout">
         <article class="detail-panel">
-          <h2>Architecture</h2>
+          <h2>What's Next — Production Vision</h2>
           <ul class="detail-list">
-            <li><code>components/dashboard/</code> — ExecutionList (virtualized), ExecutionDetail.</li>
-            <li><code>components/timeline/</code> — TimelineView swimlane visualization.</li>
-            <li><code>components/traces/</code> — TracesView virtualized trace table.</li>
-            <li><code>components/analytics/</code> — AnalyticsPanel with Recharts metrics.</li>
-            <li><code>hooks/</code> — useWorkflowData for state management.</li>
-            <li><code>data/</code> — Mock generators matching the Output.ai schema.</li>
+            <li>Connect to Output's <code>logs/runs/</code> directory via file watcher or API.</li>
+            <li>Real-time streaming of running workflow updates via WebSocket.</li>
+            <li>Prompt diff visualization for A/B testing prompt versions.</li>
+            <li>Evaluator trend charts — is quality improving over time?</li>
+            <li>Ship as an optional <code>@outputai/conductor</code> package that hooks into <code>npx output dev</code>.</li>
           </ul>
         </article>
         <article class="detail-panel">
-          <h2>Why it belongs</h2>
+          <h2>The Thread</h2>
           <p>
-            Conductor is the same instinct applied to observability: take a complex data domain (AI pipeline telemetry),
-            give it a typed schema, render it through a virtualized UI that handles real-world scale, and make the whole
-            thing navigable enough that a developer can diagnose a failure in seconds instead of minutes.
+            Output.ai is building the framework that makes AI workflows professional, durable, and observable from day one.
+            Conductor is the visual layer that makes that observability <em>human</em> — not just machine-readable traces,
+            but spatial, temporal, interactive understanding.
+          </p>
+          <p>
+            That's what I do. I take systems with incredible depth and give them surfaces that invite exploration. I make
+            complex things feel simple without losing any of the power underneath. I want to do that for Output.
           </p>
           <div class="inline-link-row">
             <a class="case-link" href="https://brianchristopherbrady.github.io/output-conductor/" target="_blank" rel="noopener">Live Demo</a>

@@ -1,0 +1,149 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Brian Brady Resume</title>
+<style>
+  @page { size: Letter; margin: 0; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #f4f4f2;
+    color: #171717;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8.25pt;
+    line-height: 1.13;
+  }
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    background: #fff;
+    padding: 0.30in 0.43in 0.28in;
+  }
+  header { border-bottom: 1.6px solid #171717; padding-bottom: 6px; margin-bottom: 7px; }
+  .name { font-size: 22pt; letter-spacing: -0.8px; font-weight: 800; line-height: 1; margin: 0; }
+  .headline { margin: 5px 0 4px; font-size: 9.1pt; font-weight: 700; color: #2c2c2c; }
+  .contact { font-size: 8.0pt; color: #333; }
+  section { margin-top: 6px; }
+  h2 {
+    margin: 0 0 3px;
+    font-size: 7.8pt;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #111;
+    border-bottom: 1px solid #deded9;
+    padding-bottom: 2px;
+  }
+  p { margin: 0; }
+  .summary { font-size: 8.15pt; line-height: 1.17; }
+  .skills { font-size: 7.75pt; line-height: 1.12; }
+  .role { margin-top: 4.5px; break-inside: avoid; }
+  .role:first-of-type { margin-top: 0; }
+  .role-head { display: flex; justify-content: space-between; gap: 14px; align-items: baseline; margin-bottom: 2px; }
+  .title { font-size: 8.85pt; font-weight: 800; }
+  .date { font-size: 7.75pt; color: #4b4b4b; white-space: nowrap; font-weight: 700; }
+  ul { margin: 1px 0 0 12px; padding: 0; }
+  li { margin: 0 0 1.35px; padding-left: 1px; }
+  .compact li { margin-bottom: 0.9px; }
+  .education { font-weight: 700; }
+  .muted { font-weight: 400; color: #333; }
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1 class="name">Brian Brady</h1>
+      <div class="headline">Senior Software Engineer | Frontend Platform | AI Systems | Design Systems</div>
+      <div class="contact">Seattle, WA | 321-403-9720 | brdybrn@gmail.com</div>
+    </header>
+
+    <section>
+      <h2>Professional Summary</h2>
+      <p class="summary">Frontend and platform engineer specializing in browser-native Web Components, design systems, and AI-assisted developer tooling. Currently building shared UI platforms for Microsoft Fabric and Power BI, including a Fabric UX ecosystem spanning 160+ components, React and Angular wrappers, design-to-code automation, deterministic validation, API generation, accessibility standards, and production-safe agentic AI workflows.</p>
+    </section>
+
+    <section>
+      <h2>Core Skills</h2>
+      <p class="skills"><strong>Frontend:</strong> Web Components, React, Angular, TypeScript, JavaScript, CSS/Sass, FASTElement, Vue.js, HTML<br>
+      <strong>Design Systems:</strong> Fluent UI, Microsoft Fabric, Power BI, Design Tokens, Storybook, Figma, API Design, Wrapper Architecture<br>
+      <strong>Quality & Platform:</strong> Accessibility, WCAG, ARIA, Testing, Vitest, CI/CD, Build Systems, Developer Experience, Platform Engineering<br>
+      <strong>AI Tooling:</strong> Agentic AI Tooling, Agentic AI Workflows, Design-to-Code Systems, PR Review Automation, LLM-Friendly Schemas</p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <article class="role">
+        <div class="role-head"><div class="title">UX Engineer II | Microsoft</div><div class="date">May 2023 - Present</div></div>
+        <ul>
+          <li>Lead design-to-code platform initiatives for Microsoft Fabric and Power BI, reducing design-to-production handoff time and improving component selection accuracy.</li>
+          <li>Build and scale the Fabric UX component platform spanning 160+ browser-native components, shared UI primitives, React and Angular wrappers, automated validation pipelines, and shared design-system infrastructure.</li>
+          <li>Deliver end-to-end component work across the library, including new components, large-scale refactors, accessibility fixes, wrapper parity, testing, Storybook coverage, API design, production hardening, dropdowns, wizards, dialogs, menus, cards, accordions, form controls, multiview, pagination, and breadcrumb.</li>
+          <li>Designed and executed a component audit program covering 50+ component surfaces across Web Components and React wrappers; authored 473 test cases across 49 files and resolved gaps in TSDoc, attribute reflection, Storybook coverage, testing, accessibility, and wrapper parity.</li>
+          <li>Built an API Generator and automated violation rules engine that produce LLM-friendly component schemas and repeatable audit workflows connecting source code, documentation, tests, React wrappers, examples, and validation into a durable quality system.</li>
+          <li>Architected Fabric UX DevKit, an AI-powered developer platform for design-to-code generation, component parity analysis, PR review automation, framework-aware examples, unit test generation, Figma API integration, repository-context analysis, telemetry evaluation, and skill-driven routing.</li>
+          <li>Stabilized developer infrastructure by fixing Vitest hangs, React wrapper pipeline flakiness, security dependency issues, yalc workflows, theme switching, pre-commit guards, scaffolded React app issues, and CI timeouts.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <div class="role-head"><div class="title">UX Engineer I | Microsoft</div><div class="date">Sep 2020 - May 2023</div></div>
+        <ul class="compact">
+          <li>Developed and shipped Fluent UI components and patterns used by Microsoft 365 and Office products, translating Figma specs into production React and Web Component code.</li>
+          <li>Contributed to Fluent UI design-system consistency, accessibility, WCAG compliance, build pipelines, Storybook documentation, and developer-facing component sites.</li>
+          <li>Implemented keyboard interaction, focus management, high-contrast behavior, wrapper parity, and production quality improvements across component libraries.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <div class="role-head"><div class="title">Design Engineer (Contract) | Microsoft</div><div class="date">Jan 2020 - Sep 2020</div></div>
+        <ul class="compact">
+          <li>Partnered with designers to prototype and validate UI concepts for internal Microsoft tools, building rapid HTML, CSS, and JavaScript prototypes and reusable prototype components that accelerated early-stage design iteration.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <div class="role-head"><div class="title">Application Engineer | PrizeLogic</div><div class="date">2019 - 2020</div></div>
+        <ul class="compact">
+          <li>Developed PrizeLogic Engage, a client-facing customer insights and promotion-management platform for monitoring and managing live promotions.</li>
+          <li>Built Vue.js and TypeScript workflows enabling enterprise clients to manage promotional content, reporting, teams, user access, and campaign data; partnered with product, design, and account teams to translate promotion requirements into production features.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <div class="role-head"><div class="title">Interactive Developer | PrizeLogic</div><div class="date">2017 - 2019</div></div>
+        <ul class="compact">
+          <li>Built internal tooling and customer-facing web applications using Vue.js, React, TypeScript, and .NET-backed systems.</li>
+          <li>Improved development speed by roughly 33% through automation, workflow standardization, and reusable implementation patterns; developed a label-generation application contributing approximately $100K in annual revenue.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <div class="role-head"><div class="title">GIS Engineer | YMPO</div><div class="date">2015 - 2016</div></div>
+        <ul class="compact">
+          <li>Developed GIS and planning web applications using the ArcGIS JavaScript API, including traffic accident data-entry tooling and a citizen infrastructure complaint map.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <div class="role-head"><div class="title">Web Master | AAA National Branch</div><div class="date">2014 - 2015</div></div>
+        <ul class="compact">
+          <li>Maintained 75+ AAA club websites and designed reusable templates adopted across 20+ club websites, generating approximately $135K in profit.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <p class="education">B.A. in Digital Media <span class="muted">| University of Central Florida | 2011 - 2014</span></p>
+    </section>
+  </main>
+</body>
+</html>
