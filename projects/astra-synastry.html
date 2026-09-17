@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Astra Synastry | brianbrady.dev</title>
+    <meta name="description" content="A full-stack astrology workbench I built for natal charts, relationship comparisons, interactive data visualization, and optional AI interpretation." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="../index.html">Home</a>
+        <a href="../projects.html">Projects</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="project-hero">
+        <p class="kicker">Interactive charting / domain modeling / AI interpretation</p>
+        <h1>Astra Synastry</h1>
+        <p>
+          A full-stack astrology workbench I built to make natal charts and relationship comparisons easier to explore.
+          It brings chart wheels, cross-aspect grids, compatibility breakdowns, and optional AI interpretation into one
+          interface, with a separate calculation engine underneath the visual layer.
+        </p>
+        <a class="button primary" href="https://github.com/brianchristopherbrady/astra-synastry" target="_blank" rel="noopener noreferrer">View repo</a>
+      </section>
+
+      <section class="project-gallery" aria-label="Astra Synastry screenshots">
+        <figure>
+          <a href="../static/astra-synastry-report.png" target="_blank" rel="noopener noreferrer" aria-label="Open synastry report screenshot at full resolution">
+            <img src="../static/astra-synastry-report.png" alt="Synastry report with two sets of key placements, a comparison chart wheel, compatibility scores, and element and modality balance charts" width="2730" height="1797" decoding="async" />
+          </a>
+          <figcaption>Synastry report: chart comparison, key placements, and compatibility breakdowns in one view.</figcaption>
+        </figure>
+        <figure>
+          <a href="../static/astra-synastry-dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="Open dashboard screenshot at full resolution">
+            <img src="../static/astra-synastry-dashboard.png" alt="Astra Synastry dashboard with a birth-data form, saved people, and selectors for generating a relationship report" width="2385" height="1365" loading="lazy" decoding="async" />
+          </a>
+          <figcaption>Dashboard: birth-data entry, saved profiles, and relationship report creation.</figcaption>
+        </figure>
+        <figure>
+          <a href="../static/astra-synastry-transits.png" target="_blank" rel="noopener noreferrer" aria-label="Open transit chart screenshot at full resolution">
+            <img src="../static/astra-synastry-transits.png" alt="Current-transit chart wheel showing zodiac signs, planetary glyphs, retrograde markers, and colored aspect lines" width="1575" height="1632" loading="lazy" decoding="async" />
+          </a>
+          <figcaption>Current transits: planetary positions and aspect relationships arranged around the zodiac.</figcaption>
+        </figure>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>System shape</h2>
+          <ul class="detail-list">
+            <li>Separates shared TypeScript contracts, an astrology calculation engine, an Express API, and a React interface in a pnpm monorepo.</li>
+            <li>Uses Swiss Ephemeris through sweph for planetary calculations, alongside house, aspect, and aspect-pattern logic.</li>
+            <li>Supports natal, synastry, composite, and Davison charts, with transits and secondary progressions in the engine.</li>
+            <li>Keeps OpenAI and Anthropic interpretation behind a server-side provider abstraction, with a mock fallback when keys are absent.</li>
+          </ul>
+        </article>
+        <article class="detail-panel visual-panel">
+          <div class="mind-map" aria-hidden="true">
+            <span>Birth data</span>
+            <span>Positions</span>
+            <span>Aspects</span>
+            <span>Balance</span>
+            <span>Charts</span>
+            <span>Interpretation</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Why it belongs</h2>
+          <p>
+            The interesting interface problem is making a dense domain inspectable. A relationship report needs to connect
+            two charts, their individual placements, and the patterns between them without reducing everything to a single
+            number. I built linked visual summaries and detail views so someone can move from the overall picture to the
+            specific placements behind it.
+          </p>
+        </article>
+        <article class="detail-panel">
+          <h2>Materials</h2>
+          <ul class="detail-list">
+            <li>React, TypeScript, Vite, React Router, and Tailwind CSS.</li>
+            <li>SVG chart wheels and aspect grids, with Recharts for balance and house-occupancy visualizations.</li>
+            <li>Express and Prisma, with SQLite as the default local database.</li>
+            <li>Swiss Ephemeris, OpenStreetMap Nominatim, geo-tz, and Vitest engine tests.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Interaction model</h2>
+          <ul class="detail-list">
+            <li>Compare two people in a synastry biwheel, with controls to show or hide chart points.</li>
+            <li>Inspect key placements, element and modality balance, and house occupancy through focused detail dialogs.</li>
+            <li>Read the cross-aspect grid alongside composite and Davison charts for different views of the relationship.</li>
+            <li>Move into a dedicated current-transits view or open the AI chat drawer for further interpretation.</li>
+          </ul>
+        </article>
+        <article class="detail-panel">
+          <h2>Calculation and interpretation</h2>
+          <p>
+            Compatibility comes from an explicit weighted model: cross-chart aspects contribute to communication, emotional,
+            passion, stability, growth, and conflict categories according to point significance and aspect exactness.
+            The AI layer adds narrative interpretation; it does not calculate the chart or determine those scores.
+          </p>
+          <p>
+            The scores are astrological heuristics, not scientifically validated predictions of relationship outcomes.
+            Keeping that distinction visible matters as much as making the calculations repeatable.
+          </p>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Engine boundaries</h2>
+          <p>
+            The default ephemeris mode uses the built-in Moshier approximation without external data files. Chiron requires
+            additional ephemeris files and is omitted when those are unavailable. The repo includes engine tests against
+            astronomical reference points and synastry scenarios, keeping calculation checks separate from the interface.
+          </p>
+        </article>
+        <article class="detail-panel">
+          <h2>Prototype boundary</h2>
+          <p>
+            This is a local, single-user application with no authentication, not a hosted multi-user service. AI features
+            require configured provider keys for live responses; the rest of the charting workflow remains usable without
+            an AI account. Public deployment would need authentication and appropriate protection for stored birth data.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
