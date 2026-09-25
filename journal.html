@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Journal | Brian Brady</title>
+    <meta name="description" content="Repository notes on accessibility mapping, itinerary design, agent evidence, and recoverable booking workflows." />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="standalone-page journal-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="./index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections"><a href="./index.html">Home</a><a href="./projects.html">Projects</a><a class="active" aria-current="page" href="./journal.html">Journal</a><a href="./contact.html">Contact</a></nav>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="project-hero page-hero">
+        <p class="kicker">Repository notes / September 2026</p>
+        <h1>Journal</h1>
+        <p>Notes on the decisions behind the projects: what the data can support, where a workflow needs a boundary, and how an interface makes that boundary understandable.</p>
+      </section>
+      <nav class="journal-index" aria-label="Journal entries">
+        <a class="case-link" href="#blipmap">blipmap</a><a class="case-link" href="#elsewhere">Elsewhere</a><a class="case-link" href="#glasshouse">Glasshouse</a><a class="case-link" href="#counterpart-assistant">Care Booking</a>
+      </nav>
+      <article class="journal-entry" id="blipmap" aria-labelledby="blipmap-title">
+        <p class="kicker"><time datetime="2026-09-20">September 20, 2026</time> / blipmap / repository note</p>
+        <h2 id="blipmap-title">An observation is not an accessibility promise</h2>
+        <p>A map pin can look authoritative long before its data deserves that authority. blipmap treats a Patch as an observation with category, severity, status, and notes. A record can help someone review a trip without claiming the route is usable for them.</p>
+        <p>Path Check asks a deliberately narrower question: which recorded observations lie within 15 meters of this drawn line? It does not prove continuity, legal access, or the absence of barriers. Likewise, refreshing the source dataset does not make every underlying report recent.</p>
+        <p>The same discipline shapes routing. Mobility aids are not a shortcut for explicit access requirements. When the provider cannot honor a requirement, the application explains the limitation and does not generate a route. The useful design decision is preserving the user's constraint, even when that means returning less.</p>
+        <a class="case-link" href="./projects/blipmap.html">Explore blipmap</a>
+      </article>
+      <article class="journal-entry" id="elsewhere" aria-labelledby="elsewhere-title">
+        <p class="kicker"><time datetime="2026-09-20">September 20, 2026</time> / Elsewhere / repository note</p>
+        <h2 id="elsewhere-title">A different visual lens, the same day</h2>
+        <p>Elsewhere explores three distinct visual directions without making three different planners. Field Journal, Nocturne, and Civic Modern share the same itinerary model and component identity, with independent light and dark modes.</p>
+        <p>That separation is tested by ordinary planning work. A person can explore places, reorder stops, edit timing, inspect the day map, and undo a change. Switching a visual lens should not reset the itinerary or change what a control means. On a narrow screen, the layout becomes separate views rather than a compressed desktop split.</p>
+        <p>Source quality also shapes the workflow. The live city calendar is useful for discovery, but its entries lack the verified coordinates and visit durations needed by the planner. Linking out is more honest than inventing those fields. An event can be real without being ready to schedule.</p>
+        <a class="case-link" href="./projects/elsewhere.html">Explore Elsewhere</a>
+      </article>
+      <article class="journal-entry" id="glasshouse" aria-labelledby="glasshouse-title">
+        <p class="kicker"><time datetime="2026-09-20">September 20, 2026</time> / Glasshouse / repository note</p>
+        <h2 id="glasshouse-title">Configured is not executed</h2>
+        <p>Agent observability begins with a vocabulary problem. A skill may be available in a repository, configured for an agent, loaded during a session, referenced by text, or supported by execution evidence. Those are different facts, not interchangeable versions of a used flag.</p>
+        <p>Glasshouse's domain contracts retain those distinctions alongside evidence source and confidence. Its drift model describes expected-versus-observed differences without turning every unexpected file or tool into a claim about intent.</p>
+        <p>The project is still a foundation: schemas, parsing, and server routes are present; the inspected web source is not implemented. That makes the immediate design work unusually concrete. Before drawing a convincing trace, the system needs a defensible account of what each connection means and what remains unknown.</p>
+        <a class="case-link" href="./projects/glasshouse.html">Explore Glasshouse</a>
+      </article>
+      <article class="journal-entry" id="counterpart-assistant" aria-labelledby="counterpart-title">
+        <p class="kicker"><time datetime="2026-09-20">September 20, 2026</time> / Counterpart Assistant / repository note</p>
+        <h2 id="counterpart-title">Recovery belongs in the booking flow</h2>
+        <p>Care Booking makes a small fictional domain carry real interaction questions. What happens when the chosen slot is taken during confirmation? When a transient failure leaves the result uncertain? When staff book on behalf of someone else?</p>
+        <p>The demo exposes those situations through deterministic scenarios. A retry of the same action is not the same thing as choosing a new slot. Idempotency protects the former; conflict handling supports the latter. Rescheduling has another obligation: retain the existing appointment unless the replacement succeeds.</p>
+        <p>Identity needs similar precision. The person operating the interface and the patient receiving care can differ. A new record also does not establish an existing relationship with the practice. Keeping these concepts separate makes the screen's promises match the domain, even in a browser-only demonstration with simulated sign-in.</p>
+        <a class="case-link" href="./projects/counterpart-assistant.html">Explore Care Booking</a>
+      </article>
+    </main>
+    <footer class="site-footer"><span>brianbrady.dev</span><a href="./projects.html">All projects</a></footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

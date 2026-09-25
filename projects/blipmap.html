@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>blipmap | Brian Brady</title>
+    <meta name="description" content="blipmap: a local-first street-level accessibility notebook for pedestrian observations, path checks, and non-driving trip planning." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections"><a href="../index.html">Home</a><a class="active" aria-current="true" href="../projects.html">Projects</a><a href="../contact.html">Contact</a></nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="project-hero">
+        <p class="kicker">Local-first mapping / accessibility observations / development project</p>
+        <h1>blipmap</h1>
+        <p>A street-level accessibility notebook for recording pedestrian conditions, reviewing nearby barriers, and planning non-driving trips. Its central record is a Patch: a location with category, severity, status, notes, and an optional local photo.</p>
+        <p>The interface separates observations from promises. A recorded curb ramp, a nearby barrier, and a provider-generated route each carry different evidence. Missing observations must never become an implied guarantee of access.</p>
+        <div class="project-actions" role="group" aria-label="Project links">
+          <a class="button primary" href="https://github.com/brianchristopherbrady/blipmap" target="_blank" rel="noopener noreferrer">View repo</a>
+          <a class="button" href="https://brianchristopherbrady.github.io/blipmap/" target="_blank" rel="noopener noreferrer">View demo</a>
+        </div>
+      </section>
+      <div class="project-gallery gallery-editorial" role="group" aria-label="blipmap route screenshot">
+        <figure>
+          <a href="../static/blipmap_route.png" aria-label="View full-resolution blipmap route screenshot"><img src="../static/blipmap-route-detail.jpg" width="1600" height="924" decoding="async" alt="A blue route through downtown Seattle beside an eight-barrier warning and a notice that accessibility is not guaranteed." /></a>
+          <figcaption>Route review keeps nearby observations and uncertainty beside the path. Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.</figcaption>
+        </figure>
+      </div>
+      <section class="project-layout">
+        <article class="detail-panel"><h2>From street to record</h2><p>Guest users can add and edit patches, browse by category and severity, undo a deletion, and import or export validated GeoJSON. Records and local photos stay in IndexedDB, making the observation workflow independent of account creation.</p><p>A small Seattle baseline supplies source-derived observations. Exact original-report links provide context without copying third-party street imagery or treating the nearest image as evidence.</p></article>
+        <article class="detail-panel"><h2>A path is not a guarantee</h2><p>Path Check finds recorded observations within 15 meters of a drawn path. Trip planning requests walking, wheelchair, hiking, or cycling directions through OpenRouteService.</p><p>Mobility aids and access requirements are separate settings. Unsupported routing requirements block generation with an explanation instead of silently relaxing the user's constraints.</p></article>
+      </section>
+      <section class="project-layout">
+        <article class="detail-panel"><h2>Storage boundaries</h2><p>Optional Supabase accounts save explicitly submitted private preferences and favorite destinations. Signing in does not upload patches or make browser-local records private to that account.</p><p>Local-first is not fully offline: map tiles, search, routing, source refreshes, and account operations still depend on external services.</p></article>
+        <article class="detail-panel"><h2>Current limits</h2><p>This is a development project, not live GPS navigation or an emergency service. Observation age, limited source coverage, and incomplete provider data matter. Critical access needs require independent confirmation.</p><p>The current public Nominatim autocomplete integration needs a provider-compliant replacement or revised interaction before public deployment.</p><div class="inline-link-row"><a class="case-link" href="../journal.html#blipmap">Read the journal note</a><a class="case-link" href="../projects.html">All projects</a></div></article>
+      </section>
+      <div class="project-gallery gallery-editorial gallery-details" role="group" aria-label="blipmap observation details">
+        <figure>
+          <a href="../static/blipmap_dialog.png" aria-label="View full-resolution blipmap evidence screenshot"><img src="../static/blipmap-evidence-detail.jpg" width="976" height="845" decoding="async" alt="Observation detail showing category, severity, status, and a Project Sidewalk source notice stating that current conditions are unverified." /></a>
+          <figcaption>Evidence stays attached to the observation: source, status, and the distinction between a report and current conditions.</figcaption>
+        </figure>
+        <figure>
+          <a href="../static/blipmap_tooltip.png" aria-label="View full-resolution blipmap cluster screenshot"><img src="../static/blipmap-cluster-detail.jpg" width="843" height="460" decoding="async" alt="A cluster of five map patches with a tooltip offering to show the group's issues." /></a>
+          <figcaption>Cluster counts keep dense observations scannable before opening individual reports. Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.</figcaption>
+        </figure>
+      </div>
+    </main>
+    <footer class="site-footer"><span>brianbrady.dev</span><a href="../journal.html">Journal</a></footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

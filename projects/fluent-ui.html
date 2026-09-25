@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <canvas id="signal-field" aria-hidden="true"></canvas>
     <div class="ambient-grid" aria-hidden="true"></div>
     <div class="noise" aria-hidden="true"></div>
@@ -16,12 +17,13 @@
       <a class="brand" href="../index.html">brianbrady.dev</a>
       <nav class="nav-links" aria-label="Sections">
         <a href="../index.html">Home</a>
-        <a href="../projects.html">Projects</a>
+        <a class="active" href="../projects.html" aria-current="true">Projects</a>
         <a href="../contact.html">Contact</a>
       </nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="project-hero">
         <p class="kicker">Design systems / Web Components</p>
         <h1>Microsoft Fluent UI Web Components</h1>
@@ -30,7 +32,10 @@
           large Microsoft design-system codebase. The useful work is often small and exact: a focus state, a Storybook case,
           a wrapper shape, a state that finally behaves under pressure.
         </p>
-        <a class="button primary" href="https://github.com/microsoft/fluentui/pulls?q=is%3Apr+author%3Abrianchristopherbrady" target="_blank" rel="noopener noreferrer">View public PRs</a>
+        <div class="project-actions" role="group" aria-label="Project links">
+          <a class="button primary" href="https://github.com/microsoft/fluentui" target="_blank" rel="noopener noreferrer">View repo</a>
+          <a class="button" href="https://github.com/microsoft/fluentui/pulls?q=is%3Apr+author%3Abrianchristopherbrady" target="_blank" rel="noopener noreferrer">View public PRs</a>
+        </div>
       </section>
 
       <section class="project-layout">

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <canvas id="signal-field" aria-hidden="true"></canvas>
     <div class="ambient-grid" aria-hidden="true"></div>
     <div class="noise" aria-hidden="true"></div>
@@ -16,10 +17,11 @@
       <a class="brand" href="../index.html">brianbrady.dev</a>
       <nav class="nav-links" aria-label="Sections">
         <a href="../index.html">Home</a>
-        <a href="../projects.html">Projects</a>
+        <a class="active" href="../projects.html" aria-current="true">Projects</a>
         <a href="../contact.html">Contact</a>
       </nav>
-      <div class="header-actions" aria-label="Status">
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
+      <div class="header-actions" role="group" aria-label="Status">
         <span>Glyph lab</span>
       </div>
     </header>
@@ -33,7 +35,7 @@
       <span>HIGH SEAL <strong>EXECUTE</strong></span>
     </section>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="project-hero glyph-hero">
         <p class="kicker">Trading operations / AI planning / broker-safe execution</p>
         <h1>Glyph trading operations platform</h1>
@@ -43,7 +45,19 @@
           language is dark fantasy; the implementation underneath is boring on purpose: FastAPI, Python services, JSON/JSONL
           ledgers, Prefect schedules, Alpaca adapters, and Wards that can say no.
         </p>
+        <div class="project-actions" role="group" aria-label="Project links">
+          <a class="button primary" href="https://www.glyph.trading" target="_blank" rel="noopener noreferrer">Visit live site</a>
+        </div>
       </section>
+
+      <div class="project-gallery" role="group" aria-label="Glyph dashboard screenshot">
+        <figure>
+          <a href="../static/glyph_homescreen_fullpage.jpeg" aria-label="View full-resolution Glyph dashboard screenshot">
+            <img src="../static/glyph-dashboard-detail.jpg" width="1600" height="840" decoding="async" alt="Glyph dashboard with account equity, cash, an equity curve, ritual allocations, and positions for a demonstration account." />
+          </a>
+          <figcaption>Dashboard with demo account data: account totals, strategy allocations, and positions share one operator view. Displayed returns are simulated, not investment results.</figcaption>
+        </figure>
+      </div>
 
       <section class="project-layout glyph-system-intro">
         <article class="detail-panel">
@@ -60,7 +74,7 @@
           </p>
         </article>
         <article class="detail-panel visual-panel">
-          <div class="glyph-hierarchy" aria-label="Glyph product hierarchy">
+          <div class="glyph-hierarchy" role="group" aria-label="Glyph product hierarchy">
             <span>Alpaca Account</span>
             <span>Vault</span>
             <span>Ritual</span>
@@ -80,7 +94,7 @@
             <h2 id="operator-terminal-title">A serious trading terminal wearing dark fantasy armor.</h2>
           </div>
         </div>
-        <div class="glyph-terminal-board" aria-label="Glyph operator surfaces">
+        <div class="glyph-terminal-board" role="group" aria-label="Glyph operator surfaces">
           <div class="terminal-topbar">
             <strong>Glyph</strong>
             <span>MARKET CLOSED</span>
@@ -188,7 +202,7 @@
             <img src="../static/glyph-planning-pipeline.svg" alt="Glyph planning pipeline with Watchers, Omens, Wards, Oracle routing, planning, Manifestation, Castings, and Ritual outputs." />
           </figure>
         </div>
-        <div class="glyph-pipeline" aria-label="AI Mind to broker-safe execution pipeline">
+        <div class="glyph-pipeline" role="group" aria-label="AI Mind to broker-safe execution pipeline">
           <span>Market data</span>
           <span>Watchers emit Omens</span>
           <span>Research adds evidence</span>
@@ -222,6 +236,27 @@
           </ul>
         </article>
       </section>
+
+      <div class="project-gallery" role="group" aria-label="Glyph machine state screenshots">
+        <figure>
+          <a href="../static/glyph_machinestate_fullpage.jpeg" aria-label="View full-resolution Glyph planning screenshot">
+            <img src="../static/glyph-plan-detail.jpg" width="1600" height="427" decoding="async" alt="The Plan panel showing three ritual allocation targets, a planned cash reserve, and a Ward passed status." />
+          </a>
+          <figcaption>Plan: demo strategy targets remain distinct from broker positions. Passing a Ward does not mean an order has filled.</figcaption>
+        </figure>
+        <figure>
+          <a href="../static/glyph_machinestate_fullpage.jpeg" aria-label="View full-resolution Glyph execution screenshot">
+            <img src="../static/glyph-execution-detail.jpg" width="1600" height="197" decoding="async" alt="Execution State panel with one open demo order, zero completed orders, and a planned QQQ purchase." />
+          </a>
+          <figcaption>Execution: a demo rebalance separates planned orders, open orders, and completed capital movement.</figcaption>
+        </figure>
+        <figure>
+          <a href="../static/glyph_machinestate_fullpage.jpeg" aria-label="View full-resolution Glyph account screenshot">
+            <img src="../static/glyph-account-detail.jpg" width="1600" height="377" decoding="async" alt="Current Account panel marked Broker Simulated, with QQQ, GLD, TLT, and cash allocations." />
+          </a>
+          <figcaption>Current account: holdings and cash are reported separately from the plan. This captured account is explicitly broker-simulated.</figcaption>
+        </figure>
+      </div>
 
       <figure class="glyph-product-shot glyph-product-shot-wide">
         <img src="../static/glyph-ritual-review.svg" alt="Glyph Ritual review cards showing reconciled strategy sleeves, live brokerage status, PnL, explanations, and backtest controls." />

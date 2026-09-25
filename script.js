@@ -1,13 +1,20 @@
 const canvas = document.querySelector("#signal-field");
-const context = canvas.getContext("2d");
+const context = canvas?.getContext("2d");
 const root = document.documentElement;
+const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+const motionControl = document.querySelector("#pause-motion");
+let motionPaused = motionPreference.matches;
+let animationFrame = null;
+
+try {
+  motionPaused ||= localStorage.getItem("portfolio-motion-paused") === "true";
+} catch {}
 
 let width = 0;
 let height = 0;
 let deviceScale = 1;
 let points = [];
 let pointer = { x: 0.5, y: 0.5, active: false };
-let lastScrollY = window.scrollY;
 const navigationLinks = Array.from(document.querySelectorAll(".nav-links a[href^='#']"));
 const navigationTargets = navigationLinks
   .map((link) => ({
@@ -44,19 +51,6 @@ function updateDynamicAge() {
   ageElement.textContent = calculateAge(birthDate).toString();
 }
 
-function updateTopMarquee() {
-  const currentScrollY = window.scrollY;
-  const isScrollingDown = currentScrollY > lastScrollY;
-
-  if (currentScrollY <= 8 || currentScrollY < lastScrollY) {
-    document.body.classList.remove("top-marquee-hidden");
-  } else if (currentScrollY > 48 && isScrollingDown) {
-    document.body.classList.add("top-marquee-hidden");
-  }
-
-  lastScrollY = Math.max(currentScrollY, 0);
-}
-
 function updateActiveNavigation() {
   if (!navigationTargets.length) {
     return;
@@ -73,10 +67,16 @@ function updateActiveNavigation() {
 
   navigationLinks.forEach((link) => {
     link.classList.toggle("active", link === activeTarget.link);
+    if (link === activeTarget.link) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
   });
 }
 
 function resize() {
+  if (!context) return;
   deviceScale = Math.min(window.devicePixelRatio || 1, 2);
   width = window.innerWidth;
   height = window.innerHeight;
@@ -135,10 +135,23 @@ function draw(time) {
   context.lineWidth = 2;
   context.stroke();
 
-  requestAnimationFrame(draw);
+  animationFrame = !motionPaused && !document.hidden ? requestAnimationFrame(draw) : null;
+}
+
+function syncMotion() {
+  if (animationFrame !== null) cancelAnimationFrame(animationFrame);
+  animationFrame = null;
+  root.dataset.motion = motionPaused ? "paused" : "running";
+  if (motionControl) {
+    motionControl.checked = motionPaused;
+    motionControl.disabled = motionPreference.matches;
+    motionControl.closest("label").title = motionPreference.matches ? "Motion paused by your system preference" : "";
+  }
+  if (context && !document.hidden) draw(performance.now());
 }
 
 function updatePointer(event) {
+  if (motionPaused) return;
   pointer = {
     x: event.clientX / Math.max(width, 1),
     y: event.clientY / Math.max(height, 1),
@@ -150,17 +163,42 @@ function updatePointer(event) {
 
 window.addEventListener("resize", () => {
   resize();
+  syncMotion();
   updateActiveNavigation();
 });
 window.addEventListener("pointermove", updatePointer);
 window.addEventListener("pointerleave", () => {
   pointer.active = false;
 });
-window.addEventListener("scroll", updateTopMarquee, { passive: true });
 window.addEventListener("scroll", updateActiveNavigation, { passive: true });
+document.addEventListener("visibilitychange", syncMotion);
+motionPreference.addEventListener("change", (event) => {
+  motionPaused = event.matches;
+  try {
+    motionPaused ||= localStorage.getItem("portfolio-motion-paused") === "true";
+  } catch {}
+  syncMotion();
+});
+
+if (motionControl) {
+  motionControl.closest("label").hidden = false;
+  motionControl.addEventListener("change", () => {
+    motionPaused = motionControl.checked;
+    try {
+      localStorage.setItem("portfolio-motion-paused", String(motionPaused));
+    } catch {}
+    syncMotion();
+  });
+}
+
+const header = document.querySelector(".site-header");
+if (header) {
+  new ResizeObserver(() => {
+    root.style.setProperty("--header-height", `${header.getBoundingClientRect().height}px`);
+  }).observe(header);
+}
 
 updateDynamicAge();
-updateTopMarquee();
 updateActiveNavigation();
 resize();
-requestAnimationFrame(draw);
+syncMotion();

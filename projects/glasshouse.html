@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Glasshouse | Brian Brady</title>
+    <meta name="description" content="Glasshouse: an in-progress domain and API foundation for observing agentic software-development workflows and distinguishing evidence from inference." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections"><a href="../index.html">Home</a><a class="active" aria-current="true" href="../projects.html">Projects</a><a href="../contact.html">Contact</a></nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="project-hero">
+        <p class="kicker">Agent observability / evidence modeling / in progress</p>
+        <h1>Glasshouse</h1>
+        <p>An observability foundation for agentic software-development workflows. The current repository contains TypeScript domain contracts, a frontmatter parser, and Fastify API routes backed by Prisma.</p>
+        <p>The central question is what an agent actually did, and what evidence supports that account. A configured skill is not necessarily a loaded skill; a declared workflow is not proof of the steps a run executed.</p>
+      </section>
+      <section class="project-layout">
+        <article class="detail-panel"><h2>Evidence before presentation</h2><p>Facts carry a source and a confidence level: observed, strong, inferred, or unknown. Skill evidence separately distinguishes availability, configuration, loading, references, and execution evidence.</p><p>These distinctions belong in the data contract before they become badges or diagrams. Collapsing them into a single used/not-used flag would make an eventual interface more certain than its evidence.</p></article>
+        <article class="detail-panel"><h2>Run-level inspection</h2><p>Server routes cover runs, nested traces, events, file operations, agent handoffs, skill usage, tool calls, logs, GitHub activity, metrics, and stored drift findings. Telemetry endpoints validate incoming events against shared Zod schemas before persistence.</p><p>Drift types describe differences such as unexpected files, new tools, missing expected steps, and different outputs. A difference is not itself evidence of malicious intent.</p></article>
+      </section>
+      <section class="project-layout">
+        <article class="detail-panel"><h2>Architecture direction</h2><p>Shared domain and parser packages separate interpretation from transport. Run traces and evidence metadata provide a foundation for connecting configuration, runtime activity, and resulting artifacts.</p><p>The portfolio value here is the modeling work: making uncertainty and provenance explicit enough that a future visualization can remain inspectable.</p></article>
+        <article class="detail-panel"><h2>Current status</h2><p>This is an in-progress foundation, not a shipped observability dashboard. The inspected web source directory is empty. Existing API and schema code does not establish a functioning ingestion deployment or an automatic drift-detection engine.</p><p>No production readiness, live integration, or end-to-end runtime verification is claimed here.</p><div class="inline-link-row"><a class="case-link" href="../journal.html#glasshouse">Read the journal note</a><a class="case-link" href="../projects.html">All projects</a></div></article>
+      </section>
+    </main>
+    <footer class="site-footer"><span>brianbrady.dev</span><a href="../journal.html">Journal</a></footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

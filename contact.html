@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body class="standalone-page contact-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <canvas id="signal-field" aria-hidden="true"></canvas>
     <div class="ambient-grid" aria-hidden="true"></div>
     <div class="noise" aria-hidden="true"></div>
@@ -25,22 +26,23 @@
       <nav class="nav-links" aria-label="Sections">
         <a href="./index.html">Home</a>
         <a href="./projects.html">Projects</a>
-        <a class="active" href="./contact.html">Contact</a>
+        <a class="active" href="./contact.html" aria-current="page">Contact</a>
       </nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="contact-console" aria-labelledby="contact-title">
         <div class="contact-console-copy">
           <p class="kicker">Contact</p>
-          <h1 id="contact-title">Send a clear signal.</h1>
+          <h1 id="contact-title">Let's build something that holds up.</h1>
           <p>
             I am best matched with teams building design systems, Web Components, frontend infrastructure, accessibility-minded
             product UI, or AI-assisted engineering workflows.
           </p>
-          <strong class="contact-address">brdybrn@gmail.com</strong>
+          <a class="contact-address" href="mailto:brdybrn@gmail.com">brdybrn@gmail.com</a>
         </div>
-        <div class="contact-console-panel" aria-label="Signal details">
+        <div class="contact-console-panel" role="group" aria-label="Signal details">
           <span>CHANNEL</span>
           <strong>Email</strong>
           <span>BEST FIT</span>
@@ -66,6 +68,7 @@
           </p>
           <div class="inline-link-row">
             <a class="case-link" href="./projects.html">Projects</a>
+            <a class="case-link" href="./resume.html">Resume</a>
             <a class="case-link" href="https://github.com/brianchristopherbrady" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a class="case-link" href="https://medium.com/@brian.christopher.brady" target="_blank" rel="noopener noreferrer">Medium</a>
           </div>

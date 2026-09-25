@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <canvas id="signal-field" aria-hidden="true"></canvas>
     <div class="ambient-grid" aria-hidden="true"></div>
     <div class="noise" aria-hidden="true"></div>
@@ -16,12 +17,13 @@
       <a class="brand" href="../index.html">brianbrady.dev</a>
       <nav class="nav-links" aria-label="Sections">
         <a href="../index.html">Home</a>
-        <a href="../projects.html">Projects</a>
+        <a class="active" href="../projects.html" aria-current="true">Projects</a>
         <a href="../contact.html">Contact</a>
       </nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="project-hero">
         <p class="kicker">React / probability / deck building</p>
         <h1>HandForge</h1>
@@ -30,7 +32,9 @@
           I wanted the tool to make it possible to paste a deck, tag cards into meaningful groups, define the question that
           mattered, and see whether the odds actually moved instead of guessing whether a ratio change was worth the slot.
         </p>
-        <a class="button primary" href="https://github.com/brianchristopherbrady/collin" target="_blank" rel="noopener noreferrer">View repo</a>
+        <div class="project-actions" role="group" aria-label="Project links">
+          <a class="button primary" href="https://github.com/brianchristopherbrady/collin" target="_blank" rel="noopener noreferrer">View repo</a>
+        </div>
       </section>
 
       <section class="project-layout">

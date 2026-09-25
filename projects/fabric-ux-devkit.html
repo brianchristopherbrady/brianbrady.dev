@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <canvas id="signal-field" aria-hidden="true"></canvas>
     <div class="ambient-grid" aria-hidden="true"></div>
     <div class="noise" aria-hidden="true"></div>
@@ -16,12 +17,13 @@
       <a class="brand" href="../index.html">brianbrady.dev</a>
       <nav class="nav-links" aria-label="Sections">
         <a href="../index.html">Home</a>
-        <a href="../projects.html">Projects</a>
+        <a class="active" href="../projects.html" aria-current="true">Projects</a>
         <a href="../contact.html">Contact</a>
       </nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="project-hero devkit-hero">
         <p class="kicker">Microsoft Fabric UX / agentic development / design-to-code infrastructure</p>
         <h1>Microsoft Fabric UX Agentic AI Design-to-Code DevKit</h1>
@@ -100,7 +102,7 @@
           for Microsoft Fabric UX. The same artifact that blocks an unsafe replacement can become a feature request, a bug
           report, a wrapper issue, a documentation fix, or a new documented adoption pattern.
         </p>
-        <div class="evidence-grid" aria-label="Evidence contract contents">
+        <div class="evidence-grid" role="group" aria-label="Evidence contract contents">
           <article>
             <span>Inputs</span>
             <p>Figma nodes, screenshots, product requirements, repo packages, imports, wrappers, and current UI behavior.</p>
@@ -153,7 +155,7 @@
           Microsoft Fabric UX skills, defining parity-analysis gates, packaging agent-ready instructions, validating package
           contents, adding OAuth and Figma intake flows, and wiring the system into Azure DevOps issue creation.
         </p>
-        <div class="built-grid" aria-label="DevKit technical contributions">
+        <div class="built-grid" role="group" aria-label="DevKit technical contributions">
           <article>
             <span>CLI</span>
             <p>Commands for diagnostics, Figma intake, parity analysis, migration planning, auth status, and issue previews.</p>
@@ -218,7 +220,7 @@
           </p>
         </div>
 
-        <div class="migration-flow" aria-label="Migration flow for replacing existing components with Microsoft Fabric UX Web Components">
+        <div class="migration-flow" role="group" aria-label="Migration flow for replacing existing components with Microsoft Fabric UX Web Components">
           <article class="migration-node node-build">
             <span>Build</span>
             <h3>Microsoft Fabric UX teams create components</h3>

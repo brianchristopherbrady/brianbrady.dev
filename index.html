@@ -48,6 +48,7 @@
     </script>
   </head>
   <body>
+    <a class="skip-link" href="#top">Skip to content</a>
     <canvas id="signal-field" aria-hidden="true"></canvas>
     <div class="ambient-grid" aria-hidden="true"></div>
     <div class="noise" aria-hidden="true"></div>
@@ -55,49 +56,41 @@
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="./index.html" aria-label="brianbrady.dev home">brianbrady.dev</a>
       <nav class="nav-links" aria-label="Sections">
-        <a class="active" href="./index.html">Home</a>
+        <a class="active" href="./index.html" aria-current="page">Home</a>
         <a href="./projects.html">Projects</a>
         <a href="./contact.html">Contact</a>
       </nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
     </header>
 
-    <section class="marquee top-marquee" aria-label="Practice areas">
-      <div class="marquee-track">
-        <span>Design systems</span>
-        <span>Component platforms</span>
-        <span>Custom elements</span>
-        <span>AI-assisted development</span>
-        <span>Accessibility expectations</span>
-        <span>Product UI infrastructure</span>
-        <span>Parity review</span>
-        <span>Validation workflows</span>
+    <main id="top" tabindex="-1">
+      <div class="practice-marquee" aria-hidden="true">
+        <div class="practice-marquee-track">
+          <span>Design systems &nbsp; / &nbsp; Component platforms &nbsp; / &nbsp; Custom elements &nbsp; / &nbsp; AI-assisted development &nbsp; / &nbsp; Accessibility expectations &nbsp; / &nbsp; Product UI infrastructure &nbsp; / &nbsp; Parity review &nbsp; / &nbsp; Validation workflows &nbsp; / &nbsp;</span>
+          <span>Design systems &nbsp; / &nbsp; Component platforms &nbsp; / &nbsp; Custom elements &nbsp; / &nbsp; AI-assisted development &nbsp; / &nbsp; Accessibility expectations &nbsp; / &nbsp; Product UI infrastructure &nbsp; / &nbsp; Parity review &nbsp; / &nbsp; Validation workflows &nbsp; / &nbsp;</span>
+        </div>
       </div>
-    </section>
-
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy-block">
+      <section class="section portfolio-intro" aria-labelledby="hero-title">
           <div class="hero-motion-field" aria-hidden="true">
-            <div class="scope">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+            <div class="scope"><span></span><span></span><span></span><span></span></div>
           </div>
-          <p class="kicker">Frontend systems / Web Components / AI workflows</p>
-          <h1 id="hero-title">Interface systems that hold up under product pressure.</h1>
+          <p class="kicker">UX Engineer at Microsoft / Fabric ecosystem</p>
+          <h1 id="hero-title">Brian Brady<span>Design intent. Production reality.</span></h1>
           <p class="hero-copy">
-            I work across design systems, frontend architecture, Web Components, and AI-assisted development.
-            I build tools that reduce drift, remove guesswork, and make good implementation easier.
+            I build interface systems that hold up under product pressure.
+            Design systems, Web Components, and AI-assisted tools that reduce drift,
+            remove guesswork, and make good implementation easier.
           </p>
-          <div class="hero-actions" aria-label="Primary links">
-            <a class="button primary" href="./contact.html">Contact me</a>
-            <a class="button" href="https://github.com/brianchristopherbrady" target="_blank" rel="me noopener noreferrer">GitHub</a>
-            <a class="button" href="https://medium.com/@brian.christopher.brady" target="_blank" rel="me noopener noreferrer">Medium</a>
-            <a class="button" href="mailto:brdybrn@gmail.com">Email</a>
+          <div class="hero-actions" role="group" aria-label="Primary links">
+            <a class="button primary" href="./projects.html">Explore projects <span aria-hidden="true">&#8599;</span></a>
+            <a class="button" href="./contact.html">Contact me</a>
+            <a class="button" href="./resume.html">Resume</a>
           </div>
-          <div class="hero-principles" aria-label="Working principles">
+      </section>
+
+      <section class="section principles-section" aria-labelledby="principles-title">
+          <div class="section-heading"><p class="kicker">Working principles</p><h2 id="principles-title">The details are the system.</h2></div>
+          <div class="hero-principles">
             <article>
               <h3>Component reality</h3>
               <p>Slots, states, wrappers, accessibility APIs, and migration cost matter. Good systems do not pretend otherwise.</p>
@@ -115,7 +108,11 @@
               <p>Specs, examples, docs, and review notes should make the right implementation feel obvious.</p>
             </article>
           </div>
-        </div>
+          <ul class="practice-list" aria-label="Practice areas">
+            <li>Design systems</li><li>Component platforms</li><li>Custom elements</li>
+            <li>AI-assisted development</li><li>Accessibility expectations</li>
+            <li>Product UI infrastructure</li><li>Parity review</li><li>Validation workflows</li>
+          </ul>
       </section>
 
       <section id="about" class="section systems-section" aria-labelledby="systems-title">
@@ -150,11 +147,11 @@
 
       <section id="work" class="section work-section" aria-labelledby="work-title">
         <div class="section-heading">
-          <p class="kicker">Selected work</p>
-          <h2 id="work-title">Selected work.</h2>
+          <p class="kicker">Work</p>
+          <h2 id="work-title">Projects.</h2>
         </div>
 
-        <article class="case-study feature-case">
+        <article class="case-study">
           <div class="case-index">01</div>
           <div class="case-body">
             <h3>Microsoft Fabric UX Web Components</h3>
@@ -359,13 +356,42 @@
           </div>
           <a class="case-link" href="./projects/astra-synastry.html">Open project</a>
         </article>
+          <article class="case-study">
+            <div class="case-index">12</div>
+            <div class="case-body"><h3>Mnemonic Weather Engine</h3><p>A browser-only Three.js AI art prototype and semantic weather map exploring memory, text, and generated atmosphere.</p></div>
+            <a class="case-link" href="./projects/mnemonic-weather-engine.html">Open project</a>
+          </article>
+          <article class="case-study">
+            <div class="case-index">13</div>
+            <div class="case-body"><h3>blipmap</h3><p>A local-first accessibility notebook for pedestrian observations, path checks, and non-driving trips, with explicit limits on what the data can promise.</p></div>
+            <a class="case-link" href="./projects/blipmap.html">Open project</a>
+          </article>
+          <article class="case-study">
+            <div class="case-index">14</div>
+            <div class="case-body"><h3>Elsewhere</h3><p>Seattle discovery and day planning with source-linked places, itinerary editing, a day map, and three design lenses in light and dark modes.</p></div>
+            <a class="case-link" href="./projects/elsewhere.html">Open project</a>
+          </article>
+          <article class="case-study">
+            <div class="case-index">15</div>
+            <div class="case-body"><h3>Glasshouse</h3><p>An in-progress domain and API foundation for agentic workflow observability, preserving evidence provenance, confidence, and expected-versus-observed differences.</p></div>
+            <a class="case-link" href="./projects/glasshouse.html">Open project</a>
+          </article>
+          <article class="case-study">
+            <div class="case-index">16</div>
+            <div class="case-body"><h3>Care Booking / Counterpart Assistant</h3><p>A fictional booking demo with guest, returning-patient, and staff flows, deterministic failure recovery, and FAST Web Components wrapped for React.</p></div>
+            <a class="case-link" href="./projects/counterpart-assistant.html">Open project</a>
+          </article>
       </section>
 
       <section id="writing" class="section writing-section" aria-labelledby="writing-title">
         <div class="section-heading">
           <p class="kicker">Writing</p>
-          <h2 id="writing-title">Notes and essays.</h2>
+          <h2 id="writing-title">Journal and essays.</h2>
         </div>
+        <a class="writing-card" href="./journal.html#blipmap"><span>Journal / blipmap</span><strong>An observation is not an accessibility promise</strong><small>Why a nearby report, a route, and a guarantee of access are different things.</small></a>
+        <a class="writing-card" href="./journal.html#elsewhere"><span>Journal / Elsewhere</span><strong>A different visual lens, the same day</strong><small>Three design directions, six themes, and one persistent planning workflow.</small></a>
+        <a class="writing-card" href="./journal.html#glasshouse"><span>Journal / Glasshouse</span><strong>Configured is not executed</strong><small>Modeling agent evidence without making the interface more certain than the data.</small></a>
+        <a class="writing-card" href="./journal.html#counterpart-assistant"><span>Journal / Care Booking</span><strong>Recovery belongs in the booking flow</strong><small>Identity, idempotency, and the difference between retrying and choosing a new slot.</small></a>
         <a class="writing-card" href="https://medium.com/@brian.christopher.brady/the-memo-was-already-a-machine-a9aec4aa2ffa" target="_blank" rel="noopener noreferrer">
           <span>Medium</span>
           <strong>The Memo Was Already A Machine</strong>
@@ -390,7 +416,7 @@
           <p class="contact-note">Best fit: teams building design systems, component libraries, accessibility-minded frontend infrastructure, or AI-assisted engineering workflows.</p>
         </div>
         <div class="contact-actions">
-          <span class="button primary">brdybrn@gmail.com</span>
+          <a class="button primary" href="mailto:brdybrn@gmail.com">brdybrn@gmail.com</a>
           <a class="button" href="https://github.com/brianchristopherbrady" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a class="button" href="https://medium.com/@brian.christopher.brady" target="_blank" rel="noopener noreferrer">Medium</a>
         </div>
@@ -399,6 +425,7 @@
 
     <footer class="site-footer">
       <span>brianbrady.dev</span>
+      <a href="./journal.html">Journal</a>
       <span>frontend systems, component platforms, and AI workflow infrastructure</span>
     </footer>
 

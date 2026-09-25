@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Counterpart Assistant / Care Booking | Brian Brady</title>
+    <meta name="description" content="Counterpart Assistant's Care Booking demo: a fictional appointment-booking workflow exploring identity, conflicts, retries, and Web Component architecture." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections"><a href="../index.html">Home</a><a class="active" aria-current="true" href="../projects.html">Projects</a><a href="../contact.html">Contact</a></nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="project-hero">
+        <p class="kicker">Counterpart Assistant / fictional care-booking demo</p>
+        <h1>Care Booking</h1>
+        <p>The app in the Counterpart Assistant repository is a UX engineering exercise in appointment booking: two locations, six providers, three seeded patients, and two appointment types. The deliberately small domain makes the workflow's decisions visible.</p>
+        <p>Discovery leads through patient identity, review, and confirmation, with distinct new-patient, returning-patient, staff-booking, and sign-in-required scenarios. All patient data is fictional and stored only in the browser.</p>
+        <div class="project-actions" role="group" aria-label="Project links">
+          <a class="button primary" href="https://github.com/brianchristopherbrady/counterpart-assistant" target="_blank" rel="noopener noreferrer">View repo</a>
+        </div>
+      </section>
+      <section class="project-layout">
+        <article class="detail-panel"><h2>Identity without losing context</h2><p>Guest discovery stays open. In the sign-in-required scenario, the gate appears immediately before confirmation and preserves the booking draft. Staff booking keeps the acting staff member distinct from the patient receiving care.</p><p>An established patient relationship is a separate domain fact from merely having a patient record. That distinction matters when newly registered patients move through eligibility checks.</p></article>
+        <article class="detail-panel"><h2>Recovery is part of the flow</h2><p>Deterministic scenarios expose unavailable appointments, a slot taken during confirmation, a transient failure, and slow responses. Idempotency keys protect retries, while conflict recovery offers a fresh slot rather than treating every failure alike.</p><p>Rescheduling preserves the appointment identity and frees the original slot only on success. A failed or stale update must leave the existing appointment intact.</p></article>
+      </section>
+      <section class="project-layout">
+        <article class="detail-panel"><h2>Components and explanation</h2><p>Shared primitives are Web Components built with Microsoft FAST and exposed to React through a wrapper. The in-app study guide explains the actual domain and architecture decisions with diagrams, interactive walkthroughs, and a component gallery.</p><p>Repository tests cover booking invariants, timezone boundaries, scenario recovery, and appointment occupancy. Storybook adds component-level interaction examples.</p></article>
+        <article class="detail-panel"><h2>Demo boundaries</h2><p>There is no real backend, authentication, patient portal, or cross-device synchronization. Simulated sign-in matches a demo patient email; repository calls introduce artificial latency to make pending states visible.</p><p>This is a fictional workflow demonstration, not a clinical service. Its documentation and tests do not constitute a production security or accessibility certification.</p><div class="inline-link-row"><a class="case-link" href="../journal.html#counterpart-assistant">Read the journal note</a><a class="case-link" href="../projects.html">All projects</a></div></article>
+      </section>
+    </main>
+    <footer class="site-footer"><span>brianbrady.dev</span><a href="../journal.html">Journal</a></footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

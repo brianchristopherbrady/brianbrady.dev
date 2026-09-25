@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Elsewhere | Brian Brady</title>
+    <meta name="description" content="Elsewhere: a Seattle discovery and day-planning prototype with source-linked venues, itinerary editing, maps, and six visual theme combinations." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections"><a href="../index.html">Home</a><a class="active" aria-current="true" href="../projects.html">Projects</a><a href="../contact.html">Contact</a></nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="project-hero">
+        <p class="kicker">Seattle discovery / itinerary planning / portfolio prototype</p>
+        <h1>Elsewhere</h1>
+        <p>A Seattle discovery and day-planning app that brings source-linked places, an editable itinerary, and a day map into one workflow. React, TypeScript, Leaflet, and dnd-kit support the interface.</p>
+        <p>Three design lenses, Field Journal, Nocturne, and Civic Modern, each have light and dark modes. The visual identity changes while the same data, component contracts, and itinerary remain intact.</p>
+        <div class="project-actions" role="group" aria-label="Project links">
+          <a class="button primary" href="https://github.com/brianchristopherbrady/elsewhere" target="_blank" rel="noopener noreferrer">View repo</a>
+          <a class="button" href="https://brianchristopherbrady.github.io/elsewhere/" target="_blank" rel="noopener noreferrer">View demo</a>
+        </div>
+      </section>
+      <div class="project-gallery gallery-editorial" role="group" aria-label="Elsewhere discovery screenshot">
+        <figure>
+          <a href="../static/elsewhere_filtering.png" aria-label="View full-resolution Elsewhere discovery screenshot">
+            <img src="../static/elsewhere-filter-detail.jpg" width="1600" height="834" decoding="async" alt="Quiet discovery filter selected above Seattle museums, a library, and a park, with unknown hours and step-free access explicitly labeled." />
+          </a>
+          <figcaption>Discovery by mood: neighborhood, distance, and estimated cost accompany each place. Unknown hours and access remain visible rather than implied.</figcaption>
+        </figure>
+      </div>
+      <section class="project-layout">
+        <article class="detail-panel"><h2>A day that stays editable</h2><p>Add discoveries, reorder stops, adjust timing and duration, review overlap and opening warnings, replace a stop, or undo a change. Pointer dragging has keyboard and explicit move-button alternatives.</p><p>Explore and Day map share the itinerary on desktop. At narrower widths, Explore, My day, and Day map become separate views without losing the current plan. Plans can be shared by URL, copied as text, or downloaded.</p></article>
+        <article class="detail-panel"><h2>Discovery with provenance</h2><p>Curated discoveries use real Seattle places and published sources. A separate live-events view polls the city's official calendar, labels cancellations and stale data, and links to the original listings.</p><p>Live events do not yet enter the planner: the feed lacks verified coordinates and visit durations. Keeping that boundary visible is more useful than pretending every listing is equally plannable.</p></article>
+      </section>
+      <section class="project-layout">
+        <article class="detail-panel"><h2>One system, six themes</h2><p>Semantic tokens separate structural layout from lens-specific presentation. A system inspector exposes computed tokens and container information, while domain utilities handle scheduling and persistence validation.</p><p>The design exercise is not six disconnected skins. It tests whether one component model can retain clear hierarchy, states, and responsive behavior across distinct visual directions.</p></article>
+        <article class="detail-panel"><h2>Current limits</h2><p>Walking times are estimates, not street routing or accessibility guidance. Venue hours and availability require confirmation; photography is labeled illustration rather than proof of a venue's appearance.</p><p>Plans are browser-local. Images, fonts, tiles, and the event feed need network access, and the live calendar endpoint requires a server. This is a working portfolio prototype, not a production travel service.</p><div class="inline-link-row"><a class="case-link" href="../journal.html#elsewhere">Read the journal note</a><a class="case-link" href="../projects.html">All projects</a></div></article>
+      </section>
+      <div class="project-gallery gallery-editorial gallery-details" role="group" aria-label="Elsewhere identity and itinerary screenshots">
+        <figure>
+          <a href="../static/elsewhere_landingpage.png" aria-label="View full-resolution Elsewhere identity screenshot"><img src="../static/elsewhere-identity-detail.jpg" width="1600" height="433" decoding="async" alt="Elsewhere's editorial identity with serif typography, compass mark, Seattle stamp, and navigation for discovery, saved items, day creation, and the calendar." /></a>
+          <figcaption>A restrained Field Journal identity carries through discovery and planning.</figcaption>
+        </figure>
+        <figure>
+          <a href="../static/elsewhere-itinerary-detail.jpg" aria-label="View full-resolution Elsewhere itinerary crop"><img src="../static/elsewhere-itinerary-detail.jpg" width="1600" height="779" decoding="async" alt="A Caffe Vita itinerary stop with arrival and departure times, reorder and remove controls, notes, and an official venue link." /></a>
+          <figcaption>One editable stop: timing, order, notes, and the original venue source stay together.</figcaption>
+        </figure>
+      </div>
+      <div class="project-gallery gallery-editorial" role="group" aria-label="Elsewhere day map screenshot">
+        <figure>
+          <a href="../static/elsewhere_daymap_theme_civic_darkmode.jpeg" aria-label="View full-resolution Elsewhere day map screenshot">
+            <img src="../static/elsewhere-map-detail.jpg" width="1600" height="778" decoding="async" alt="Civic Modern dark day map showing numbered Seattle stops and estimated walking connections, with Leaflet and OpenStreetMap attribution." />
+          </a>
+          <figcaption>Civic Modern day map: planned stops and approximate walking times. Connections are estimates, not street routes or accessibility guidance.</figcaption>
+        </figure>
+      </div>
+    </main>
+    <footer class="site-footer"><span>brianbrady.dev</span><a href="../journal.html">Journal</a></footer>
+    <script src="../script.js"></script>
+  </body>
+</html>

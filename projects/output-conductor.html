@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <canvas id="signal-field" aria-hidden="true"></canvas>
     <div class="ambient-grid" aria-hidden="true"></div>
     <div class="noise" aria-hidden="true"></div>
@@ -16,12 +17,13 @@
       <a class="brand" href="../index.html">brianbrady.dev</a>
       <nav class="nav-links" aria-label="Sections">
         <a href="../index.html">Home</a>
-        <a href="../projects.html">Projects</a>
+        <a class="active" href="../projects.html" aria-current="true">Projects</a>
         <a href="../contact.html">Contact</a>
       </nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section class="project-hero">
         <p class="kicker">Design engineering case study / Output.ai application</p>
         <h1>Output Conductor</h1>
@@ -29,9 +31,9 @@
           A real-time workflow observatory for Output.ai. This is both a functional prototype and a written case for why
           I'm the right design engineer for Output — covering my story, how I think about the craft, and the product I'd build.
         </p>
-        <div class="inline-link-row">
-          <a class="case-link" href="https://brianchristopherbrady.github.io/output-conductor/" target="_blank" rel="noopener">Live Demo</a>
-          <a class="case-link" href="https://github.com/brianchristopherbrady/output-conductor" target="_blank" rel="noopener">GitHub</a>
+        <div class="project-actions" role="group" aria-label="Project links">
+          <a class="button primary" href="https://github.com/brianchristopherbrady/output-conductor" target="_blank" rel="noopener noreferrer">View repo</a>
+          <a class="button" href="https://brianchristopherbrady.github.io/output-conductor/" target="_blank" rel="noopener noreferrer">View demo</a>
         </div>
       </section>
 
@@ -190,7 +192,7 @@
             and the developer gets a clear picture without switching context.
           </p>
         </div>
-        <div class="diagram-board conductor-board" aria-label="Conductor execution observation flow">
+        <div class="diagram-board conductor-board" role="group" aria-label="Conductor execution observation flow">
           <div class="diagram-flow diagram-flow-five conductor-flow">
             <article class="diagram-node node-cyan">
               <span>Ingest</span>
@@ -291,9 +293,9 @@
             That's what I do. I take systems with incredible depth and give them surfaces that invite exploration. I make
             complex things feel simple without losing any of the power underneath. I want to do that for Output.
           </p>
-          <div class="inline-link-row">
-            <a class="case-link" href="https://brianchristopherbrady.github.io/output-conductor/" target="_blank" rel="noopener">Live Demo</a>
-            <a class="case-link" href="https://github.com/brianchristopherbrady/output-conductor" target="_blank" rel="noopener">GitHub</a>
+          <div class="project-actions" role="group" aria-label="Project links">
+            <a class="button primary" href="https://github.com/brianchristopherbrady/output-conductor" target="_blank" rel="noopener noreferrer">View repo</a>
+            <a class="button" href="https://brianchristopherbrady.github.io/output-conductor/" target="_blank" rel="noopener noreferrer">View demo</a>
           </div>
         </article>
       </section>
