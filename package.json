@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npx serve .",
     "test": "node scripts/check-ui.mjs",
-    "check": "node --check script.js && node --check scripts/export-pdf.mjs && node --check scripts/capture-previews.mjs && node --check scripts/crop-project-images.mjs && node --check scripts/check-ui.mjs",
+    "check": "node --check script.js && node --check art.js && node --check scripts/export-pdf.mjs && node --check scripts/capture-previews.mjs && node --check scripts/crop-project-images.mjs && node --check scripts/check-ui.mjs",
     "capture:previews": "node scripts/capture-previews.mjs",
     "crop:projects": "node scripts/crop-project-images.mjs",
     "export:pdf": "node scripts/export-pdf.mjs",

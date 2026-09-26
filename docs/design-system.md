@@ -87,8 +87,16 @@ arbitrary consumers.
 | Product artwork | .shot-canvas, terminal and chart recreations | Illustrations, not live controls; retain original visual language | Local exception |
 | Resume | .page in ../resume.html | Screen-only reflow; existing Letter print metrics unchanged | Local exception |
 
+The Art route uses an uncropped, row-ordered gallery with original-file links that
+work without JavaScript. Its page-local art.css and art.js reuse the shared tokens.
+A native modal dialog adds previous/next navigation, arrow keys, Escape/backdrop
+dismissal, focus containment, and focus restoration to the opening artwork.
+The original-file action remains available in the viewer. Titles derive from the
+source filenames; keep the static entries in sync when adding pieces. The Art
+browser checks compare gallery entries against static/art and exercise the viewer.
+
 Do not add disabled/loading/invalid APIs to navigation links. This static site has
-no live form submission, data fetching, dialog, or async loading/error workflow.
+no live form submission or data fetching workflow.
 If one is introduced, define its keyboard, feedback, failure, and focus contracts
 before styling it. An illustrated dialog is not a real dialog.
 
@@ -262,7 +270,7 @@ eyebrow grid tracks. Shared styles were the controlling source of these problems
 
 - Home now identifies Brian and his Microsoft UX role immediately, then shows
    Output Conductor and Astra Synastry using existing uncropped screenshots.
-   A Fabric UX link connects the previews to the 120+ component platform work.
+   A Fabric UX link connects the previews to the 160+ component platform work.
 - Existing principles and practice-area content remain below the previews.
    The ticker becomes a readable static list; obsolete hero/marquee CSS and
    scroll work are removed. Canvas motion preferences and persistence remain.

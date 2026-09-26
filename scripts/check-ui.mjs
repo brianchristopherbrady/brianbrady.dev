@@ -7,7 +7,7 @@ import { chromium } from "playwright";
 import AxeBuilder from "@axe-core/playwright";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
-const routes = ["index.html", "projects.html", "contact.html", "resume.html", "journal.html",
+const routes = ["index.html", "projects.html", "art.html", "contact.html", "resume.html", "journal.html",
   ...(await readdir(resolve(root, "projects"))).filter(name => name.endsWith(".html")).map(name => `projects/${name}`)];
 const selectedRoutes = process.argv.slice(2);
 const testedRoutes = selectedRoutes.length ? routes.filter(route => selectedRoutes.includes(route)) : routes;
@@ -65,6 +65,49 @@ try {
       await page.setViewportSize({ width, height });
       await check(`${route} reflow ${width}`, assertReflow);
       if (width === 375 || width === 1280) {
+        if (route === "art.html") {
+          await check(`${route} complete gallery and viewer ${width}`, async () => {
+            const expected = (await readdir(resolve(root, "static/art"))).filter(name => /\.(png|jpe?g|webp|gif)$/i.test(name)).sort();
+            const links = page.locator(".art-gallery a");
+            const actual = await links.evaluateAll(elements => elements.map(element => decodeURIComponent(new URL(element.href).pathname.split("/").pop())).sort());
+            assert.deepEqual(actual, expected);
+            await page.screenshot({ path: resolve(output, `art-gallery-${width}.png`), fullPage: true });
+            await links.first().focus();
+            await page.keyboard.press("Enter");
+            const dialog = page.getByRole("dialog");
+            assert(await dialog.isVisible());
+            assert.equal(await page.locator(":focus").textContent(), "Close");
+            await page.keyboard.press("Shift+Tab");
+            assert.equal(await page.locator(":focus").textContent(), "Open original");
+            await page.keyboard.press("Tab");
+            assert.equal(await page.locator(":focus").textContent(), "Close");
+            await page.keyboard.press("ArrowLeft");
+            assert.equal(await page.locator("[data-art-position]").textContent(), `${expected.length} / ${expected.length}`);
+            await dialog.getByRole("button", { name: "Next", exact: true }).click();
+            assert.equal(await page.locator("[data-art-position]").textContent(), `1 / ${expected.length}`);
+            await page.keyboard.press("ArrowRight");
+            assert.equal(await page.locator("[data-art-position]").textContent(), `2 / ${expected.length}`);
+            await dialog.getByRole("button", { name: "Previous", exact: true }).click();
+            assert.equal(await page.locator("[data-art-original]").getAttribute("href"), await links.first().evaluate(element => element.href));
+            await dialog.locator("img").evaluate(image => image.decode());
+            assert.equal(await dialog.locator("img").getAttribute("alt"), await links.first().locator("img").getAttribute("alt"));
+            assert(await dialog.evaluate(element => element.scrollWidth <= element.clientWidth + 1 && element.scrollHeight <= element.clientHeight + 1));
+            const result = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"]).analyze();
+            assert.deepEqual(result.violations.map(issue => issue.id), []);
+            await page.screenshot({ path: resolve(output, `art-viewer-${width}.png`) });
+            await page.keyboard.press("Escape");
+            assert(!(await dialog.isVisible()));
+            assert(await links.first().evaluate(element => document.activeElement === element));
+            assert(!(await page.locator("body").evaluate(element => element.classList.contains("art-viewer-open"))));
+            await links.last().click();
+            await dialog.getByRole("button", { name: "Close", exact: true }).click();
+            assert(await links.last().evaluate(element => document.activeElement === element));
+            await links.first().click();
+            await page.mouse.click(0, 0);
+            assert(!(await dialog.isVisible()));
+            await page.evaluate(() => window.scrollTo(0, 0));
+          });
+        }
         const destinations = {
           "projects/astra-synastry.html": ["astra-synastry"],
           "projects/blipmap.html": ["blipmap", "https://brianchristopherbrady.github.io/blipmap/"],
@@ -200,7 +243,7 @@ try {
         await page.keyboard.press("Enter");
         assert(await page.locator("main").evaluate(element => element === document.activeElement));
         assert.equal(await page.locator("nav [aria-current]").count(), 1);
-        const targets = await page.locator("nav a, .button, .case-link, .motion-toggle").evaluateAll(elements => elements.filter(element => element.getBoundingClientRect().height < 44).map(element => element.outerHTML));
+        const targets = await page.locator("nav a, .button, .case-link, .motion-toggle").evaluateAll(elements => elements.filter(element => element.offsetParent !== null && element.getBoundingClientRect().height < 44).map(element => element.outerHTML));
         assert.deepEqual(targets, []);
       });
     }
