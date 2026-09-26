@@ -67,7 +67,8 @@ try {
       if (width === 375 || width === 1280) {
         if (route === "art.html") {
           await check(`${route} complete gallery and viewer ${width}`, async () => {
-            const expected = (await readdir(resolve(root, "static/art"))).filter(name => /\.(png|jpe?g|webp|gif)$/i.test(name)).sort();
+            const omitted = ["dude_colorpencil.PNG"]; // intentionally excluded from the displayed gallery
+            const expected = (await readdir(resolve(root, "static/art"))).filter(name => /\.(png|jpe?g|webp|gif)$/i.test(name) && !omitted.includes(name)).sort();
             const links = page.locator(".art-gallery a");
             const actual = await links.evaluateAll(elements => elements.map(element => decodeURIComponent(new URL(element.href).pathname.split("/").pop())).sort());
             assert.deepEqual(actual, expected);
