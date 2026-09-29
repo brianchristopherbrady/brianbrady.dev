@@ -18,6 +18,9 @@
   </head>
   <body class="standalone-page art-page">
     <a class="skip-link" href="#main-content">Skip to content</a>
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="./index.html" aria-label="brianbrady.dev home">brianbrady.dev</a>
       <nav class="nav-links" aria-label="Sections">
@@ -26,6 +29,7 @@
         <a class="active" href="./art.html" aria-current="page">Art</a>
         <a href="./contact.html">Contact</a>
       </nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
     </header>
     <main id="main-content" tabindex="-1">
       <section class="art-heading" aria-labelledby="art-title">
