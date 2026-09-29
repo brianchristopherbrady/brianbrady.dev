@@ -116,6 +116,7 @@ try {
           "projects/glyph-rituals.html": [null, "https://www.glyph.trading"],
           "projects/signal-terminal.html": ["signal-terminal"],
           "projects/counterpart-assistant.html": ["counterpart-assistant"],
+          "projects/glasshouse.html": ["glasshouse", "https://brianchristopherbrady.github.io/glasshouse/"],
           "projects/mnemonic-weather-engine.html": ["Mnemonic-Weather-Engine"],
           "projects/certpilot.html": ["contractors"],
           "projects/handforge.html": ["collin"],
