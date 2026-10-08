@@ -1262,7 +1262,7 @@ h3 {
   container-type: inline-size;
   position: relative;
   overflow: hidden;
-  padding: 18px 0 2px;
+  padding: 18px clamp(1rem, 4vw, 3rem) 2px;
   border-top: 1px solid rgba(154, 163, 181, 0.22);
   border-bottom: 1px solid rgba(154, 163, 181, 0.14);
   background:
@@ -2956,6 +2956,16 @@ html:not([data-motion="running"]) *::after {
   font-size: 0.85rem;
   color: var(--color-text-muted);
   background: rgba(0,0,0,0.3);
+}
+
+.gallery-portrait {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.gallery-portrait figure {
+  flex: 0 1 20rem;
+  max-width: 20rem;
 }
 
 .gallery-editorial { max-width: 72rem; margin-inline: auto; }
