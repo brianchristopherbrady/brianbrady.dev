@@ -117,6 +117,7 @@ try {
           "projects/signal-terminal.html": ["signal-terminal"],
           "projects/counterpart-assistant.html": ["counterpart-assistant"],
           "projects/glasshouse.html": ["glasshouse", "https://brianchristopherbrady.github.io/glasshouse/"],
+          "projects/system-lab.html": ["design-system-lab", "https://brianchristopherbrady.github.io/design-system-lab/"],
           "projects/mnemonic-weather-engine.html": ["Mnemonic-Weather-Engine"],
           "projects/certpilot.html": ["contractors"],
           "projects/handforge.html": ["collin"],

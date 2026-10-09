@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>System Lab | Brian Brady</title>
-    <meta name="description" content="System Lab: a token-driven React design system and the reference website that documents it from its own source, spanning three products, two themes, and two densities." />
+    <title>Design System Lab | Brian Brady</title>
+    <meta name="description" content="Design System Lab: a token-driven React design system and the reference website that documents it from its own source, spanning three products, two themes, and two densities." />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="project-page">
@@ -18,9 +18,9 @@
     <main id="main-content" tabindex="-1">
       <section class="project-hero">
         <p class="kicker">Design system / React component library / self-documenting reference site</p>
-        <h1>System Lab</h1>
+        <h1>Design System Lab</h1>
         <p>
-          System Lab is a design system and the reference website that documents it, built as one project. The site is
+          Design System Lab is a design system and the reference website that documents it, built as one project. The site is
           built from the same components it documents: navigation, the Components index, the playground, and the
           pattern demos all read one shared catalog rather than a separately maintained set of docs.
         </p>
@@ -30,9 +30,13 @@
           enforcement. The docs avoid drifting from the code because they render from the code itself &mdash; the
           generated token manifest, the real source files, and the same prop option arrays the components use.
         </p>
+        <div class="project-actions" role="group" aria-label="Project links">
+          <a class="button primary" href="https://github.com/brianchristopherbrady/design-system-lab" target="_blank" rel="noopener noreferrer">View repo</a>
+          <a class="button" href="https://brianchristopherbrady.github.io/design-system-lab/" target="_blank" rel="noopener noreferrer">View demo</a>
+        </div>
       </section>
 
-      <section class="fabric-facts" aria-label="System Lab facts">
+      <section class="fabric-facts" aria-label="Design System Lab facts">
         <div>
           <strong>345</strong>
           <span>design tokens, resolved into 768 lines of generated CSS across every modifier combination</span>
@@ -84,7 +88,7 @@
       <section class="devkit-infrastructure" aria-labelledby="system-lab-built-title">
         <p class="kicker">How it's built</p>
         <h2 id="system-lab-built-title">Tokens, components, layered imports, and container-first layout.</h2>
-        <div class="evidence-grid" role="group" aria-label="System Lab implementation layers">
+        <div class="evidence-grid" role="group" aria-label="Design System Lab implementation layers">
           <article>
             <span>Design tokens</span>
             <p>Three DTCG tiers &mdash; reference (raw palettes and scales), semantic (<code>surface.panel</code>, <code>tone.danger.text</code>), and component (<code>button.primary.background-hover</code>). A resolver config defines theme, product, and density modifiers; a custom pipeline in <code>scripts/tokens</code> resolves all 12 combinations, works out which modifiers each token actually depends on, and writes each one only as often as needed.</p>
