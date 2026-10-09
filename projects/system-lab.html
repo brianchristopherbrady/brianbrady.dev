@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>System Lab | Brian Brady</title>
+    <meta name="description" content="System Lab: a token-driven React design system and the reference website that documents it from its own source, spanning three products, two themes, and two densities." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections"><a href="../index.html">Home</a><a class="active" aria-current="true" href="../projects.html">Projects</a><a href="../art.html">Art</a><a href="../contact.html">Contact</a></nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="project-hero">
+        <p class="kicker">Design system / React component library / self-documenting reference site</p>
+        <h1>System Lab</h1>
+        <p>
+          System Lab is a design system and the reference website that documents it, built as one project. The site is
+          built from the same components it documents: navigation, the Components index, the playground, and the
+          pattern demos all read one shared catalog rather than a separately maintained set of docs.
+        </p>
+        <p>
+          It ships a working, token-driven component library for React, and it shows how a production design system is
+          actually put together: tokens, theming, component APIs, responsive rules, accessibility, and architecture
+          enforcement. The docs avoid drifting from the code because they render from the code itself &mdash; the
+          generated token manifest, the real source files, and the same prop option arrays the components use.
+        </p>
+      </section>
+
+      <section class="fabric-facts" aria-label="System Lab facts">
+        <div>
+          <strong>345</strong>
+          <span>design tokens, resolved into 768 lines of generated CSS across every modifier combination</span>
+        </div>
+        <div>
+          <strong>3 &times; 2 &times; 2</strong>
+          <span>products, themes, and densities resolved from one token source</span>
+        </div>
+        <div>
+          <strong>510</strong>
+          <span>foreground/background contrast checks, unit-tested across every product and theme</span>
+        </div>
+        <div>
+          <strong>6</strong>
+          <span>architecture decision records covering the stack, tokens, boundaries, and docs-from-source</span>
+        </div>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>What the site does</h2>
+          <ul class="detail-list">
+            <li><strong>Overview</strong> &mdash; the system's purpose and principles, plus its layered architecture shown with live data.</li>
+            <li><strong>Foundations</strong> &mdash; token tiers, color, typography, spacing, radii, elevation, motion, themes, and responsive rules, including a Theme studio that builds a full product theme from one brand color.</li>
+            <li><strong>Components</strong> &mdash; for each one: props, defaults, precedence rules, how each prop maps to tokens, examples, accessibility notes, and the real source.</li>
+            <li><strong>Playground</strong> &mdash; Storybook-style controls for the real public props, with presets, a scoped theme, product and density, a resizable preview, a container-query overlay, and a usage snippet that always matches the controls.</li>
+            <li><strong>Patterns</strong> &mdash; realistic demos (a resource directory, a resource detail page, an activity dashboard, and a validated form), each with a demo-scenario switcher for loading, empty, success, error, and no-results states.</li>
+          </ul>
+          <p>
+            The header switches the whole site between three products (System Lab, Harbor, and Meadow), light and dark
+            themes, and comfortable or compact density. No component knows which one is active; everything is handled
+            through CSS custom properties.
+          </p>
+        </article>
+        <article class="detail-panel">
+          <h2>Theme studio</h2>
+          <p>
+            Pick one brand color and the Theme studio builds a full product theme from it: an OKLCH color ramp, every
+            role chosen by contrast, and checks against WCAG 2, APCA, and color-vision deficiency. It exports the
+            resulting files plus a link you can share.
+          </p>
+          <p>
+            This is the same decision the token pipeline makes for System Lab, Harbor, and Meadow, exposed as a tool
+            instead of a one-time setup script &mdash; one brand color in, a contrast-checked product theme out.
+          </p>
+        </article>
+      </section>
+
+      <section class="devkit-infrastructure" aria-labelledby="system-lab-built-title">
+        <p class="kicker">How it's built</p>
+        <h2 id="system-lab-built-title">Tokens, components, layered imports, and container-first layout.</h2>
+        <div class="evidence-grid" role="group" aria-label="System Lab implementation layers">
+          <article>
+            <span>Design tokens</span>
+            <p>Three DTCG tiers &mdash; reference (raw palettes and scales), semantic (<code>surface.panel</code>, <code>tone.danger.text</code>), and component (<code>button.primary.background-hover</code>). A resolver config defines theme, product, and density modifiers; a custom pipeline in <code>scripts/tokens</code> resolves all 12 combinations, works out which modifiers each token actually depends on, and writes each one only as often as needed.</p>
+          </article>
+          <article>
+            <span>Component library</span>
+            <p>Layout primitives (Box, Stack, Inline, Grid, Container, ThemeScope), primitives (Text, Heading, Button, Badge, Icon, Link, Input, Select, Checkbox, Switch, Progress, Skeleton, VisuallyHidden), and composites (Card, Dialog, Alert, Tabs, Field, PageHeader, EmptyState). Props only accept named values such as <code>gap="medium"</code> or <code>tone="danger"</code>, each mapped to a token; an explicit prop always wins over the component token.</p>
+          </article>
+          <article>
+            <span>Layered architecture</span>
+            <p>Imports only point down the stack: app &rarr; content &rarr; features &rarr; domain &rarr; design-system, and within design-system: composites &rarr; primitives &rarr; layout &rarr; tokens. Custom lint scripts in <code>scripts/architecture</code> block layer violations, sibling-module imports, reaching past a module's public entry, import cycles, and raw colors in CSS, and require every CSS Module to declare a cascade layer.</p>
+          </article>
+          <article>
+            <span>Responsive strategy</span>
+            <p>Layout is intrinsic first &mdash; Inline wraps, Grid auto-fits. Components respond to their own container's size with container queries; viewport media queries appear only in the app shell. The site documents every <code>@container</code> and <code>@media</code> rule it actually uses.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Tech stack</h2>
+          <p>
+            React 19, strict TypeScript, Vite 7, React Router 7, and CSS Modules with native custom properties. Runtime
+            dependencies are deliberately minimal &mdash; React, React DOM, React Router, and the Jost font, with no
+            third-party UI library. Vitest and Testing Library cover unit and component tests; Playwright with axe-core
+            covers end-to-end, accessibility, responsive, and theming tests.
+          </p>
+        </article>
+        <article class="detail-panel audit-panel">
+          <h2>Quality gate</h2>
+          <p>
+            <code>npm run verify</code> runs, in order: lint (ESLint, token freshness, import boundaries, and
+            stylesheet rules), typecheck, unit tests, the production build, and Playwright end-to-end tests with axe
+            accessibility checks. Documentation lives alongside the code: <code>docs/architecture.md</code> for layers,
+            token tiers, state ownership, and routing; six decision records in <code>docs/decisions/</code>; and
+            separate accessibility, contributing, and maintenance guides.
+          </p>
+          <div class="inline-link-row"><a class="case-link" href="../projects.html">All projects</a></div>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer"><span>brianbrady.dev</span><a href="../journal.html">Journal</a></footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
