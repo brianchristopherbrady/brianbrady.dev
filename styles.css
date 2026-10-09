@@ -1481,8 +1481,9 @@ h3 {
   border-radius: 50%;
   background: var(--color, #e5e7eb);
   color: #4b5563;
-  font-size: clamp(0.32rem, calc(var(--size, 34px) / 7), 0.9rem);
+  font-size: clamp(0.4rem, calc(var(--size, 34px) / 3), 2.4rem);
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 .avatar-square { border-radius: 2px; }
