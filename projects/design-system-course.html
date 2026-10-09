@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Design System Course | Brian Brady</title>
+    <meta name="description" content="A self-authored, AI-coached curriculum for building a design system from a deliberately inconsistent fictional app, with reviewer-role agents and a recorded decision log." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections"><a href="../index.html">Home</a><a class="active" aria-current="true" href="../projects.html">Projects</a><a href="../art.html">Art</a><a href="../contact.html">Contact</a></nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="project-hero">
+        <p class="kicker">AI-coached curriculum / design-system architecture / in progress</p>
+        <h1>Design System Course</h1>
+        <p>
+          A self-authored course for practicing how a design system actually gets built: starting from a deliberately
+          inconsistent fictional provider portal, "Prescription Desk," and working through audit, tokens, accessibility
+          foundations, component extraction, product patterns, theming, and documentation in order.
+        </p>
+        <p>
+          I make every design-system decision and write the design-system code. The coaching workflow explains tradeoffs,
+          asks questions, reviews the result, and keeps a running record so the process stays evidence-based instead of
+          vibes-based.
+        </p>
+      </section>
+
+      <section class="fabric-facts" aria-label="Design System Course facts">
+        <div>
+          <strong>8</strong>
+          <span>staged curriculum, Stage 0 (audit) through Stage 7 (documentation and maintenance)</span>
+        </div>
+        <div>
+          <strong>4</strong>
+          <span>reviewer roles: coach, architecture reviewer, accessibility reviewer, implementation reviewer</span>
+        </div>
+        <div>
+          <strong>10</strong>
+          <span>design-system decisions recorded so far, each with reasoning and alternatives considered</span>
+        </div>
+        <div>
+          <strong>0</strong>
+          <span>tokens or components shipped yet — still inside Stage 0, by design</span>
+        </div>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>A deliberately broken starting point</h2>
+          <p>
+            Prescription Desk is a small React and TypeScript app: a worklist, a request detail screen, and a new-request
+            form, each with its own local stylesheet. The inconsistencies are intentional raw material, not oversights —
+            three near-identical primary buttons with different colors, radii, padding, and disabled treatments; three
+            different focus-ring colors; mismatched headings, status badges, and error styles.
+          </p>
+          <p>
+            Nothing gets "fixed" outside the course. Every inconsistency is first audited, classified, and traced to its
+            source files and consumers before anything is extracted or tokenized.
+          </p>
+        </article>
+        <article class="detail-panel">
+          <h2>A structured coaching workflow</h2>
+          <p>
+            Four role-based agents keep the process honest: a coach that runs the curriculum and asks before assuming, an
+            architecture reviewer, an accessibility reviewer, and an implementation reviewer. A <code>review</code> pass
+            applies all three reviewer roles in sequence rather than treating them as independent opinions.
+          </p>
+          <p>
+            Task guides cover auditing a screen, choosing tokens, migrating a consumer, reviewing a component API, and
+            checking accessibility. Course state lives in four files — a roadmap, the active session, a decision log, and
+            an inventory — so any session can resume from exactly where the last one left off.
+          </p>
+        </article>
+      </section>
+
+      <section class="devkit-infrastructure" aria-labelledby="course-stages-title">
+        <p class="kicker">Staged curriculum</p>
+        <h2 id="course-stages-title">Audit before tokens, tokens before components, components before patterns.</h2>
+        <p>
+          Each stage has to be earned by the one before it. Accessibility, documentation, and tests run through every
+          stage rather than arriving at the end.
+        </p>
+        <div class="evidence-grid" role="group" aria-label="Course stage groups">
+          <article>
+            <span>Stages 0&ndash;2</span>
+            <p>Audit repeated patterns and classify them by layer, then build reference tokens (one family first) and semantic aliases with a real use case before expanding.</p>
+          </article>
+          <article>
+            <span>Stages 3&ndash;5</span>
+            <p>Consistent focus, error, and feedback foundations; components extracted only after comparing real consumers; product patterns composed from the system, migrated one consumer at a time.</p>
+          </article>
+          <article>
+            <span>Stages 6&ndash;7</span>
+            <p>Themes as alternative mappings, tested on real screens; then documentation, contribution process, and a check against Stage 0's own success criteria.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Decisions so far</h2>
+          <p>
+            Stage 0 is an audit, but it already produces real architectural commitments. One primary button primitive
+            replaces three near-identical buttons. A single app-wide focus indicator — not owned by any one component —
+            has to clear 3:1 contrast on both a dark nav surface and white panels. Color uses two tiers: an internal
+            reference ramp and role-based semantic aliases, with numbered brand steps the design spec defines.
+          </p>
+          <p>
+            Size and spacing scales stay internal to the system; feature teams only ever receive composite, role-based
+            type styles through components such as <code>Text</code>, never raw scale values or public utility classes.
+            Components are classified by layer before implementation — primitive, composed pattern, or product feature —
+            so a status badge's visual states live in the system while the status-to-badge mapping stays product-owned.
+          </p>
+        </article>
+        <article class="detail-panel audit-panel">
+          <h2>Why it matters</h2>
+          <p>
+            Most of my design-system work has started from an existing platform already in production. This course
+            starts from zero and makes every judgment call explicit: what becomes a token versus a component versus a
+            product feature, who owns it, and what would change if a second, differently-branded product consumed the
+            same system.
+          </p>
+          <p>
+            It is the same discipline behind Checklist Auditor and the Fabric UX DevKit — evidence before action, an
+            explicit verdict, and a record a reviewer can actually check — applied to the earliest, least glamorous part
+            of building a design system instead of to an existing one.
+          </p>
+        </article>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>Current status</h2>
+          <p>
+            This is a private, local, in-progress learning project with no deployed build. It is currently in Stage 0
+            (Audit, identify layers, plan the system), on the task of writing design principles and success criteria.
+            Eleven earlier Stage 0 tasks are complete and recorded in the decision log; no tokens or components have been
+            implemented in code yet, which is intended at this point in the curriculum.
+          </p>
+          <div class="inline-link-row"><a class="case-link" href="../projects.html">All projects</a></div>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer"><span>brianbrady.dev</span><a href="../journal.html">Journal</a></footer>
+    <script src="../script.js"></script>
+  </body>
+</html>
