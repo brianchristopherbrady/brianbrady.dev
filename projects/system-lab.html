@@ -38,20 +38,20 @@
 
       <section class="fabric-facts" aria-label="Design System Lab facts">
         <div>
-          <strong>345</strong>
-          <span>design tokens, resolved into 768 lines of generated CSS across every modifier combination</span>
+          <strong data-fact="tokens">361</strong>
+          <span>design tokens, resolved into <span data-fact="css-lines">919</span> lines of generated CSS across every modifier combination</span>
         </div>
         <div>
-          <strong>3 &times; 2 &times; 2</strong>
+          <strong data-fact="combinations">3 &times; 2 &times; 2</strong>
           <span>products, themes, and densities resolved from one token source</span>
         </div>
         <div>
-          <strong>510</strong>
+          <strong data-fact="contrast-checks">534</strong>
           <span>foreground/background contrast checks, unit-tested across every product and theme</span>
         </div>
         <div>
-          <strong>6</strong>
-          <span>architecture decision records covering the stack, tokens, boundaries, and docs-from-source</span>
+          <strong data-fact="decision-records">7</strong>
+          <span>architecture decision records, from the stack and token tiers to multi-product theming and product typefaces</span>
         </div>
       </section>
 
@@ -59,16 +59,19 @@
         <article class="detail-panel">
           <h2>What the site does</h2>
           <ul class="detail-list">
-            <li><strong>Overview</strong> &mdash; the system's purpose and principles, plus its layered architecture shown with live data.</li>
+            <li><strong>Overview</strong> &mdash; who built it and why, a suggested review path, one design decision followed live into a working Button, and the layered architecture shown with live data.</li>
             <li><strong>Foundations</strong> &mdash; token tiers, color, typography, spacing, radii, elevation, motion, themes, and responsive rules, including a Theme studio that builds a full product theme from one brand color.</li>
             <li><strong>Components</strong> &mdash; for each one: props, defaults, precedence rules, how each prop maps to tokens, examples, accessibility notes, and the real source.</li>
-            <li><strong>Playground</strong> &mdash; Storybook-style controls for the real public props, with presets, a scoped theme, product and density, a resizable preview, a container-query overlay, and a usage snippet that always matches the controls.</li>
-            <li><strong>Patterns</strong> &mdash; realistic demos (a resource directory, a resource detail page, an activity dashboard, and a validated form), each with a demo-scenario switcher for loading, empty, success, error, and no-results states.</li>
+            <li><strong>Playground</strong> &mdash; Storybook-style controls for the real public props, with presets, per-component drafts, shareable example links, a scoped product, theme and density, a resizable preview that stays in view on desktop while you edit, a container-query overlay, and a usage snippet that always matches the controls.</li>
+            <li><strong>Patterns</strong> &mdash; realistic demos: a resource directory, a resource detail page, an activity dashboard, and a validated form. The three request-driven demos each have a scenario selector listing only the states that apply to them &mdash; loading, success, error, an empty state (an empty history for the detail page), and no results where there is a search. The form has no request, so it demonstrates validation and error recovery instead.</li>
+            <li><strong>Design decisions</strong> &mdash; how a system is planned, shared across products, implemented, and operated, with interactive comparisons and hypothetical examples labelled as such.</li>
           </ul>
           <p>
-            The header switches the whole site between three products (System Lab, Harbor, and Meadow), light and dark
-            themes, and comfortable or compact density. No component knows which one is active; everything is handled
-            through CSS custom properties.
+            The header switches the whole site between three products (<span data-fact="products">Design System Lab, Harbor, and Meadow</span>), light and dark
+            themes, and comfortable or compact density. Each product sets its own brand color, typefaces, and shape:
+            Design System Lab uses Jost, Harbor uses IBM Plex Sans with tighter corners, and Meadow sets Fraunces
+            headings over Nunito text with pill-shaped controls. No component knows which one is active; everything is
+            handled through CSS custom properties.
           </p>
         </article>
         <article class="detail-panel">
@@ -79,7 +82,7 @@
             resulting files plus a link you can share.
           </p>
           <p>
-            This is the same decision the token pipeline makes for System Lab, Harbor, and Meadow, exposed as a tool
+            This is the same decision the token pipeline makes for Design System Lab, Harbor, and Meadow, exposed as a tool
             instead of a one-time setup script &mdash; one brand color in, a contrast-checked product theme out.
           </p>
         </article>
@@ -91,11 +94,11 @@
         <div class="evidence-grid" role="group" aria-label="Design System Lab implementation layers">
           <article>
             <span>Design tokens</span>
-            <p>Three DTCG tiers &mdash; reference (raw palettes and scales), semantic (<code>surface.panel</code>, <code>tone.danger.text</code>), and component (<code>button.primary.background-hover</code>). A resolver config defines theme, product, and density modifiers; a custom pipeline in <code>scripts/tokens</code> resolves all 12 combinations, works out which modifiers each token actually depends on, and writes each one only as often as needed.</p>
+            <p>Three DTCG tiers &mdash; reference (raw palettes and scales), semantic (<code data-fact="token">surface.panel</code>, <code data-fact="token">tone.danger.text</code>), and component (<code data-fact="token">button.primary.background-hover</code>). A resolver config defines theme, product, and density modifiers; a custom pipeline in <code>scripts/tokens</code> resolves all 12 combinations, works out which modifiers each token actually depends on, and writes each one only as often as needed.</p>
           </article>
           <article>
             <span>Component library</span>
-            <p>Layout primitives (Box, Stack, Inline, Grid, Container, ThemeScope), primitives (Text, Heading, Button, Badge, Icon, Link, Input, Select, Checkbox, Switch, Progress, Skeleton, VisuallyHidden), and composites (Card, Dialog, Alert, Tabs, Field, PageHeader, EmptyState). Props only accept named values such as <code>gap="medium"</code> or <code>tone="danger"</code>, each mapped to a token; an explicit prop always wins over the component token.</p>
+            <p>Layout primitives (<span data-fact="layout-components">Box, Stack, Inline, Grid, Container, ThemeScope, ScrollRegion</span>), primitives (<span data-fact="primitive-components">Text, Heading, Button, Badge, Icon, Link, Input, Select, Checkbox, Switch, Progress, Skeleton, VisuallyHidden</span>), and composites (<span data-fact="composite-components">Card, Dialog, Alert, Tabs, Disclosure, Field, PageHeader, EmptyState, RadioGroup</span>). Props only accept named values such as <code>gap="medium"</code> or <code>tone="danger"</code>, each mapped to a token; an explicit prop always wins over the component token.</p>
           </article>
           <article>
             <span>Layered architecture</span>
@@ -113,7 +116,8 @@
           <h2>Tech stack</h2>
           <p>
             React 19, strict TypeScript, Vite 7, React Router 7, and CSS Modules with native custom properties. Runtime
-            dependencies are deliberately minimal &mdash; React, React DOM, React Router, and the Jost font, with no
+            dependencies are deliberately minimal &mdash; <span data-fact="runtime-libraries">React, React DOM, React Router</span>, and
+            the products' self-hosted variable fonts from Fontsource (<span data-fact="fonts">Jost, IBM Plex Sans, Fraunces, Nunito</span>), with no
             third-party UI library. Vitest and Testing Library cover unit and component tests; Playwright with axe-core
             covers end-to-end, accessibility, responsive, and theming tests.
           </p>
@@ -124,7 +128,7 @@
             <code>npm run verify</code> runs, in order: lint (ESLint, token freshness, import boundaries, and
             stylesheet rules), typecheck, unit tests, the production build, and Playwright end-to-end tests with axe
             accessibility checks. Documentation lives alongside the code: <code>docs/architecture.md</code> for layers,
-            token tiers, state ownership, and routing; six decision records in <code>docs/decisions/</code>; and
+            token tiers, state ownership, and routing; the decision records in <code>docs/decisions/</code>; and
             separate accessibility, contributing, and maintenance guides.
           </p>
           <div class="inline-link-row"><a class="case-link" href="../projects.html">All projects</a></div>
