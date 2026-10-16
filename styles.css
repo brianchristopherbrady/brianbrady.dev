@@ -1262,7 +1262,7 @@ h3 {
   container-type: inline-size;
   position: relative;
   overflow: hidden;
-  padding: 18px clamp(1rem, 4vw, 3rem) 2px;
+  padding: 18px 0 2px;
   border-top: 1px solid rgba(154, 163, 181, 0.22);
   border-bottom: 1px solid rgba(154, 163, 181, 0.14);
   background:
@@ -1481,9 +1481,8 @@ h3 {
   border-radius: 50%;
   background: var(--color, #e5e7eb);
   color: #4b5563;
-  font-size: clamp(0.4rem, calc(var(--size, 34px) / 3), 2.4rem);
+  font-size: clamp(0.32rem, calc(var(--size, 34px) / 7), 0.9rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
 }
 
 .avatar-square { border-radius: 2px; }
@@ -1509,8 +1508,7 @@ h3 {
 }
 
 .muted-dot {
-  color: #9ca3af;
-  opacity: 0.72;
+  color: #57606f;
 }
 
 .modal-canvas {
@@ -2957,16 +2955,6 @@ html:not([data-motion="running"]) *::after {
   font-size: 0.85rem;
   color: var(--color-text-muted);
   background: rgba(0,0,0,0.3);
-}
-
-.gallery-portrait {
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.gallery-portrait figure {
-  flex: 0 1 20rem;
-  max-width: 20rem;
 }
 
 .gallery-editorial { max-width: 72rem; margin-inline: auto; }

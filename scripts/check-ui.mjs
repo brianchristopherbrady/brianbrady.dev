@@ -386,7 +386,7 @@ try {
     ]);
     assert.deepEqual(await page.locator("main section > h2").allTextContents(), ["Summary", "Experience", "Education", "Skills"]);
     assert.equal(await page.locator(".role").count(), 8);
-    assert.match(await page.locator(".role").first().innerText(), /Principal AI Solutions Architect.*GISTIC Research/);
+    assert.match(await page.locator(".role").first().innerText(), /Principal Design Engineer, Design Systems & AI Tooling.*GISTIC Research/);
     assert.match(await page.locator(".role").nth(1).innerText(), /May 2023 - June 2026/);
     assert.equal(await page.locator("iframe, embed, object, a[href$='.pdf']").count(), 0);
     assert.equal(await page.locator("h1").evaluate(element => getComputedStyle(element).color), "rgb(16, 129, 140)");

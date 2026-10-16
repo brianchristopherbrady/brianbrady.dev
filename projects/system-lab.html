@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Design System Lab | Brian Brady</title>
-    <meta name="description" content="Design System Lab: a token-driven React design system and the reference website that documents it from its own source, spanning three products, two themes, and two densities." />
+    <meta name="description" content="Design System Lab: a token-driven React design system and the reference website that documents it from its own source, spanning three product profiles, two themes, and two densities." />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="project-page">
@@ -38,20 +38,20 @@
 
       <section class="fabric-facts" aria-label="Design System Lab facts">
         <div>
-          <strong data-fact="tokens">361</strong>
-          <span>design tokens, resolved into <span data-fact="css-lines">919</span> lines of generated CSS across every modifier combination</span>
+          <strong data-fact="tokens">338</strong>
+          <span>design tokens, resolved into <span data-fact="css-lines">878</span> lines of generated CSS across every modifier combination</span>
         </div>
         <div>
           <strong data-fact="combinations">3 &times; 2 &times; 2</strong>
-          <span>products, themes, and densities resolved from one token source</span>
+          <span>product profiles, themes, and densities resolved from one token source</span>
         </div>
         <div>
           <strong data-fact="contrast-checks">534</strong>
           <span>foreground/background contrast checks, unit-tested across every product and theme</span>
         </div>
         <div>
-          <strong data-fact="decision-records">7</strong>
-          <span>architecture decision records, from the stack and token tiers to multi-product theming and product typefaces</span>
+          <strong data-fact="decision-records">8</strong>
+          <span>architecture decision records, from the stack and token tiers to multi-product theming and scoped product profiles</span>
         </div>
       </section>
 
@@ -62,16 +62,17 @@
             <li><strong>Overview</strong> &mdash; who built it and why, a suggested review path, one design decision followed live into a working Button, and the layered architecture shown with live data.</li>
             <li><strong>Foundations</strong> &mdash; token tiers, color, typography, spacing, radii, elevation, motion, themes, and responsive rules, including a Theme studio that builds a full product theme from one brand color.</li>
             <li><strong>Components</strong> &mdash; for each one: props, defaults, precedence rules, how each prop maps to tokens, examples, accessibility notes, and the real source.</li>
-            <li><strong>Playground</strong> &mdash; Storybook-style controls for the real public props, with presets, per-component drafts, shareable example links, a scoped product, theme and density, a resizable preview that stays in view on desktop while you edit, a container-query overlay, and a usage snippet that always matches the controls.</li>
+            <li><strong>Playground</strong> &mdash; Storybook-style controls for the real public props, with presets (including patient and provider examples for Card and Dialog), per-component drafts, shareable example links, a scoped theme and density, a resizable preview that stays in view on desktop while you edit, a container-query overlay, and a usage snippet that always matches the controls.</li>
             <li><strong>Patterns</strong> &mdash; realistic demos: a resource directory, a resource detail page, an activity dashboard, and a validated form. The three request-driven demos each have a scenario selector listing only the states that apply to them &mdash; loading, success, error, an empty state (an empty history for the detail page), and no results where there is a search. The form has no request, so it demonstrates validation and error recovery instead.</li>
-            <li><strong>Design decisions</strong> &mdash; how a system is planned, shared across products, implemented, and operated, with interactive comparisons and hypothetical examples labelled as such.</li>
+            <li><strong>Design decisions</strong> &mdash; how a system is planned, shared across products, implemented, and operated, with interactive comparisons and examples set in one fictional healthcare company, labelled as hypothetical where they are.</li>
           </ul>
           <p>
-            The header switches the whole site between three products (<span data-fact="products">Design System Lab, Harbor, and Meadow</span>), light and dark
-            themes, and comfortable or compact density. Each product sets its own brand color, typefaces, and shape:
-            Design System Lab uses Jost, Harbor uses IBM Plex Sans with tighter corners, and Meadow sets Fraunces
-            headings over Nunito text with pill-shaped controls. No component knows which one is active; everything is
-            handled through CSS custom properties.
+            The site keeps one identity: its header sets only light or dark. Three product profiles
+            (<span data-fact="products">Design System Lab, Patient app, and Provider workspace</span>) and comfortable or
+            compact density are applied to the examples that demonstrate them. The patient app and the provider workspace
+            belong to the same fictional healthcare company, so they share one brand family and IBM Plex Sans; the provider
+            workspace adds compact density and tighter corners, and Design System Lab keeps Jost. No component knows which
+            profile is active; everything is handled through CSS custom properties.
           </p>
         </article>
         <article class="detail-panel">
@@ -82,7 +83,8 @@
             resulting files plus a link you can share.
           </p>
           <p>
-            This is the same decision the token pipeline makes for Design System Lab, Harbor, and Meadow, exposed as a tool
+            This is the same decision the token pipeline makes for Design System Lab and for the care brand the patient app
+            and the provider workspace share, exposed as a tool
             instead of a one-time setup script &mdash; one brand color in, a contrast-checked product theme out.
           </p>
         </article>
@@ -117,7 +119,7 @@
           <p>
             React 19, strict TypeScript, Vite 7, React Router 7, and CSS Modules with native custom properties. Runtime
             dependencies are deliberately minimal &mdash; <span data-fact="runtime-libraries">React, React DOM, React Router</span>, and
-            the products' self-hosted variable fonts from Fontsource (<span data-fact="fonts">Jost, IBM Plex Sans, Fraunces, Nunito</span>), with no
+            the products' self-hosted variable fonts from Fontsource (<span data-fact="fonts">Jost, IBM Plex Sans</span>), with no
             third-party UI library. Vitest and Testing Library cover unit and component tests; Playwright with axe-core
             covers end-to-end, accessibility, responsive, and theming tests.
           </p>
