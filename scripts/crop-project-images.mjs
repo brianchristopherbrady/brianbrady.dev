@@ -18,13 +18,22 @@ const crops = [
   ["glyph_machinestate_fullpage.jpeg", "glyph-plan-detail.jpg", [0.054, 0.205, 0.892, 0.238]],
   ["glyph_machinestate_fullpage.jpeg", "glyph-execution-detail.jpg", [0.054, 0.45, 0.892, 0.11]],
   ["glyph_machinestate_fullpage.jpeg", "glyph-account-detail.jpg", [0.054, 0.565, 0.892, 0.21]],
+  ["oddkin-figma-docs-home.png", "oddkin-docs-home-detail.jpg", [0, 0, 1, 0.529167]],
+  ["oddkin-figma-primitives-dark.png", "oddkin-primitives-dark-detail.jpg", [0, 0, 0.85, 0.377778]],
+  ["oddkin-figma-states-focus.png", "oddkin-states-detail.jpg", [0, 0, 1, 0.555556]],
+  ["oddkin-figma-theme-studio.png", "oddkin-theme-studio-detail.jpg", [0, 0, 1, 0.8975]],
+  ["oddkin-figma-theme-studio-colors-dark.png", "oddkin-color-ramp-detail.jpg", [0.249375, 0.24125, 0.740625, 0.633125]],
+  ["oddkin-figma-ai-approval.png", "oddkin-ai-approval-detail.jpg", [0, 0.059722, 1, 0.320833]],
+  ["oddkin-figma-workbench.png", "oddkin-workbench-detail.jpg", [0.188889, 0.326389, 0.794444, 0.715278]],
 ];
+// Optional filter: `npm run crop:projects -- oddkin` regenerates only outputs whose names contain it.
+const only = process.argv[2];
 
 const browser = await chromium.launch();
 try {
   const page = await browser.newPage();
   await page.goto(pathToFileURL(resolve(root, "index.html")).href);
-  for (const [source, output, bounds] of crops) {
+  for (const [source, output, bounds] of crops.filter(([, output]) => !only || output.includes(only))) {
     const mimeType = source.endsWith(".png") ? "image/png" : "image/jpeg";
     const sourceUrl = `data:${mimeType};base64,${(await readFile(resolve(root, "static", source))).toString("base64")}`;
     const result = await page.evaluate(async ({ sourceUrl, bounds }) => {

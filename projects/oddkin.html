@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oddkin | Brian Brady</title>
+    <meta name="description" content="Oddkin: a modular frontend framework built on custom elements and browser APIs, designed and built solo by Brian Brady. Eight npm packages, 54 themed components, 24 AI interaction elements, a design-token pipeline, and metadata-driven tooling." />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="project-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <canvas id="signal-field" aria-hidden="true"></canvas>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="../index.html">brianbrady.dev</a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="../index.html">Home</a>
+        <a class="active" href="../projects.html" aria-current="true">Projects</a>
+        <a href="../art.html">Art</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+      <label class="motion-toggle" hidden><input id="pause-motion" type="checkbox" />Pause motion</label>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="project-hero">
+        <p class="kicker">Frontend framework / design system / developer tooling / solo build</p>
+        <h1>Oddkin</h1>
+        <p>
+          Oddkin is a modular frontend framework built on custom elements and browser APIs. It brings together an
+          authoring core, a design-token pipeline, 54 themed components, 24 AI interaction elements, and the tooling
+          that documents, tests, and explains them: eight packages, published on npm under the MIT license.
+        </p>
+        <p>
+          It is the largest system I have built, and I built all of it myself: the architecture and its 48 decision
+          records, the Figma design framework and the documentation-site designs, every package, the docs site at
+          oddkin.dev, and the release process that ships it.
+        </p>
+        <div class="project-actions" role="group" aria-label="Project links">
+          <a class="button primary" href="https://github.com/brianchristopherbrady/oddkin" target="_blank" rel="noopener noreferrer">View repo</a>
+          <a class="button" href="https://www.oddkin.dev/" target="_blank" rel="noopener noreferrer">Visit live site</a>
+        </div>
+      </section>
+
+      <div class="project-gallery gallery-editorial" role="group" aria-label="oddkin.dev home page design">
+        <figure>
+          <a href="../static/oddkin-figma-docs-home.png" aria-label="View full-resolution oddkin.dev home page design">
+            <img src="../static/oddkin-docs-home-detail.jpg" width="1440" height="762" decoding="async" alt="Design of the oddkin.dev home page: the headline 'Your system. Your way.' beside a themed panel of Oddkin components with a card, a text field, a switch, status badges, buttons, and brand, ink, surface, success, and warning swatches." />
+          </a>
+          <figcaption>The oddkin.dev home page as I designed it in Figma. The live site is an Oddkin application, built from the same packages it documents.</figcaption>
+        </figure>
+      </div>
+
+      <section class="fabric-facts" aria-label="Oddkin facts">
+        <div>
+          <strong>8</strong>
+          <span>npm packages, released together at 1.0.0-beta.1 under the MIT license</span>
+        </div>
+        <div>
+          <strong>78</strong>
+          <span>custom elements: 54 themed components and 24 AI interaction elements</span>
+        </div>
+        <div>
+          <strong>11,132</strong>
+          <span>test results passed in the beta.1 release run across Node, Chromium, Firefox, and WebKit, with none failed</span>
+        </div>
+        <div>
+          <strong>48</strong>
+          <span>architecture decision records, each with its evidence and the condition that would reopen it</span>
+        </div>
+      </section>
+
+      <section class="project-layout">
+        <article class="detail-panel">
+          <h2>What Oddkin is</h2>
+          <p>
+            A frontend framework you can adopt one layer at a time. Each package depends only on the ones it needs, so the
+            documentation offers five starting points instead of one install:
+          </p>
+          <ul class="detail-list">
+            <li><strong>Tokens only.</strong> The design tokens as CSS custom properties, with no Oddkin JavaScript.</li>
+            <li><strong>Components in any app.</strong> Register the elements you use, then write ordinary HTML, in a plain page or in React, Vue, Svelte, or Angular.</li>
+            <li><strong>Author custom elements.</strong> Typed properties, templates that update only what changed, scoped styles, and cleanup that follows the element.</li>
+            <li><strong>A full Oddkin application.</strong> An application root that owns its services, a store provided as context, a router, and requests that cancel themselves.</li>
+            <li><strong>Document any library.</strong> Workbench generates component pages, API tables, and live previews from a Custom Elements Manifest.</li>
+          </ul>
+        </article>
+        <article class="detail-panel">
+          <h2>What makes it different</h2>
+          <p>
+            The research behind Oddkin compared twelve systems, from Lit, FAST, and Stencil to React, Angular, Vue, Svelte,
+            and Solid. Its conclusion: the individual ideas exist elsewhere, and the value is a coherent combination that
+            is proven with evidence.
+          </p>
+          <ol class="difference-list">
+            <li><p><a href="#ownership">Cleanup follows the element.</a> One <code>Scope</code> owns every listener, timer, effect, and request, and disposes them on disconnect.</p></li>
+            <li><p><a href="#tokens">Tokens work without JavaScript.</a> One brand color becomes a contrast-checked theme, from the same pure generator everywhere.</p></li>
+            <li><p><a href="#design">Design and code are tested against each other.</a> The Figma library's variables and components are compared with the code.</p></li>
+            <li><p><a href="#ai">AI interfaces are components.</a> Twenty-four elements and headless controllers; the host keeps the model, the data, and the policy.</p></li>
+            <li><p><a href="#metadata">One metadata source.</a> Static analysis feeds the docs, the agent kits, the composition schemas, and change impact.</p></li>
+            <li><p><a href="#impact">Changes explain themselves.</a> A token edit traces to the components, examples, and checks it touches.</p></li>
+            <li><p><a href="#evidence">Releases ship with evidence.</a> Lint, types, tests in three engines, size budgets, and packed installs gate the release.</p></li>
+          </ol>
+        </article>
+      </section>
+
+      <section id="packages" class="flow-diagram-section" aria-labelledby="oddkin-packages-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Package architecture</p>
+            <h2 id="oddkin-packages-title">Eight packages. Each one depends only on what it needs.</h2>
+          </div>
+          <p>
+            The six browser packages have no third-party runtime dependencies. A boundary check enforces the graph in CI:
+            it fails on a cycle, a private deep import, a component that reaches for state or routing, or an application
+            bundle that pulls in the tooling.
+          </p>
+        </div>
+
+        <div class="package-map" role="group" aria-label="Oddkin package map, from the foundation to the tooling">
+          <div class="package-layer node-cyan" role="group" aria-labelledby="layer-foundation">
+            <p class="package-layer-label"><strong id="layer-foundation">Foundation</strong><span>No dependencies. Tokens work in plain CSS; core is the authoring layer.</span></p>
+            <ul class="package-cards">
+              <li class="package-card">
+                <h3>@oddkin/tokens</h3>
+                <p>Theme configuration and a deterministic token pipeline.</p>
+                <ul>
+                  <li>A brand color is the only required input; ramps, roles, modes, products, and density are generated and checked.</li>
+                  <li>Emits CSS custom properties in a cascade layer, JSON, DTCG, and TypeScript references.</li>
+                  <li><code>oddkin-tokens init | build | check</code>; the pure generator also runs in the browser and in a Worker.</li>
+                </ul>
+                <p class="package-needs">Needs: nothing</p>
+              </li>
+              <li class="package-card">
+                <h3>@oddkin/core</h3>
+                <p>The authoring foundation.</p>
+                <ul>
+                  <li><code>signal</code>, <code>computed</code>, and <code>effect</code>: one reactive graph for elements, stores, and resources.</li>
+                  <li><code>OddkinElement.with()</code> typed properties, <code>html</code> templates, <code>css</code>, <code>compose()</code>, and <code>define()</code>.</li>
+                  <li><code>Scope</code> ownership, layout recipes, collections, models, i18n, and controllers for focus, announcements, forms, and positioning.</li>
+                </ul>
+                <p class="package-needs">Needs: nothing · a minimal counter stays under a 9.5 KiB gzip budget</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="package-layer node-purple" role="group" aria-labelledby="layer-elements">
+            <p class="package-layer-label"><strong id="layer-elements">Elements</strong><span>Register only what a page uses. Works in any framework or none.</span></p>
+            <ul class="package-cards">
+              <li class="package-card">
+                <h3>@oddkin/components</h3>
+                <p>54 themed custom elements.</p>
+                <ul>
+                  <li>Fields, pickers, menus, dialogs, drawers, tabs, trees, calendars, a command palette, toasts, and layout helpers.</li>
+                  <li>One registration entry per element, or an autoloader that registers what the page uses.</li>
+                  <li>Typings for React, Vue, and Svelte; ships its manifest, metadata, schemas, and agent kit.</li>
+                </ul>
+                <p class="package-needs">Needs: core, tokens</p>
+              </li>
+              <li class="package-card">
+                <h3>@oddkin/ai</h3>
+                <p>24 elements for AI interfaces.</p>
+                <ul>
+                  <li>Conversations, prompt input, streaming responses, citations, tool calls, approvals, task plans, and change review.</li>
+                  <li>DOM-free records and controllers, with server-sent event and AI SDK UI message stream adapters.</li>
+                  <li>Never calls a model or stores data: the host owns transport, persistence, and policy.</li>
+                </ul>
+                <p class="package-needs">Needs: components, core, tokens</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="package-layer node-amber" role="group" aria-labelledby="layer-services">
+            <p class="package-layer-label"><strong id="layer-services">Optional services</strong><span>Application structure when you want it. Components never require it.</span></p>
+            <ul class="package-cards">
+              <li class="package-card">
+                <h3>@oddkin/state</h3>
+                <p>Stores and context.</p>
+                <ul>
+                  <li><code>createStore</code>, selectors, and actions on the same reactive graph.</li>
+                  <li>Context through the community context protocol.</li>
+                  <li>Versioned persistence with migrations and validation, plus inspection.</li>
+                </ul>
+                <p class="package-needs">Needs: core</p>
+              </li>
+              <li class="package-card">
+                <h3>@oddkin/app</h3>
+                <p>Application lifetime, routing, and async work.</p>
+                <ul>
+                  <li><code>createApp</code>: one root scope per run, with its services and context.</li>
+                  <li>A router with nested and lazy routes, typed params, focus, announcements, and scroll restoration.</li>
+                  <li>Resources that cancel and ignore stale results; commands with retry and concurrency policies.</li>
+                </ul>
+                <p class="package-needs">Needs: core, state</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="package-layer package-layer-tooling node-green" role="group" aria-labelledby="layer-tooling">
+            <p class="package-layer-label"><strong id="layer-tooling">Tooling</strong><span>Node and development time. Reads what the packages publish; applications never ship it.</span></p>
+            <ul class="package-cards">
+              <li class="package-card">
+                <h3>@oddkin/analyzer</h3>
+                <p>Static analysis and what it produces.</p>
+                <ul>
+                  <li><code>oddkin-analyze</code>: a Custom Elements Manifest and <code>oddkin.metadata.json</code>, without executing component code.</li>
+                  <li><code>oddkin-impact</code>: contract snapshots and change-impact reports.</li>
+                  <li><code>oddkin-kit</code>: agent guides and references, an <code>AGENTS.md</code> section, and <code>llms.txt</code>.</li>
+                </ul>
+                <p class="package-needs">Needs: the TypeScript compiler</p>
+              </li>
+              <li class="package-card">
+                <h3>@oddkin/workbench</h3>
+                <p>Documentation sites from metadata.</p>
+                <ul>
+                  <li><code>oddkin workbench dev</code> serves a live site; <code>oddkin workbench build</code> writes a static one.</li>
+                  <li>Catalog, component pages with interactive examples and API tables, foundations, and Theme Studio.</li>
+                  <li>Documents any custom-element library that has a standard Custom Elements Manifest.</li>
+                </ul>
+                <p class="package-needs">Needs: analyzer, app, state, components, core, tokens</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="ownership" class="flow-diagram-section" aria-labelledby="oddkin-ownership-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Core / ownership</p>
+            <h2 id="oddkin-ownership-title">Cleanup follows the element.</h2>
+          </div>
+          <p>
+            Leaked listeners, timers, observers, and requests are the most common custom-element bug. In Oddkin each
+            connection gets a fresh <code>Scope</code>, and everything started through it ends with it: no teardown array
+            and no matching <code>removeEventListener()</code>.
+          </p>
+        </div>
+
+        <div class="project-layout">
+          <article class="detail-panel command-panel">
+            <h3>An element that owns its work</h3>
+            <div class="command-stack">
+<pre><code>import { OddkinElement, signal, type Scope } from '@oddkin/core';
+
+class DemoClock extends OddkinElement {
+  private now = signal(Date.now());
+
+  connected(scope: Scope) {
+    scope.interval(() =&gt; { this.now.value = Date.now(); }, 1000);
+    scope.listen(this.ownerDocument, 'visibilitychange', () =&gt; {
+      this.now.value = Date.now();
+    });
+  }
+}</code></pre>
+            </div>
+            <p>From the core contract. The interval and the listener end when the element disconnects; nothing else is needed.</p>
+          </article>
+          <article class="detail-panel">
+            <h3>Updates only where the value is</h3>
+            <p>
+              One DOM-free signal graph serves elements, stores, context, and resources. Reading a signal while rendering
+              schedules one deduplicated render; a signal placed directly in a template binds to that single DOM part and
+              updates it without running <code>render()</code> again.
+            </p>
+            <p>
+              Templates are tagged <code>html</code> literals prepared once as cached <code>&lt;template&gt;</code>
+              elements: no virtual DOM, no compiler, and no decorators. Dynamic values become text, <code>on*</code> and
+              <code>innerHTML</code> bindings are rejected, <code>javascript:</code> URLs are replaced, and templates run
+              under a strict Content Security Policy with Trusted Types enforced in Chromium, Firefox, and WebKit.
+            </p>
+          </article>
+        </div>
+
+        <div class="diagram-board diagram-board-wide" role="group" aria-label="The lifetime of an element's scope">
+          <ol class="flow flow-4">
+            <li class="flow-step node-cyan">
+              <span>01 · Connect</span>
+              <h3>A fresh scope</h3>
+              <p>Each real connection creates a new <code>Scope</code> and calls <code>connected(scope)</code>, then <code>mounted(scope)</code> once the DOM is committed.</p>
+            </li>
+            <li class="flow-step node-blue">
+              <span>02 · Own</span>
+              <h3>Work registers with it</h3>
+              <p><code>listen</code>, <code>interval</code>, <code>timeout</code>, <code>effect</code>, <code>child</code>, and <code>use</code> register work; <code>scope.signal</code> cancels fetches and streams.</p>
+            </li>
+            <li class="flow-step node-purple">
+              <span>03 · Disconnect</span>
+              <h3>Everything ends</h3>
+              <p>Disposal aborts the signal, disposes child scopes and effect runs, and runs every cleanup in reverse order, even when one throws.</p>
+            </li>
+            <li class="flow-step node-green">
+              <span>04 · Reconnect</span>
+              <h3>A new lifetime</h3>
+              <p>A new connection gets a new scope, and an aborted signal is never reused. A supported move with <code>moveBefore()</code> keeps the connection.</p>
+            </li>
+          </ol>
+        </div>
+        <p class="flow-note">
+          <code>scopeStats()</code> counts live scopes, listeners, timers, and effects. The leak tests mount and remove 100
+          counters 100 times in three engines and require every count to return to its baseline.
+        </p>
+      </section>
+
+      <section id="tokens" class="flow-diagram-section" aria-labelledby="oddkin-tokens-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Tokens / Theme Studio</p>
+            <h2 id="oddkin-tokens-title">One brand color in, a checked theme out.</h2>
+          </div>
+          <p>
+            <code>@oddkin/tokens</code> turns a small configuration into every token a theme needs. The generator is pure
+            and deterministic: run in a Worker, it produces the same bytes as the command line and the shipped CSS, which
+            is what lets Theme Studio edit a real theme in the browser.
+          </p>
+        </div>
+
+        <div class="diagram-board diagram-board-wide" role="group" aria-label="The token pipeline, from configuration to output">
+          <ol class="flow flow-6">
+            <li class="flow-step node-cyan">
+              <span>01 · Configure</span>
+              <h3>ThemeConfig</h3>
+              <p>A brand color is the only required input. Modes, products, density, conditions, and overrides are optional.</p>
+            </li>
+            <li class="flow-step node-blue">
+              <span>02 · Resolve</span>
+              <h3>Precedence</h3>
+              <p>Oddkin defaults, then a preset, then your configuration, then explicit overrides. Every token records its origin.</p>
+            </li>
+            <li class="flow-step node-purple">
+              <span>03 · Generate</span>
+              <h3>Ramps and scales</h3>
+              <p>Eleven-step OKLCH ramps, gamut-mapped to sRGB without moving hue or lightness, plus spacing, type, radius, elevation, and motion.</p>
+            </li>
+            <li class="flow-step node-amber">
+              <span>04 · Compose</span>
+              <h3>Modes and products</h3>
+              <p>Light and dark are scopes over the same components; products and densities re-declare only the tokens that change.</p>
+            </li>
+            <li class="flow-step node-green">
+              <span>05 · Validate</span>
+              <h3>Real role pairs</h3>
+              <p>Contrast is checked on the pairs components actually use, with units and target sizes; diagnostics point into the configuration.</p>
+            </li>
+            <li class="flow-step node-cyan">
+              <span>06 · Emit</span>
+              <h3>Every format</h3>
+              <p>CSS custom properties in the <code>odd.tokens</code> cascade layer, JSON, DTCG, and typed TypeScript references.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="project-gallery gallery-editorial" role="group" aria-label="Theme Studio designs">
+          <figure>
+            <a href="../static/oddkin-figma-theme-studio.png" aria-label="View full-resolution Theme Studio page design">
+              <img src="../static/oddkin-theme-studio-detail.jpg" width="1600" height="1436" loading="lazy" decoding="async" alt="Theme Studio design with theme, color-strategy, contrast, typeface, density, and corner-radius controls; the same component specimens in light and dark modes; and an inspector tracing color.action.default from an explicit override to the button background, with CSS and theme JSON exports." />
+            </a>
+            <figcaption>Theme Studio: controls on the left, the same components in light and dark from one theme, and an inspector that traces a value from override to role to component.</figcaption>
+          </figure>
+          <figure>
+            <a href="../static/oddkin-figma-theme-studio-colors-dark.png" aria-label="View full-resolution Theme Studio color editor design">
+              <img src="../static/oddkin-color-ramp-detail.jpg" width="1185" height="1013" loading="lazy" decoding="async" alt="Dark color-editor design: hue 282 degrees, an 11-step ramp, 6 of 11 steps gamut mapped, 124 of 124 contrast pairs passing, a lightness curve, chroma bars against the sRGB ceiling, and swatches from 50 to 950 with their hex, lightness, and chroma values." />
+            </a>
+            <figcaption>The color editor in dark mode: eleven lightness steps from one brand hue, six gamut-mapped to sRGB, and 124 of 124 applicable contrast pairs passing.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="design" class="devkit-infrastructure" aria-labelledby="oddkin-design-title">
+        <p class="kicker">Figma design framework</p>
+        <h2 id="oddkin-design-title">The design files are under test too.</h2>
+        <p>
+          I designed Oddkin in two Figma files: a design framework with foundations, primitives, composed components, AI
+          components, and icons; and the documentation site, in desktop and mobile layouts, from the home page to every
+          Theme Studio editor. The repository keeps the design honest instead of trusting it by eye.
+        </p>
+        <div class="built-grid" role="group" aria-label="How the Figma library is checked against the code">
+          <article>
+            <span>Variables</span>
+            <p>A snapshot of the library's variables, text styles, and effects is compared with the default theme in light and dark. The test lists variables without a token, tokens Figma lacks, and every alias gap.</p>
+          </article>
+          <article>
+            <span>Parity pass</span>
+            <p>On October 22, 2026: 336 variable comparisons, 134 light and dark role comparisons, and 52 text-style metrics matched, with zero mismatches.</p>
+          </article>
+          <article>
+            <span>Components</span>
+            <p>Browser tests mount components and compare them with a snapshot of the Figma components. Each deliberate difference is listed in the test with its reason.</p>
+          </article>
+          <article>
+            <span>Icons</span>
+            <p>1,723 original outline icons in General, GIS, and Healthcare sets, on a 20-pixel grid with 1.5-pixel strokes, with one validated catalog that maps every SVG to its Figma component.</p>
+          </article>
+        </div>
+
+        <div class="project-gallery gallery-editorial" role="group" aria-label="Design framework review pages">
+          <figure>
+            <a href="../static/oddkin-figma-primitives-dark.png" aria-label="View full-resolution dark-mode primitives design">
+              <img src="../static/oddkin-primitives-dark-detail.jpg" width="1224" height="544" loading="lazy" decoding="async" alt="Dark-mode design of Oddkin primitives: button, toggle button, badge, removable chip, checkbox, switch, text input, navigation item, tooltip, progress, spinner, avatars, icons, and keyboard keys." />
+            </a>
+            <figcaption>Primitives in dark mode, from the design framework's review pages: the same components and roles as light mode.</figcaption>
+          </figure>
+          <figure>
+            <a href="../static/oddkin-figma-states-focus.png" aria-label="View full-resolution states and keyboard focus design">
+              <img src="../static/oddkin-states-detail.jpg" width="1440" height="800" loading="lazy" decoding="async" alt="Design board of checkbox and radio combined states: unchecked, checked, and mixed selections crossed with focus, invalid, and disabled states, each with its focus ring or error treatment." />
+            </a>
+            <figcaption>Every combined state is drawn, selection crossed with focus, invalid, and disabled, so keyboard focus is designed rather than left to the browser.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="ai" class="devkit-infrastructure" aria-labelledby="oddkin-ai-title">
+        <p class="kicker">@oddkin/ai</p>
+        <h2 id="oddkin-ai-title">AI interfaces as components, with the host in control.</h2>
+        <p>
+          The AI package covers conversation, inline assistance, research, and agent workflows. Elements request and the
+          host decides: the package never calls a model, stores a conversation, or enforces authorization, and approving
+          an action is never shown as the action succeeding.
+        </p>
+        <div class="evidence-grid" role="group" aria-label="What the AI package contains">
+          <article>
+            <span>Elements</span>
+            <p>Prompt input, model select, context picker, suggestions, messages and branches, responses with citations and sources, tool calls, approvals, task plans, questions, checkpoints, artifacts, change review, inline assist, usage meters, voice input, and transcripts.</p>
+          </article>
+          <article>
+            <span>Controllers</span>
+            <p>DOM-free records and controllers for conversations, composers, document sessions, and voice. Transport, attempts, tools, approvals, and stops are separate state machines, so one never implies another.</p>
+          </article>
+          <article>
+            <span>Streams</span>
+            <p>A server-sent events parser, an adapter for the AI SDK UI message stream, a simulation adapter for demos and tests, and streaming Markdown with a URL policy. The streaming chat example runs under a strict Content Security Policy.</p>
+          </article>
+        </div>
+
+        <div class="project-gallery gallery-editorial" role="group" aria-label="AI component design">
+          <figure>
+            <a href="../static/oddkin-figma-ai-approval.png" aria-label="View full-resolution odd-action-approval design">
+              <img src="../static/oddkin-ai-approval-detail.jpg" width="1440" height="462" loading="lazy" decoding="async" alt="Design of the odd-action-approval element in light and dark modes: 'Update example document' with the affected file, low risk, before and after text, an optional reason field, and Approve and Reject buttons." />
+            </a>
+            <figcaption><code>odd-action-approval</code> in light and dark: the affected file, the risk, a before-and-after change, an optional reason, and an explicit decision.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="metadata" class="flow-diagram-section" aria-labelledby="oddkin-metadata-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Metadata / agent tooling</p>
+            <h2 id="oddkin-metadata-title">One metadata source feeds the docs, the agents, and the tools.</h2>
+          </div>
+          <p>
+            The analyzer reads component source with the TypeScript compiler and never executes it. What it writes is the
+            single description the rest is generated from, so the documentation and the agent guides describe the version
+            that shipped.
+          </p>
+        </div>
+
+        <div class="diagram-board diagram-board-wide" role="group" aria-label="The metadata pipeline and the surfaces it feeds">
+          <ol class="flow flow-3">
+            <li class="flow-step node-cyan">
+              <span>01 · Source</span>
+              <h3>Typed definitions</h3>
+              <p><code>OddkinElement.with()</code> properties, <code>compose()</code> definitions, events, slots, parts, and <code>defineExamples</code>, written once.</p>
+            </li>
+            <li class="flow-step node-purple">
+              <span>02 · Analyze</span>
+              <h3>oddkin-analyze</h3>
+              <p>Static analysis that never runs component code. After the tests, their contract evidence is attached to the result.</p>
+            </li>
+            <li class="flow-step node-amber">
+              <span>03 · Publish</span>
+              <h3>Two files in every package</h3>
+              <p>The standard Custom Elements Manifest, plus <code>oddkin.metadata.json</code>: when to use each element, accessibility and keyboard notes, token mappings, and examples.</p>
+            </li>
+          </ol>
+          <p class="flow-fan-label">One source feeds four surfaces</p>
+          <ul class="flow-fan">
+            <li class="node-cyan">
+              <span>Docs</span>
+              <p>Workbench pages and oddkin.dev: the catalog, API tables, interactive examples, and live previews.</p>
+            </li>
+            <li class="node-blue">
+              <span>Agents</span>
+              <p>A kit in every package: a <code>GUIDE.md</code> within an 8 KiB budget, one reference per element, <code>llms.txt</code>, and a fingerprinted <code>kit.json</code>.</p>
+            </li>
+            <li class="node-purple">
+              <span>Composition</span>
+              <p>Interfaces as data: <code>renderComposition()</code> renders only published elements, attributes, and properties, with no scripts or HTML strings.</p>
+            </li>
+            <li class="node-green">
+              <span>Impact</span>
+              <p><code>oddkin-impact</code> snapshots the contracts and compares two versions: what changed, what it affects, and which checks cover it.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="project-gallery gallery-editorial" role="group" aria-label="Workbench design">
+          <figure>
+            <a href="../static/oddkin-figma-workbench.png" aria-label="View full-resolution Workbench page design">
+              <img src="../static/oddkin-workbench-detail.jpg" width="1144" height="1030" loading="lazy" decoding="async" alt="Workbench design for odd-button: an interactive preview with a primary 'Build something' button above a controls table listing properties, slots, and accessibility requirements with their types, defaults, attributes, and current values." />
+            </a>
+            <figcaption>Workbench's interactive example for <code>odd-button</code>: controls, slots, and accessibility requirements come from the metadata, and the preview updates as you edit.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="impact" class="flow-diagram-section" aria-labelledby="oddkin-impact-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Change impact</p>
+            <h2 id="oddkin-impact-title">A change explains what it touches.</h2>
+          </div>
+          <p>
+            <code>oddkin-impact</code> compares two snapshots of a library's contracts. The repository records a real run:
+            two commits that renamed a menu part and lightened one theme token, each revision built with its own build
+            steps.
+          </p>
+        </div>
+
+        <div class="impact-layout">
+          <div class="diagram-board impact-board" role="group" aria-labelledby="impact-path-title">
+            <p class="impact-board-title" id="impact-path-title">One reason path from the report</p>
+            <ol class="impact-trace">
+              <li class="node-amber"><span>Token</span><code>color.surface.specimen</code></li>
+              <li class="node-purple"><span>Style</span><code>combobox.styles.js#comboboxStyles</code></li>
+              <li class="node-blue"><span>Definition</span><code>odd-combobox</code></li>
+              <li class="node-cyan"><span>Component</span><code>odd-combobox</code></li>
+              <li class="node-green"><span>Example</span><code>odd-combobox/default</code></li>
+            </ol>
+          </div>
+          <div class="impact-results">
+            <div class="fabric-facts impact-stats" role="group" aria-label="Change-impact results">
+              <div><strong>6</strong><span>changes: 1 incompatible, 4 to review, and 1 informational</span></div>
+              <div><strong>4</strong><span>components affected: combobox, menu, picker, and split button</span></div>
+              <div><strong>29</strong><span>checks selected by reason path, all passed in Chromium, Firefox, and WebKit</span></div>
+              <div><strong>5</strong><span>agent-kit files changed, generated from both revisions</span></div>
+            </div>
+            <ul class="impact-changes" aria-label="The six classified changes">
+              <li><span class="impact-tag impact-incompatible">Incompatible</span><span><code>part:odd-menu#item</code> removed: a possible rename to <code>part:odd-menu#menuitem</code>, marked unconfirmed</span></li>
+              <li><span class="impact-tag">Review</span><span><code>class:odd-menu</code> changed</span></li>
+              <li><span class="impact-tag">Review</span><span><code>template:menu.template.js#menuTemplate</code> changed</span></li>
+              <li><span class="impact-tag">Review</span><span><code>token:color.surface.specimen</code> value changed</span></li>
+              <li><span class="impact-tag">Review</span><span><code>theme:base</code> changed</span></li>
+              <li><span class="impact-tag impact-informational">Informational</span><span><code>part:odd-menu#menuitem</code> added</span></li>
+            </ul>
+            <p>
+              Every selected check passed, and the report still marks the removed part incompatible: passing checks do not
+              make a contract change compatible.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="evidence" class="flow-diagram-section" aria-labelledby="oddkin-evidence-title">
+        <div class="section-heading project-section-heading">
+          <div>
+            <p class="kicker">Verification</p>
+            <h2 id="oddkin-evidence-title">Releases ship with their evidence.</h2>
+          </div>
+          <p>
+            Every push to main runs the same pipeline. For 1.0.0-beta.1, the release commit's run, its test results, and
+            each package's integrity hash are attached to the GitHub Release. The counts below are from that run.
+          </p>
+        </div>
+
+        <div class="diagram-board diagram-board-wide" role="group" aria-label="The verification pipeline for a release">
+          <ol class="flow flow-6">
+            <li class="flow-step node-cyan">
+              <span>01 · Static</span>
+              <h3>Lint and types</h3>
+              <p>Contracts, package boundaries, CSS compatibility with the browser floor, page layout, and formatting; then types for packages, tests, JSX, and frameworks.</p>
+            </li>
+            <li class="flow-step node-blue">
+              <span>02 · Build</span>
+              <h3>Everything generated</h3>
+              <p>Production builds, token assets, component CSS, metadata, schemas, AI demos, and agent kits.</p>
+            </li>
+            <li class="flow-step node-purple">
+              <span>03 · Test</span>
+              <h3>Node and three engines</h3>
+              <p>1,536 passed in Node, 2,856 in Chromium, 2,801 in Firefox, and 2,808 in WebKit.</p>
+            </li>
+            <li class="flow-step node-amber">
+              <span>04 · Budgets</span>
+              <h3>Metadata and size</h3>
+              <p>Contract-test evidence attached to the metadata, the API vocabulary checked, and bundle and stylesheet size budgets enforced.</p>
+            </li>
+            <li class="flow-step node-green">
+              <span>05 · Consumers</span>
+              <h3>End to end and packed</h3>
+              <p>Playwright in three engines (381, 375, and 375 passed), then packed tarballs installed outside the workspace, imported, and type-checked.</p>
+            </li>
+            <li class="flow-step node-cyan">
+              <span>06 · Evidence</span>
+              <h3>Attached to the release</h3>
+              <p>A change-impact summary and the release evidence: commit, package integrity, generated-file hashes, and results.</p>
+            </li>
+          </ol>
+        </div>
+        <p class="flow-note">
+          Before publishing, fresh Vite, React, Vue, Svelte, and Angular apps installed the packed packages and built them
+          with their own tools in three engines, and two versions of core ran side by side on one page.
+        </p>
+      </section>
+
+      <section class="project-layout fabric-depth-layout">
+        <article class="detail-panel">
+          <h2>How I built it</h2>
+          <p>
+            Oddkin is a solo project. I did the research, wrote the implementation plan, and made every architectural and
+            product decision, recording each one as a decision record or a dated owner decision. I designed both Figma
+            files, the design framework and the documentation site, before and alongside the code.
+          </p>
+          <p>
+            I ran the implementation as a coordinated AI-assisted engineering effort: up to four coding agents in parallel,
+            each in its own git worktree, working lanes I defined from the plan's milestones. Integration ran through the
+            same lint, type, test, size, and packaging checks, and a verification log records what each run proved and
+            what it did not.
+          </p>
+          <p>
+            First commit on October 17, 2026; 1.0.0-beta.0 on npm on October 28; 1.0.0-beta.1 on November 1, with 457
+            commits on main.
+          </p>
+        </article>
+        <article class="detail-panel audit-panel">
+          <h2>Honest limits</h2>
+          <ul class="detail-list">
+            <li>It is a beta: contracts may change before 1.0.0, and Workbench's and the analyzer's contracts stay open after it.</li>
+            <li>Screen readers are not yet verified, and no accessibility conformance level is claimed. Keyboard paths and axe-core checks run in three engines.</li>
+            <li>Safari is tested through Playwright's WebKit, not on Apple hardware, and mobile browsers are not tested.</li>
+            <li>pnpm, Yarn, webpack, Rspack, and Node.js below 24 are not tested, and server-side rendering is not supported.</li>
+            <li>There is no MCP server or agent package yet; the kits and the metadata are the agent interface.</li>
+            <li>No comparative performance benchmark is published, so the documentation claims no performance lead.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="fabric-workflow" aria-labelledby="oddkin-closing-title">
+        <p class="kicker">Why it matters</p>
+        <h2 id="oddkin-closing-title">Design intent, carried all the way to production.</h2>
+        <p>
+          Oddkin is the most complete expression of how I work: decide in writing, design the system and its edge cases,
+          build it in layers, and back each claim with a check that someone else can run again.
+        </p>
+        <div class="project-actions" role="group" aria-label="Oddkin links">
+          <a class="button primary" href="https://www.oddkin.dev/" target="_blank" rel="noopener noreferrer">Visit live site</a>
+          <a class="button" href="https://github.com/brianchristopherbrady/oddkin" target="_blank" rel="noopener noreferrer">View repo</a>
+          <a class="button" href="https://www.npmjs.com/org/oddkin" target="_blank" rel="noopener noreferrer">npm packages</a>
+        </div>
+        <div class="inline-link-row"><a class="case-link" href="../projects.html">All projects</a></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><span>brianbrady.dev</span><a href="../journal.html">Journal</a></footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

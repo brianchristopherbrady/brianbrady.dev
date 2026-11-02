@@ -83,6 +83,9 @@ arbitrary consumers.
 | Content band | .section, .section-heading, .detail-panel | Unframed rule-based sections; natural text height; logical source order | Stable |
 | Architecture diagram | .diagram-board > .diagram-flow > .diagram-node | Named container; one column below 36rem; textual explanation retained | Stable |
 | Migration flow | .migration-flow > .migration-node / .migration-center | Auto-fit 18rem tracks; no absolute text positioning or DOM reorder | Stable |
+| Step flow | .diagram-board > ol.flow.flow-3/4/6 > li.flow-step (+ ul.flow-fan) | Ordered list; one row with decorative arrows only when every step fits, otherwise 2-3 columns or one; node-* sets color | Stable |
+| Package map | .package-map > .package-layer[role=group] > ul.package-cards | Layers in reading order with a decorative spine; exact dependencies stated in text | Stable |
+| Change trace | .impact-trace (ordered reason path) + .impact-changes | Vertical chain; classification is text, color only reinforces it | Stable |
 | Tags | ul.tag-list > li | Noninteractive metadata, not buttons | Stable |
 | Product artwork | .shot-canvas, terminal and chart recreations | Illustrations, not live controls; retain original visual language | Local exception |
 | Resume | .page in ../resume.html | Screen-only reflow; existing Letter print metrics unchanged | Local exception |

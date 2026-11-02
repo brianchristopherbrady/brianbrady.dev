@@ -124,6 +124,7 @@ try {
           "projects/our-american-gods.html": ["ouramericangods"],
           "projects/fluent-ui.html": ["https://github.com/microsoft/fluentui"],
           "projects/output-conductor.html": ["output-conductor", "https://brianchristopherbrady.github.io/output-conductor/"],
+          "projects/oddkin.html": ["oddkin", "https://www.oddkin.dev/"],
         }[route];
         if (destinations) {
           await check(`${route} compact project actions ${width}`, async () => {
@@ -157,7 +158,7 @@ try {
           assert.deepEqual(cramped, []);
         });
       }
-      if (["index.html", "projects.html", "contact.html", "journal.html", "projects/blipmap.html", "projects/elsewhere.html", "projects/glasshouse.html", "projects/counterpart-assistant.html", "projects/fabric-ux.html", "projects/fabric-ux-devkit.html", "projects/output-conductor.html"].includes(route)) {
+      if (["index.html", "projects.html", "contact.html", "journal.html", "projects/blipmap.html", "projects/elsewhere.html", "projects/glasshouse.html", "projects/counterpart-assistant.html", "projects/fabric-ux.html", "projects/fabric-ux-devkit.html", "projects/output-conductor.html", "projects/oddkin.html"].includes(route)) {
         await page.screenshot({ path: resolve(output, `viewport-${route.replaceAll("/", "-")}-${width}.png`) });
       }
       if (width === 375 || width === 1280) {
@@ -178,6 +179,15 @@ try {
             ["glyph-plan-detail.jpg", "glyph_machinestate_fullpage.jpeg", 427],
             ["glyph-execution-detail.jpg", "glyph_machinestate_fullpage.jpeg", 197],
             ["glyph-account-detail.jpg", "glyph_machinestate_fullpage.jpeg", 377],
+          ],
+          "projects/oddkin.html": [
+            ["oddkin-docs-home-detail.jpg", "oddkin-figma-docs-home.png", 762, 1440],
+            ["oddkin-theme-studio-detail.jpg", "oddkin-figma-theme-studio.png", 1436],
+            ["oddkin-color-ramp-detail.jpg", "oddkin-figma-theme-studio-colors-dark.png", 1013, 1185],
+            ["oddkin-primitives-dark-detail.jpg", "oddkin-figma-primitives-dark.png", 544, 1224],
+            ["oddkin-states-detail.jpg", "oddkin-figma-states-focus.png", 800, 1440],
+            ["oddkin-ai-approval-detail.jpg", "oddkin-figma-ai-approval.png", 462, 1440],
+            ["oddkin-workbench-detail.jpg", "oddkin-figma-workbench.png", 1030, 1144],
           ],
         }[route];
         if (gallerySources) {
