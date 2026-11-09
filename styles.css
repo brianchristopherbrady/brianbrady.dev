@@ -1728,8 +1728,8 @@ h3 {
   border-top: 1px solid rgba(154, 163, 181, 0.28);
 }
 
-.evidence-grid span,
-.built-grid span {
+.evidence-grid article > span,
+.built-grid article > span {
   color: var(--cyan);
   font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
   font-size: 0.68rem;
@@ -3206,12 +3206,14 @@ html:not([data-motion="running"]) *::after {
   .flow-6 > .flow-step:not(:last-child)::after { display: block; }
 }
 
-.flow-note {
+.case-note {
   max-inline-size: var(--content-measure);
   margin: var(--space-6) 0 0;
   color: var(--color-text-muted);
   font-size: var(--text-sm);
 }
+
+.fabric-facts + .case-note { margin-block: 0 var(--space-6); font-size: var(--text-xs); }
 
 .flow-fan-label {
   margin: var(--space-12) 0 0;

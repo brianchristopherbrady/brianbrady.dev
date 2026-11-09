@@ -34,6 +34,16 @@ Screenshots, scan details, and a sample resume PDF are written to ignored
 Actual browser zoom, screen-reader testing, and real-device checks remain manual
 release gates. There is no build step or configured formatter/linter/type checker.
 
+## Oddkin facts
+
+The Oddkin case study's counts, versions, dependencies, and test results are marked
+`data-oddkin` in the HTML. `npm run sync:oddkin` rewrites them from npm, the published
+packages, and the Oddkin repository; `npm run check:oddkin` only reports drift. The
+`Sync Oddkin facts` workflow runs the sync daily (or on demand from the Actions tab),
+checks the changed pages, and commits any change. Prose is not synced: when a release
+changes behavior, review the case study's wording. The sync fails, rather than guessing,
+when a package appears or disappears or a stated claim stops holding.
+
 ## Local preview
 
 Open `index.html` directly in a browser, or run a simple static server from this folder.

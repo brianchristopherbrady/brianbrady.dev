@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Oddkin | Brian Brady</title>
-    <meta name="description" content="Oddkin: a modular frontend framework built on custom elements and browser APIs, designed and built solo by Brian Brady. Eight npm packages, 54 themed components, 24 AI interaction elements, a design-token pipeline, and metadata-driven tooling." />
+    <meta name="description" content="Oddkin: a modular frontend framework built on custom elements and browser APIs, designed and built solo by Brian Brady, with themed components, AI interaction elements, a design-token pipeline, and metadata-driven tooling published as npm packages." />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body class="project-page">
@@ -30,13 +30,15 @@
         <h1>Oddkin</h1>
         <p>
           Oddkin is a modular frontend framework built on custom elements and browser APIs. It brings together an
-          authoring core, a design-token pipeline, 54 themed components, 24 AI interaction elements, and the tooling
-          that documents, tests, and explains them: eight packages, published on npm under the MIT license.
+          authoring core, a design-token pipeline, <span data-oddkin="components">55</span> themed components,
+          <span data-oddkin="aiElements">22</span> AI interaction elements, and the tooling that documents, tests, and
+          explains them: <span data-oddkin="packages" data-oddkin-format="words">eight</span> packages, published on npm
+          under the MIT license.
         </p>
         <p>
-          It is the largest system I have built, and I built all of it myself: the architecture and its 48 decision
-          records, the Figma design framework and the documentation-site designs, every package, the docs site at
-          oddkin.dev, and the release process that ships it.
+          It is the largest system I have built, and I built all of it myself: the architecture and its
+          <span data-oddkin="adrs">49</span> decision records, the Figma design framework and the documentation-site
+          designs, every package, the docs site at oddkin.dev, and the release process that ships it.
         </p>
         <div class="project-actions" role="group" aria-label="Project links">
           <a class="button primary" href="https://github.com/brianchristopherbrady/oddkin" target="_blank" rel="noopener noreferrer">View repo</a>
@@ -55,22 +57,23 @@
 
       <section class="fabric-facts" aria-label="Oddkin facts">
         <div>
-          <strong>8</strong>
-          <span>npm packages, released together at 1.0.0-beta.1 under the MIT license</span>
+          <strong data-oddkin="packages">8</strong>
+          <span>npm packages, released together at <span data-oddkin="version">1.0.0-beta.2</span> under the MIT license</span>
         </div>
         <div>
-          <strong>78</strong>
-          <span>custom elements: 54 themed components and 24 AI interaction elements</span>
+          <strong data-oddkin="elements">77</strong>
+          <span>custom elements: <span data-oddkin="components">55</span> themed components and <span data-oddkin="aiElements">22</span> AI interaction elements</span>
         </div>
         <div>
-          <strong>11,132</strong>
-          <span>test results passed in the beta.1 release run across Node, Chromium, Firefox, and WebKit, with none failed</span>
+          <strong data-oddkin="testsPassed">11,132</strong>
+          <span>test results passed in the <span data-oddkin="evidenceVersion">1.0.0-beta.1</span> release run across Node, Chromium, Firefox, and WebKit, with none failed</span>
         </div>
         <div>
-          <strong>48</strong>
+          <strong data-oddkin="adrs">49</strong>
           <span>architecture decision records, each with its evidence and the condition that would reopen it</span>
         </div>
       </section>
+      <p class="case-note">Counts, versions, dependencies, and test results on this page are synced from npm, the published packages, and the Oddkin repository.</p>
 
       <section class="project-layout">
         <article class="detail-panel">
@@ -98,7 +101,7 @@
             <li><p><a href="#ownership">Cleanup follows the element.</a> One <code>Scope</code> owns every listener, timer, effect, and request, and disposes them on disconnect.</p></li>
             <li><p><a href="#tokens">Tokens work without JavaScript.</a> One brand color becomes a contrast-checked theme, from the same pure generator everywhere.</p></li>
             <li><p><a href="#design">Design and code are tested against each other.</a> The Figma library's variables and components are compared with the code.</p></li>
-            <li><p><a href="#ai">AI interfaces are components.</a> Twenty-four elements and headless controllers; the host keeps the model, the data, and the policy.</p></li>
+            <li><p><a href="#ai">AI interfaces are components.</a> <span data-oddkin="aiElements" data-oddkin-format="Words">Twenty-two</span> elements and headless controllers; the host keeps the model, the data, and the policy.</p></li>
             <li><p><a href="#metadata">One metadata source.</a> Static analysis feeds the docs, the agent kits, the composition schemas, and change impact.</p></li>
             <li><p><a href="#impact">Changes explain themselves.</a> A token edit traces to the components, examples, and checks it touches.</p></li>
             <li><p><a href="#evidence">Releases ship with evidence.</a> Lint, types, tests in three engines, size budgets, and packed installs gate the release.</p></li>
@@ -113,7 +116,8 @@
             <h2 id="oddkin-packages-title">Eight packages. Each one depends only on what it needs.</h2>
           </div>
           <p>
-            The six browser packages have no third-party runtime dependencies. A boundary check enforces the graph in CI:
+            The <span data-oddkin="browserPackages" data-oddkin-format="words">six</span> browser packages have no
+            third-party runtime dependencies. A boundary check enforces the graph in CI:
             it fails on a cycle, a private deep import, a component that reaches for state or routing, or an application
             bundle that pulls in the tooling.
           </p>
@@ -128,10 +132,10 @@
                 <p>Theme configuration and a deterministic token pipeline.</p>
                 <ul>
                   <li>A brand color is the only required input; ramps, roles, modes, products, and density are generated and checked.</li>
-                  <li>Emits CSS custom properties in a cascade layer, JSON, DTCG, and TypeScript references.</li>
+                  <li>Emits CSS custom properties in a cascade layer, JSON, DTCG, Sass, and TypeScript references.</li>
                   <li><code>oddkin-tokens init | build | check</code>; the pure generator also runs in the browser and in a Worker.</li>
                 </ul>
-                <p class="package-needs">Needs: nothing</p>
+                <p class="package-needs">Needs: <span data-oddkin="needs.tokens">nothing</span></p>
               </li>
               <li class="package-card">
                 <h3>@oddkin/core</h3>
@@ -141,7 +145,7 @@
                   <li><code>OddkinElement.with()</code> typed properties, <code>html</code> templates, <code>css</code>, <code>compose()</code>, and <code>define()</code>.</li>
                   <li><code>Scope</code> ownership, layout recipes, collections, models, i18n, and controllers for focus, announcements, forms, and positioning.</li>
                 </ul>
-                <p class="package-needs">Needs: nothing · a minimal counter stays under a 9.5 KiB gzip budget</p>
+                <p class="package-needs">Needs: <span data-oddkin="needs.core">nothing</span> · a minimal counter stays under a <span data-oddkin="counterBudget">9.5 KiB</span> gzip budget</p>
               </li>
             </ul>
           </div>
@@ -151,23 +155,23 @@
             <ul class="package-cards">
               <li class="package-card">
                 <h3>@oddkin/components</h3>
-                <p>54 themed custom elements.</p>
+                <p><span data-oddkin="components">55</span> themed custom elements.</p>
                 <ul>
-                  <li>Fields, pickers, menus, dialogs, drawers, tabs, trees, calendars, a command palette, toasts, and layout helpers.</li>
+                  <li>Fields, pickers, menus, dialogs, drawers, tabs, trees, tables, calendars, a command palette, toasts, and layout helpers.</li>
                   <li>One registration entry per element, or an autoloader that registers what the page uses.</li>
                   <li>Typings for React, Vue, and Svelte; ships its manifest, metadata, schemas, and agent kit.</li>
                 </ul>
-                <p class="package-needs">Needs: core, tokens</p>
+                <p class="package-needs">Needs: <span data-oddkin="needs.components">core and tokens</span></p>
               </li>
               <li class="package-card">
                 <h3>@oddkin/ai</h3>
-                <p>24 elements for AI interfaces.</p>
+                <p><span data-oddkin="aiElements">22</span> elements for AI interfaces.</p>
                 <ul>
                   <li>Conversations, prompt input, streaming responses, citations, tool calls, approvals, task plans, and change review.</li>
                   <li>DOM-free records and controllers, with server-sent event and AI SDK UI message stream adapters.</li>
                   <li>Never calls a model or stores data: the host owns transport, persistence, and policy.</li>
                 </ul>
-                <p class="package-needs">Needs: components, core, tokens</p>
+                <p class="package-needs">Needs: <span data-oddkin="needs.ai">components, core, and tokens</span></p>
               </li>
             </ul>
           </div>
@@ -183,7 +187,7 @@
                   <li>Context through the community context protocol.</li>
                   <li>Versioned persistence with migrations and validation, plus inspection.</li>
                 </ul>
-                <p class="package-needs">Needs: core</p>
+                <p class="package-needs">Needs: <span data-oddkin="needs.state">core</span></p>
               </li>
               <li class="package-card">
                 <h3>@oddkin/app</h3>
@@ -193,7 +197,7 @@
                   <li>A router with nested and lazy routes, typed params, focus, announcements, and scroll restoration.</li>
                   <li>Resources that cancel and ignore stale results; commands with retry and concurrency policies.</li>
                 </ul>
-                <p class="package-needs">Needs: core, state</p>
+                <p class="package-needs">Needs: <span data-oddkin="needs.app">core and state</span></p>
               </li>
             </ul>
           </div>
@@ -209,7 +213,7 @@
                   <li><code>oddkin-impact</code>: contract snapshots and change-impact reports.</li>
                   <li><code>oddkin-kit</code>: agent guides and references, an <code>AGENTS.md</code> section, and <code>llms.txt</code>.</li>
                 </ul>
-                <p class="package-needs">Needs: the TypeScript compiler</p>
+                <p class="package-needs">Needs: <span data-oddkin="needs.analyzer">core and the TypeScript compiler</span></p>
               </li>
               <li class="package-card">
                 <h3>@oddkin/workbench</h3>
@@ -219,7 +223,7 @@
                   <li>Catalog, component pages with interactive examples and API tables, foundations, and Theme Studio.</li>
                   <li>Documents any custom-element library that has a standard Custom Elements Manifest.</li>
                 </ul>
-                <p class="package-needs">Needs: analyzer, app, state, components, core, tokens</p>
+                <p class="package-needs">Needs: <span data-oddkin="needs.workbench">analyzer, app, components, core, state, and tokens</span></p>
               </li>
             </ul>
           </div>
@@ -298,7 +302,7 @@ class DemoClock extends OddkinElement {
             </li>
           </ol>
         </div>
-        <p class="flow-note">
+        <p class="case-note">
           <code>scopeStats()</code> counts live scopes, listeners, timers, and effects. The leak tests mount and remove 100
           counters 100 times in three engines and require every count to return to its baseline.
         </p>
@@ -332,7 +336,7 @@ class DemoClock extends OddkinElement {
             <li class="flow-step node-purple">
               <span>03 · Generate</span>
               <h3>Ramps and scales</h3>
-              <p>Eleven-step OKLCH ramps, gamut-mapped to sRGB without moving hue or lightness, plus spacing, type, radius, elevation, and motion.</p>
+              <p>Eleven-step OKLCH ramps, gamut-mapped to sRGB or Display P3 without moving hue or lightness, plus spacing, type, radius, elevation, and motion.</p>
             </li>
             <li class="flow-step node-amber">
               <span>04 · Compose</span>
@@ -347,7 +351,7 @@ class DemoClock extends OddkinElement {
             <li class="flow-step node-cyan">
               <span>06 · Emit</span>
               <h3>Every format</h3>
-              <p>CSS custom properties in the <code>odd.tokens</code> cascade layer, JSON, DTCG, and typed TypeScript references.</p>
+              <p>CSS custom properties in the <code>odd.tokens</code> cascade layer, JSON, DTCG, Sass modules, and typed TypeScript references.</p>
             </li>
           </ol>
         </div>
@@ -391,7 +395,7 @@ class DemoClock extends OddkinElement {
           </article>
           <article>
             <span>Icons</span>
-            <p>1,723 original outline icons in General, GIS, and Healthcare sets, on a 20-pixel grid with 1.5-pixel strokes, with one validated catalog that maps every SVG to its Figma component.</p>
+            <p><span data-oddkin="icons">1,723</span> original outline icons in General, GIS, and Healthcare sets, on a 20-pixel grid with 1.5-pixel strokes, with one validated catalog that maps every SVG to its Figma component.</p>
           </article>
         </div>
 
@@ -422,7 +426,7 @@ class DemoClock extends OddkinElement {
         <div class="evidence-grid" role="group" aria-label="What the AI package contains">
           <article>
             <span>Elements</span>
-            <p>Prompt input, model select, context picker, suggestions, messages and branches, responses with citations and sources, tool calls, approvals, task plans, questions, checkpoints, artifacts, change review, inline assist, usage meters, voice input, and transcripts.</p>
+            <p><span data-oddkin="aiElements" data-oddkin-format="Words">Twenty-two</span> in the current release: <span data-oddkin="aiElementNames">action approval, activity, AI label, artifact, change review, checkpoint, citation, context picker, conversation, inline assist, message, model select, prompt input, question, response, response feedback, sources, task plan, tool call, transcript, usage meter, and voice input</span>.</p>
           </article>
           <article>
             <span>Controllers</span>
@@ -560,8 +564,9 @@ class DemoClock extends OddkinElement {
             <h2 id="oddkin-evidence-title">Releases ship with their evidence.</h2>
           </div>
           <p>
-            Every push to main runs the same pipeline. For 1.0.0-beta.1, the release commit's run, its test results, and
-            each package's integrity hash are attached to the GitHub Release. The counts below are from that run.
+            Every push to main runs the same pipeline. For <span data-oddkin="evidenceVersion">1.0.0-beta.1</span>, the
+            release commit's run, its test results, and each package's integrity hash are attached to the GitHub Release.
+            The counts below are from that run.
           </p>
         </div>
 
@@ -580,7 +585,7 @@ class DemoClock extends OddkinElement {
             <li class="flow-step node-purple">
               <span>03 · Test</span>
               <h3>Node and three engines</h3>
-              <p>1,536 passed in Node, 2,856 in Chromium, 2,801 in Firefox, and 2,808 in WebKit.</p>
+              <p><span data-oddkin="testsNode">1,536</span> passed in Node, <span data-oddkin="testsChromium">2,856</span> in Chromium, <span data-oddkin="testsFirefox">2,801</span> in Firefox, and <span data-oddkin="testsWebkit">2,808</span> in WebKit.</p>
             </li>
             <li class="flow-step node-amber">
               <span>04 · Budgets</span>
@@ -590,7 +595,7 @@ class DemoClock extends OddkinElement {
             <li class="flow-step node-green">
               <span>05 · Consumers</span>
               <h3>End to end and packed</h3>
-              <p>Playwright in three engines (381, 375, and 375 passed), then packed tarballs installed outside the workspace, imported, and type-checked.</p>
+              <p>Playwright in three engines (<span data-oddkin="e2eChromium">381</span>, <span data-oddkin="e2eFirefox">375</span>, and <span data-oddkin="e2eWebkit">375</span> passed), then packed tarballs installed outside the workspace, imported, and type-checked.</p>
             </li>
             <li class="flow-step node-cyan">
               <span>06 · Evidence</span>
@@ -599,7 +604,7 @@ class DemoClock extends OddkinElement {
             </li>
           </ol>
         </div>
-        <p class="flow-note">
+        <p class="case-note">
           Before publishing, fresh Vite, React, Vue, Svelte, and Angular apps installed the packed packages and built them
           with their own tools in three engines, and two versions of core ran side by side on one page.
         </p>
@@ -620,8 +625,10 @@ class DemoClock extends OddkinElement {
             what it did not.
           </p>
           <p>
-            First commit on October 17, 2026; 1.0.0-beta.0 on npm on October 28; 1.0.0-beta.1 on November 1, with 457
-            commits on main.
+            First commit on October 17, 2026; 1.0.0-beta.0 on npm on October 28; the current release,
+            <span data-oddkin="version">1.0.0-beta.2</span>, on
+            <span data-oddkin="releaseDate" data-oddkin-format="date">November 8, 2026</span>; and
+            <span data-oddkin="commits" data-oddkin-format="hundreds">500+</span> commits on main.
           </p>
         </article>
         <article class="detail-panel audit-panel">

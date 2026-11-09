@@ -1,0 +1,50 @@
+name: Sync Oddkin facts
+
+# Rewrites the Oddkin case study's data-oddkin facts (counts, versions, dependencies, test results)
+# from npm, the published packages, and the Oddkin repository, then commits any change so Pages republishes.
+on:
+  schedule:
+    - cron: "17 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: sync-oddkin
+
+jobs:
+  sync:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Sync facts
+        run: node scripts/sync-oddkin-facts.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: Detect changes
+        id: diff
+        run: git diff --quiet || echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Check the changed pages
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+          npm test -- projects/oddkin.html index.html projects.html
+      - name: Commit and publish
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Sync Oddkin facts from npm and GitHub"
+          git pull --rebase
+          git push
+          gh api --method POST "repos/${{ github.repository }}/pages/builds" || echo "::warning::The Pages build request failed; the push may still publish."
