@@ -1262,7 +1262,7 @@ h3 {
   container-type: inline-size;
   position: relative;
   overflow: hidden;
-  padding: 18px var(--space-6) 2px;
+  padding: 18px var(--space-3) 2px;
   border-top: 1px solid rgba(154, 163, 181, 0.22);
   border-bottom: 1px solid rgba(154, 163, 181, 0.14);
   background:
@@ -2852,7 +2852,6 @@ html:not([data-motion="running"]) *::after {
 
   .diagram-board {
     padding-top: 14px;
-    padding-inline: var(--space-4);
   }
 
   .diagram-node {
