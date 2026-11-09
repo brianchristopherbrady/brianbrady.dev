@@ -1262,7 +1262,7 @@ h3 {
   container-type: inline-size;
   position: relative;
   overflow: hidden;
-  padding: 18px 0 2px;
+  padding: 18px var(--space-6) 2px;
   border-top: 1px solid rgba(154, 163, 181, 0.22);
   border-bottom: 1px solid rgba(154, 163, 181, 0.14);
   background:
@@ -2852,6 +2852,7 @@ html:not([data-motion="running"]) *::after {
 
   .diagram-board {
     padding-top: 14px;
+    padding-inline: var(--space-4);
   }
 
   .diagram-node {
@@ -3261,7 +3262,7 @@ html:not([data-motion="running"]) *::after {
   padding-block-end: var(--space-12);
 }
 
-.impact-board { align-self: start; padding: var(--space-4) var(--space-4) var(--space-6); }
+.impact-board { align-self: start; padding-block: var(--space-4) var(--space-6); }
 .impact-board-title { margin: 0 0 var(--space-4); color: var(--color-text-secondary); }
 
 .impact-trace {
